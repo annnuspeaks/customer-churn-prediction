@@ -1,10 +1,10 @@
 # customer-churn-prediction
+
 End-to-end customer churn prediction platform with feature engineering, model explainability, deployment, and monitoring.
 
-
 <!-- Master Checklist -->
-Customer Churn Prediction Platform
-==================================
+
+# Customer Churn Prediction Platform
 
 PHASE 1 — Project Planning
 ⬜ 1.1 Define project objective
@@ -145,6 +145,7 @@ Chatbot integration
 This project is for a Telecommunications Industry.
 
 Target users are:
+
 1. Customer Success Manager - To Monitor Customers for Retention.
 2. Marketing Team - To Offer Discount
 3. Business Analyst - To Watch Report.
@@ -167,12 +168,13 @@ Target users are:
                            │
           ┌────────────────┴────────────────┐
           ▼                                 ▼
- ┌──────────────────┐              ┌──────────────────┐
- │ ML Pipeline      │              │ Model Artifact   │
- │ Preprocessing    │              │ (.pkl/.joblib)   │
- │ Feature Pipeline │              └──────────────────┘
- │ Prediction       │
- └──────────────────┘
+
+┌──────────────────┐ ┌──────────────────┐
+│ ML Pipeline │ │ Model Artifact │
+│ Preprocessing │ │ (.pkl/.joblib) │
+│ Feature Pipeline │ └──────────────────┘
+│ Prediction │
+└──────────────────┘
 
 ## System Architecture
 
@@ -180,12 +182,12 @@ The application follows a modular monolithic architecture, separating the user i
 
 ### Architecture Overview
 
-* **Frontend:** React + TypeScript (Vite)
-* **Backend:** FastAPI
-* **Machine Learning:** Scikit-learn Pipeline
-* **Model Serialization:** Joblib
-* **Deployment:** Vercel (Frontend) + Render (Backend)
-* **Containerization:** Docker
+- **Frontend:** React + TypeScript (Vite)
+- **Backend:** FastAPI
+- **Machine Learning:** Scikit-learn Pipeline
+- **Model Serialization:** Joblib
+- **Deployment:** Vercel (Frontend) + Render (Backend)
+- **Containerization:** Docker
 
 ### Request Flow
 
@@ -227,7 +229,6 @@ The project is intentionally built using a minimal yet production-ready technolo
 
 The technology stack prioritizes simplicity, performance, and production-readiness while avoiding unnecessary dependencies and infrastructure complexity.
 
-
 =========================================================================================================================
 1.5 Finalize deployment strategy
 =========================================================================================================================
@@ -259,17 +260,13 @@ React Frontend     FastAPI Backend
 
 ### Deployment Components
 
-* **Frontend:** Vercel
-* **Backend:** Render
-* **Containerization:** Docker
-* **Version Control:** GitHub
-* **Continuous Integration:** GitHub Actions
+- **Frontend:** Vercel
+- **Backend:** Render
+- **Containerization:** Docker
+- **Version Control:** GitHub
+- **Continuous Integration:** GitHub Actions
 
 This deployment strategy provides a production-like workflow while remaining lightweight, maintainable, and compatible with free hosting services.
-
-
-
-
 
 =========================================================================================================================
 1.6 Create development roadmap
@@ -297,10 +294,6 @@ The project follows a structured, phase-based development process inspired by pr
 
 Each phase must satisfy its predefined completion criteria before the next phase begins. This approach ensures consistent quality, maintainability, and reproducibility throughout the project lifecycle.
 
-
-
-
-
 =========================================================================================================================
 1.7 Define repository standards
 =========================================================================================================================
@@ -311,17 +304,17 @@ The repository follows a consistent set of engineering standards to ensure reada
 
 ### Coding Standards
 
-* Follow the PEP 8 Python Style Guide.
-* Format Python code using Black.
-* Perform static analysis using Ruff.
-* Use descriptive and meaningful names for variables, functions, classes, and files.
+- Follow the PEP 8 Python Style Guide.
+- Format Python code using Black.
+- Perform static analysis using Ruff.
+- Use descriptive and meaningful names for variables, functions, classes, and files.
 
 ### Naming Conventions
 
-* **Python files:** `snake_case`
-* **React components:** `PascalCase`
-* **Classes:** `PascalCase`
-* **Functions and variables:** `snake_case`
+- **Python files:** `snake_case`
+- **React components:** `PascalCase`
+- **Classes:** `PascalCase`
+- **Functions and variables:** `snake_case`
 
 ### Git Commit Convention
 
@@ -329,11 +322,11 @@ The project follows the Conventional Commits specification.
 
 Examples:
 
-* `feat: add prediction endpoint`
-* `fix: handle missing values`
-* `refactor: simplify preprocessing pipeline`
-* `docs: update README`
-* `test: add evaluation tests`
+- `feat: add prediction endpoint`
+- `fix: handle missing values`
+- `refactor: simplify preprocessing pipeline`
+- `docs: update README`
+- `test: add evaluation tests`
 
 ### Documentation
 
@@ -343,17 +336,12 @@ The root `README.md` serves as the primary documentation for the project. Major 
 
 Jupyter notebooks are used exclusively for experimentation, exploratory data analysis, and visualization. Production code is implemented as reusable Python modules within the project structure.
 
-
-
-
 =========================================================================================================================
 PHASE 2 — Development Environment
 =========================================================================================================================
 2.1 Create GitHub repository
 =========================================================================================================================
 customer-churn-prediction github repo created with README initiation.
-
-
 
 =========================================================================================================================
 2.2 Initialize project structure
@@ -427,11 +415,106 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
+### Python Environment
+
+The project uses a dedicated virtual environment located inside the `backend` directory.
+
+```text
+backend/
+└── .venv/
+```
+
+All backend dependencies are installed inside this isolated environment, ensuring reproducibility and preventing conflicts with other Python projects.
+
 A dedicated virtual environment ensures reproducible dependency management and avoids version conflicts across different Python projects.
 
 =========================================================================================================================
 2.4 Install dependencies
 =========================================================================================================================
+
+## Development Environment
+
+The backend application is developed inside an isolated Python virtual environment to ensure reproducible dependency management and eliminate conflicts with other Python projects.
+
+### Prerequisites
+
+Before setting up the project, ensure the following software is installed:
+
+- Python 3.14.4 (Current Development Environment)
+- Git
+- Node.js (Frontend Development)
+- Visual Studio Code (Recommended)
+
+### Virtual Environment
+
+Create the virtual environment inside the `backend` directory:
+
+```bash
+cd backend
+python -m venv .venv
+```
+
+Activate the environment.
+
+**Windows (PowerShell)**
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+**Windows (Command Prompt)**
+
+```cmd
+.venv\Scripts\activate
+```
+
+Once activated, the terminal should display:
+
+```text
+(.venv)
+```
+
+---
+
+## Dependency Installation
+
+Project dependencies are installed incrementally in logical groups instead of installing everything at once. This approach improves debugging, dependency management, and long-term maintainability.
+
+### Core Machine Learning
+
+- NumPy
+- Pandas
+- Scikit-learn
+
+### Data Visualization
+
+- Matplotlib
+- Plotly
+
+### Backend API
+
+- FastAPI
+- Uvicorn
+- Pydantic
+- python-multipart
+
+### Model Libraries
+
+- XGBoost
+
+### Model Explainability
+
+- SHAP
+
+### Development Tools
+
+- Black
+- Ruff
+- Pytest
+- Pytest-Cov
+
+The dependency installation strategy intentionally separates libraries by responsibility, making the project easier to understand, maintain, and extend throughout development.
+
 =========================================================================================================================
 2.5 Configure code quality tools
 =========================================================================================================================
