@@ -395,6 +395,40 @@ Each directory has a single responsibility, ensuring a clean separation between 
 =========================================================================================================================
 2.3 Setup Python virtual environment
 =========================================================================================================================
+
+## Development Environment
+
+The backend application uses a dedicated Python virtual environment to isolate project dependencies from the global Python installation.
+
+### Prerequisites
+
+- Python 3.12 or later
+- Git
+- Node.js (for the frontend)
+
+### Creating the Virtual Environment
+
+```bash
+cd backend
+python -m venv .venv
+```
+
+### Activating the Environment
+
+**Windows**
+
+```bash
+.venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+source .venv/bin/activate
+```
+
+A dedicated virtual environment ensures reproducible dependency management and avoids version conflicts across different Python projects.
+
 =========================================================================================================================
 2.4 Install dependencies
 =========================================================================================================================
