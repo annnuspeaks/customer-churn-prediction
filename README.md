@@ -200,6 +200,33 @@ The architecture is intentionally lightweight, scalable, and designed to demonst
 =========================================================================================================================
 1.4 Finalize technology stack
 =========================================================================================================================
+
+## Technology Stack
+
+The project is intentionally built using a minimal yet production-ready technology stack. Every technology has been selected based on industry adoption, long-term maintainability, and its practical value within the project.
+
+| Category             | Technology              |
+| -------------------- | ----------------------- |
+| Programming Language | Python                  |
+| Machine Learning     | Scikit-learn, XGBoost   |
+| Data Processing      | Pandas, NumPy           |
+| Data Visualization   | Matplotlib, Plotly      |
+| Model Explainability | SHAP                    |
+| Backend API          | FastAPI                 |
+| Frontend             | React, TypeScript, Vite |
+| Model Serialization  | Joblib                  |
+| Testing              | Pytest                  |
+| Code Formatting      | Black                   |
+| Linting              | Ruff                    |
+| Containerization     | Docker                  |
+| Version Control      | Git & GitHub            |
+| CI/CD                | GitHub Actions          |
+| Frontend Deployment  | Vercel                  |
+| Backend Deployment   | Render                  |
+
+The technology stack prioritizes simplicity, performance, and production-readiness while avoiding unnecessary dependencies and infrastructure complexity.
+
+
 =========================================================================================================================
 1.5 Finalize deployment strategy
 =========================================================================================================================
