@@ -230,12 +230,111 @@ The technology stack prioritizes simplicity, performance, and production-readine
 =========================================================================================================================
 1.5 Finalize deployment strategy
 =========================================================================================================================
+
+## Deployment Strategy
+
+The project is designed around a simple, production-oriented deployment workflow that remains completely free for portfolio use.
+
+### Deployment Workflow
+
+```text
+Local Development
+        │
+        ▼
+GitHub Repository
+        │
+        ▼
+GitHub Actions (Continuous Integration)
+        │
+        ├───────────────┐
+        ▼               ▼
+React Frontend     FastAPI Backend
+(Vercel)           (Render)
+        │               │
+        └───────┬───────┘
+                ▼
+      Live Customer Churn Platform
+```
+
+### Deployment Components
+
+* **Frontend:** Vercel
+* **Backend:** Render
+* **Containerization:** Docker
+* **Version Control:** GitHub
+* **Continuous Integration:** GitHub Actions
+
+This deployment strategy provides a production-like workflow while remaining lightweight, maintainable, and compatible with free hosting services.
+
+
 =========================================================================================================================
 1.6 Create development roadmap
 =========================================================================================================================
+
+## Development Roadmap
+
+The project follows a structured, phase-based development process inspired by professional software engineering workflows. Each phase has clearly defined objectives, deliverables, and completion criteria before progressing to the next stage.
+
+| Phase    | Objective                             |
+| -------- | ------------------------------------- |
+| Phase 1  | Project Planning                      |
+| Phase 2  | Development Environment Setup         |
+| Phase 3  | Dataset Selection & Understanding     |
+| Phase 4  | Exploratory Data Analysis             |
+| Phase 5  | Data Preprocessing                    |
+| Phase 6  | Feature Engineering                   |
+| Phase 7  | Model Development                     |
+| Phase 8  | Model Evaluation & Explainability     |
+| Phase 9  | Backend API Development               |
+| Phase 10 | Frontend Dashboard Development        |
+| Phase 11 | Testing & Quality Assurance           |
+| Phase 12 | Deployment                            |
+| Phase 13 | Documentation & Portfolio Preparation |
+
+Each phase must satisfy its predefined completion criteria before the next phase begins. This approach ensures consistent quality, maintainability, and reproducibility throughout the project lifecycle.
+
 =========================================================================================================================
 1.7 Define repository standards
 =========================================================================================================================
+
+## Repository Standards
+
+The repository follows a consistent set of engineering standards to ensure readability, maintainability, and scalability throughout the project lifecycle.
+
+### Coding Standards
+
+* Follow the PEP 8 Python Style Guide.
+* Format Python code using Black.
+* Perform static analysis using Ruff.
+* Use descriptive and meaningful names for variables, functions, classes, and files.
+
+### Naming Conventions
+
+* **Python files:** `snake_case`
+* **React components:** `PascalCase`
+* **Classes:** `PascalCase`
+* **Functions and variables:** `snake_case`
+
+### Git Commit Convention
+
+The project follows the Conventional Commits specification.
+
+Examples:
+
+* `feat: add prediction endpoint`
+* `fix: handle missing values`
+* `refactor: simplify preprocessing pipeline`
+* `docs: update README`
+* `test: add evaluation tests`
+
+### Documentation
+
+The root `README.md` serves as the primary documentation for the project. Major architectural decisions, implementation details, and deployment instructions will be documented incrementally throughout development.
+
+### Notebook Policy
+
+Jupyter notebooks are used exclusively for experimentation, exploratory data analysis, and visualization. Production code is implemented as reusable Python modules within the project structure.
+
 =========================================================================================================================
 PHASE 2 — Development Environment
 =========================================================================================================================
