@@ -8,11 +8,15 @@
         "Scikit",
         "Uvicorn",
         "explainability",
+        "fastapi",
         "joblib",
         "kare",
         "mlruns",
+        "numpy",
         "pyproject",
+        "shap",
         "testpaths",
-        "venv"
+        "venv",
+        "xgboost"
     ]
 }

@@ -589,18 +589,69 @@ Future development will include unit tests, integration tests, and API validatio
 
 Using a single configuration file simplifies project maintenance and ensures a consistent development experience across different environments.
 
+## Project Status
+
+The project is being developed incrementally using a structured, phase-based workflow inspired by professional software engineering practices.
+
+| Phase | Status |
+|--------|--------|
+| Project Planning | ✅ Completed |
+| Development Environment | ✅ Completed |
+| Dataset & Understanding | ⏳ Next |
+| Exploratory Data Analysis | ⏳ Pending |
+| Data Preprocessing | ⏳ Pending |
+| Feature Engineering | ⏳ Pending |
+| Model Development | ⏳ Pending |
+| Model Evaluation | ⏳ Pending |
+| Backend API | ⏳ Pending |
+| Frontend Dashboard | ⏳ Pending |
+| Testing | ⏳ Pending |
+| Deployment | ⏳ Pending |
+| Documentation & Portfolio | ⏳ Pending |
+
+The repository is now fully prepared for machine learning development. The next phase focuses on dataset selection, validation, and business understanding before any model training begins.
+
 =========================================================================================================================
 2.6 Initial Git commit
 =========================================================================================================================
+Initialized and pushed to git origin main.
 =========================================================================================================================
 PHASE 3 — Dataset & Understanding
 =========================================================================================================================
 =========================================================================================================================
 3.1 Select dataset
 =========================================================================================================================
+
+## Dataset
+
+The project uses the **IBM Telco Customer Churn** dataset, a publicly available benchmark dataset for customer churn prediction.
+
+### Dataset Overview
+
+- **Domain:** Telecommunications
+- **Problem Type:** Binary Classification
+- **Target Variable:** `Churn`
+- **Records:** Approximately 7,000 customer records
+- **Features:** Customer demographics, account information, subscribed services, contract details, billing information, and customer tenure.
+
+### Dataset Management
+
+To preserve reproducibility:
+
+- The original dataset is stored in `data/raw/`.
+- Cleaned and transformed datasets will be stored in `data/processed/`.
+- The raw dataset is never modified directly.
+
 =========================================================================================================================
 3.2 Data dictionary
 =========================================================================================================================
+
+### Data Dictionary
+
+A complete data dictionary is maintained in `docs/dataset.md`.
+
+The document describes every feature, its data type, business meaning, and role within the machine learning pipeline. Maintaining a dedicated data dictionary improves reproducibility, simplifies feature engineering, and provides clear business context for model development and explainability.
+
 =========================================================================================================================
 3.3 Define target variable
 =========================================================================================================================
