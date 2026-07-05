@@ -655,12 +655,70 @@ The document describes every feature, its data type, business meaning, and role 
 =========================================================================================================================
 3.3 Define target variable
 =========================================================================================================================
+
+### Target Variable
+
+The machine learning model predicts the **`Churn`** column, making this a **binary classification** problem.
+
+- **Positive Class (`1`)**: Customer churns
+- **Negative Class (`0`)**: Customer remains with the company
+
+Target encoding is performed during the preprocessing stage, while the original dataset is preserved in its raw form to maintain reproducibility.
+
 =========================================================================================================================
 3.4 Initial data validation
 =========================================================================================================================
+
+## Data Validation
+
+Before exploratory data analysis, the dataset undergoes an initial validation process to verify its overall quality and structure.
+
+The validation includes:
+
+- Dataset dimensions
+- Column verification
+- Data type inspection
+- Missing value analysis
+- Blank value detection
+- Duplicate record detection
+- Target class distribution
+- Statistical summary
+
+This validation step establishes a reliable baseline before any preprocessing or feature engineering is performed.
+
 =========================================================================================================================
 PHASE 4 — Exploratory Data Analysis (EDA)
 =========================================================================================================================
+
+## Exploratory Data Analysis
+
+Exploratory Data Analysis (EDA) is performed after validating the dataset to understand its structure, feature distribution, and business characteristics before any preprocessing or model training.
+
+The EDA process includes:
+
+- Dataset overview
+- Feature categorization
+- Missing value analysis
+- Target variable analysis
+- Numerical feature analysis
+- Categorical feature analysis
+- Correlation analysis
+- Business insights
+
+### Missing Value Analysis
+
+The dataset is evaluated for multiple forms of missing information before preprocessing.
+
+The validation process includes:
+
+- Null (`NaN`) values
+- Blank string values
+- Whitespace-only values
+
+A consolidated data quality report is generated to identify affected features. Any detected issues are documented during EDA and resolved later during the preprocessing phase to preserve the integrity of the original dataset.
+
+The objective of EDA is to understand the dataset and identify meaningful patterns before applying machine learning techniques.
+
 =========================================================================================================================
 4.1 Dataset overview
 =========================================================================================================================

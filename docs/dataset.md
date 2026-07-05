@@ -25,3 +25,32 @@
 | Churn            | Target      | **Target**  | Indicates whether the customer has discontinued the service. This is the prediction target for the machine learning model.                       |
 
 > This data dictionary serves as the reference document for exploratory data analysis, preprocessing, feature engineering, model development, and explainability throughout the project.
+
+
+# Target Variable
+
+## Target Feature
+
+- **Column:** `Churn`
+- **Problem Type:** Binary Classification
+
+### Class Definition
+
+| Original Value | Encoded Value | Meaning |
+|----------------|---------------|---------|
+| No | 0 | Customer remains with the company |
+| Yes | 1 | Customer leaves the company |
+
+### Positive Class
+
+The positive class for this project is:
+
+- **Yes (1)** → Customer Churn
+
+### Business Objective
+
+The objective of this project is to predict whether a customer is likely to discontinue the telecom service based on historical customer information and subscribed services.
+
+The predictions can help the business proactively identify high-risk customers and improve customer retention strategies.
+
+> **Note:** Target encoding will be performed during the Data Preprocessing phase. The original dataset remains unchanged.
