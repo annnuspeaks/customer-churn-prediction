@@ -1,0 +1,34 @@
+# ==========================
+# Core Machine Learning
+# ==========================
+numpy
+pandas
+scikit-learn
+
+# ==========================
+# Data Visualization
+# ==========================
+matplotlib
+plotly
+
+# ==========================
+# Model Libraries
+# ==========================
+xgboost
+shap
+
+# ==========================
+# Backend API
+# ==========================
+fastapi
+uvicorn
+pydantic
+python-multipart
+
+# ==========================
+# Development Tools
+# ==========================
+black
+ruff
+pytest
+pytest-cov

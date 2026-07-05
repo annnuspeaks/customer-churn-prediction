@@ -112,13 +112,13 @@ Customer Churn Prediction Platform
 
 Objective
 
-Ek production-ready web application jo historical customer data ke basis par predict kare ki koi customer service chhodne (churn) ki high probability rakhta hai ya nahi.
+A production-ready web application that predicts, based on historical customer data, whether a customer has a high probability of churning..
 
 Business Problem
 
-Kai companies (Telecom, SaaS, Banking, Insurance, OTT, Subscription Services) naye customers acquire karne par bahut paisa kharch karti hain. Existing customers ko lose karna revenue aur growth dono ko impact karta hai.
+Many companies (Telecom, SaaS, Banking, Insurance, OTT, subscription services) spend a significant amount of money acquiring new customers. Losing existing customers impacts both revenue and growth.
 
-Ye platform companies ko high-risk customers pehle hi identify karne me help karega, taaki retention campaigns chalakar churn reduce kiya ja sake.
+This platform will help companies identify high-risk customers early on, enabling them to run retention campaigns and reduce churn.
 
 Primary Users
 Business Analysts
@@ -126,10 +126,10 @@ Customer Success Teams
 Marketing Teams
 Product Managers
 Core Features (MVP)
-Upload ya manually customer information enter karna
-Churn prediction generate karna
-Probability score dikhana
-Prediction explain karna (important factors)
+Upload or entering manually customer information 
+Generating churn prediction
+Showing probability score
+Explaining prediction (important factors)
 Clean, responsive web dashboard
 REST API
 Out of Scope (Intentionally)
@@ -518,6 +518,77 @@ The dependency installation strategy intentionally separates libraries by respon
 =========================================================================================================================
 2.5 Configure code quality tools
 =========================================================================================================================
+
+## Code Quality
+
+The backend project follows modern Python development practices by centralizing formatting, linting, and testing configuration inside a single `pyproject.toml` file.
+
+### Configured Tools
+
+- **Black** — Automatic code formatting
+- **Ruff** — Fast static analysis and linting
+- **Pytest** — Unit testing framework
+
+### Code Formatting
+
+The project uses **Black** as the official Python code formatter.
+
+Formatting rules are centrally managed through `backend/pyproject.toml`, ensuring a consistent coding style across the entire backend codebase.
+
+To format the project:
+
+```bash
+cd backend
+black .
+```
+
+### Static Analysis
+
+The project uses **Ruff** for fast static analysis and linting.
+
+Ruff helps identify:
+
+- Unused imports
+- Unused variables
+- Code style issues
+- Import ordering
+- Potential programming mistakes
+
+Run a project-wide lint check:
+
+```bash
+cd backend
+ruff check .
+```
+
+Automatically fix supported issues:
+
+```bash
+ruff check . --fix
+```
+
+### Testing
+
+The project uses **Pytest** as the primary testing framework.
+
+Test discovery is configured through `pyproject.toml`, allowing Pytest to automatically detect test files located inside the `backend/tests` directory.
+
+Naming conventions:
+
+- Test files: `test_*.py`
+- Test functions: `test_*`
+
+Run all tests:
+
+```bash
+cd backend
+pytest
+```
+
+Future development will include unit tests, integration tests, and API validation tests to ensure reliability across the entire application.
+
+Using a single configuration file simplifies project maintenance and ensures a consistent development experience across different environments.
+
 =========================================================================================================================
 2.6 Initial Git commit
 =========================================================================================================================

@@ -1,0 +1,18 @@
+{
+    "cSpell.ignoreWords": [
+        "Matplotlib",
+        "Plotly",
+        "Pydantic",
+        "Pytest",
+        "SHAP",
+        "Scikit",
+        "Uvicorn",
+        "explainability",
+        "joblib",
+        "kare",
+        "mlruns",
+        "pyproject",
+        "testpaths",
+        "venv"
+    ]
+}
