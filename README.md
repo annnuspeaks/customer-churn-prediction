@@ -746,9 +746,39 @@ This evaluation establishes the baseline for selecting appropriate model evaluat
 =========================================================================================================================
 4.4 Numerical analysis
 =========================================================================================================================
+
+### Numerical Feature Analysis
+
+All numerical features are analyzed using descriptive statistics and visualizations.
+
+The analysis includes:
+
+- Statistical summary
+- Distribution analysis
+- Outlier detection
+- Missing value inspection
+- Business interpretation
+
+Temporary data type conversions are performed only for visualization purposes. The original dataset remains unchanged throughout the exploratory analysis.
+
 =========================================================================================================================
 4.5 Categorical analysis
 =========================================================================================================================
+
+### Categorical Feature Analysis
+
+Categorical and binary features are analyzed to understand customer characteristics and their relationship with churn.
+
+The analysis includes:
+
+- Category frequency distribution
+- Percentage distribution
+- Feature-wise churn comparison
+- Cross-tabulation
+- Business interpretation
+
+This analysis helps identify customer segments with higher churn risk and provides valuable insights for feature engineering and model development.
+
 =========================================================================================================================
 4.6 Correlation analysis
 =========================================================================================================================
