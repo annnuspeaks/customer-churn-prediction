@@ -689,6 +689,9 @@ This validation step establishes a reliable baseline before any preprocessing or
 =========================================================================================================================
 PHASE 4 — Exploratory Data Analysis (EDA)
 =========================================================================================================================
+=========================================================================================================================
+4.1 Dataset overview
+=========================================================================================================================
 
 ## Exploratory Data Analysis
 
@@ -705,6 +708,10 @@ The EDA process includes:
 - Correlation analysis
 - Business insights
 
+=========================================================================================================================
+4.2 Missing values
+=========================================================================================================================
+
 ### Missing Value Analysis
 
 The dataset is evaluated for multiple forms of missing information before preprocessing.
@@ -720,14 +727,22 @@ A consolidated data quality report is generated to identify affected features. A
 The objective of EDA is to understand the dataset and identify meaningful patterns before applying machine learning techniques.
 
 =========================================================================================================================
-4.1 Dataset overview
-=========================================================================================================================
-=========================================================================================================================
-4.2 Missing values
-=========================================================================================================================
-=========================================================================================================================
 4.3 Target analysis
 =========================================================================================================================
+
+### Target Variable Analysis
+
+The target variable (`Churn`) is analyzed to understand customer retention and churn distribution.
+
+The analysis includes:
+
+- Class frequency
+- Percentage distribution
+- Class imbalance assessment
+- Business interpretation
+
+This evaluation establishes the baseline for selecting appropriate model evaluation metrics during the training phase.
+
 =========================================================================================================================
 4.4 Numerical analysis
 =========================================================================================================================
