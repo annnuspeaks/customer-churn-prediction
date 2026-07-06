@@ -2,18 +2,17 @@
 
 End-to-end customer churn prediction platform with feature engineering, model explainability, deployment, and monitoring.
 
-<!-- Master Checklist -->
-
-# Customer Churn Prediction Platform
+# Master Checklist
+## Customer Churn Prediction Platform
 
 PHASE 1 — Project Planning
-⬜ 1.1 Define project objective
-⬜ 1.2 Identify target users & business problem
-⬜ 1.3 Finalize project architecture
-⬜ 1.4 Finalize technology stack
-⬜ 1.5 Finalize deployment strategy
-⬜ 1.6 Create development roadmap
-⬜ 1.7 Define repository standards
+- 1.1 Define project objective
+- 1.2 Identify target users & business problem
+- 1.3 Finalize project architecture
+- 1.4 Finalize technology stack
+- 1.5 Finalize deployment strategy
+- 1.6 Create development roadmap
+- 1.7 Define repository standards
 
 PHASE 2 — Development Environment
 ⬜ 2.1 Create GitHub repository
@@ -700,7 +699,7 @@ The EDA process includes:
 - Correlation analysis
 - Business insights
 
-### Missing Value Analysis
+## Missing Value Analysis
 
 The dataset is evaluated for multiple forms of missing information before preprocessing.
 
