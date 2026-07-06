@@ -665,10 +665,6 @@ The machine learning model predicts the **`Churn`** column, making this a **bina
 
 Target encoding is performed during the preprocessing stage, while the original dataset is preserved in its raw form to maintain reproducibility.
 
-=========================================================================================================================
-3.4 Initial data validation
-=========================================================================================================================
-
 ## Data Validation
 
 Before exploratory data analysis, the dataset undergoes an initial validation process to verify its overall quality and structure.
@@ -686,12 +682,8 @@ The validation includes:
 
 This validation step establishes a reliable baseline before any preprocessing or feature engineering is performed.
 
-=========================================================================================================================
-PHASE 4 — Exploratory Data Analysis (EDA)
-=========================================================================================================================
-=========================================================================================================================
-4.1 Dataset overview
-=========================================================================================================================
+
+# PHASE 4 — Exploratory Data Analysis (EDA)
 
 ## Exploratory Data Analysis
 
@@ -708,10 +700,6 @@ The EDA process includes:
 - Correlation analysis
 - Business insights
 
-=========================================================================================================================
-4.2 Missing values
-=========================================================================================================================
-
 ### Missing Value Analysis
 
 The dataset is evaluated for multiple forms of missing information before preprocessing.
@@ -726,10 +714,6 @@ A consolidated data quality report is generated to identify affected features. A
 
 The objective of EDA is to understand the dataset and identify meaningful patterns before applying machine learning techniques.
 
-=========================================================================================================================
-4.3 Target analysis
-=========================================================================================================================
-
 ### Target Variable Analysis
 
 The target variable (`Churn`) is analyzed to understand customer retention and churn distribution.
@@ -742,10 +726,6 @@ The analysis includes:
 - Business interpretation
 
 This evaluation establishes the baseline for selecting appropriate model evaluation metrics during the training phase.
-
-=========================================================================================================================
-4.4 Numerical analysis
-=========================================================================================================================
 
 ### Numerical Feature Analysis
 
@@ -761,10 +741,6 @@ The analysis includes:
 
 Temporary data type conversions are performed only for visualization purposes. The original dataset remains unchanged throughout the exploratory analysis.
 
-=========================================================================================================================
-4.5 Categorical analysis
-=========================================================================================================================
-
 ### Categorical Feature Analysis
 
 Categorical and binary features are analyzed to understand customer characteristics and their relationship with churn.
@@ -779,9 +755,18 @@ The analysis includes:
 
 This analysis helps identify customer segments with higher churn risk and provides valuable insights for feature engineering and model development.
 
-=========================================================================================================================
-4.6 Correlation analysis
-=========================================================================================================================
+### Correlation Analysis
+
+Correlation analysis is performed on numerical features to understand linear relationships within the dataset.
+
+The analysis includes:
+
+- Correlation matrix
+- Heatmap visualization
+- Relationship interpretation
+- Business insights
+
+Categorical feature relationships are intentionally excluded from this stage and are handled later through preprocessing and feature importance analysis.
 =========================================================================================================================
 4.7 Business insights
 =========================================================================================================================
