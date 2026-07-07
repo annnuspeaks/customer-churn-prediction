@@ -740,7 +740,26 @@ Categorical feature relationships are intentionally excluded from this stage and
 
 ### 4.7 Business insights
 
-### 4.8 Save EDA report
+The exploratory analysis concludes with a business-oriented interpretation of the findings.
+
+Instead of reporting only statistical observations, the project translates data patterns into actionable business recommendations, potential risks, and customer retention opportunities.
+
+All insights generated during EDA are treated as hypotheses and are validated later using machine learning models and explainability techniques.
+
+### 4.8 EDA report
+
+A consolidated exploratory data analysis report is maintained in `docs/eda_report.md`.
+
+The report summarizes:
+
+- Dataset quality
+- Statistical findings
+- Feature analysis
+- Business insights
+- Limitations
+- Preparation for the preprocessing phase
+
+This document serves as the formal conclusion of the exploratory analysis before feature engineering and machine learning model development begin.
 
 ## PHASE 5 — Data Preprocessing
 
@@ -764,7 +783,7 @@ Categorical feature relationships are intentionally excluded from this stage and
 
 ### 6.3 Pipeline optimization
 
-### PHASE 7 — Model Development
+## PHASE 7 — Model Development
 
 ### 7.1 Baseline model
 
