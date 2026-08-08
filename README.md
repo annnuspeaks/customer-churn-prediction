@@ -845,7 +845,22 @@ A 3-fold cross-validation strategy was applied to the training data, with ROC-AU
 
 The tuned Random Forest achieved the strongest cross-validated ROC-AUC among the tuned models and will be evaluated further against the baseline and other candidate models.
 
-## 7.4 Cross-validation
+## 7.4 Cross-Validation
+
+Five-fold stratified cross-validation was performed on the training dataset to assess the stability of the candidate models.
+
+ROC-AUC was used as the evaluation metric.
+
+| Model | Mean ROC-AUC | Std. Dev. |
+|---|---:|---:|
+| Logistic Regression | 0.8465 | 0.0117 |
+| Tuned Random Forest | 0.8450 | 0.0120 |
+| Linear SVM | 0.8432 | 0.0110 |
+| Tuned Decision Tree | 0.8292 | 0.0107 |
+
+Logistic Regression achieved the highest mean cross-validated ROC-AUC, while all models demonstrated relatively stable performance across the five folds.
+
+The held-out test set remains reserved for final model evaluation.
 
 ## 7.5 Model comparison
 
