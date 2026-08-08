@@ -899,7 +899,21 @@ The selected model will proceed to detailed evaluation and explainability in Pha
 
 # PHASE 8 — Model Evaluation & Explainability
 
-## 8.1 Performance metrics
+## 8.1 Classification Evaluation
+
+The selected Logistic Regression model was evaluated on the held-out test dataset using standard classification metrics.
+
+| Metric | Score |
+|---|---:|
+| Accuracy | 0.7999 |
+| Precision | 0.6554 |
+| Recall | 0.5187 |
+| F1 Score | 0.5791 |
+| ROC-AUC | 0.8424 |
+
+The classification report shows stronger performance for non-churn customers than churn customers. The model achieved a recall of 0.52 for the churn class, indicating that approximately half of the actual churn cases were identified.
+
+The saved final model artifact was loaded for evaluation without retraining.
 
 ## 8.2 Confusion matrix
 
