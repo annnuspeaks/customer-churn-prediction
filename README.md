@@ -862,7 +862,18 @@ Logistic Regression achieved the highest mean cross-validated ROC-AUC, while all
 
 The held-out test set remains reserved for final model evaluation.
 
-## 7.5 Model comparison
+## 7.5 Model Comparison
+
+The candidate models were compared on the held-out test dataset using accuracy, precision, recall, F1 score, and ROC-AUC.
+
+| Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
+|---|---:|---:|---:|---:|---:|
+| Tuned Random Forest | 0.7977 | 0.6642 | 0.4813 | 0.5581 | 0.8436 |
+| Logistic Regression | 0.7999 | 0.6554 | 0.5187 | 0.5791 | 0.8424 |
+| Linear SVM | 0.8006 | 0.6655 | 0.5000 | 0.5710 | 0.8366 |
+| Tuned Decision Tree | 0.7942 | 0.6312 | 0.5401 | 0.5821 | 0.8267 |
+
+The models show different performance trade-offs across the evaluation metrics. Final model selection is deferred to the next stage, where cross-validation stability and business-relevant performance considerations will be considered together.
 
 ## 7.6 Final model selection
 
