@@ -481,8 +481,8 @@ The project is being developed incrementally using a structured, phase-based wor
 | Exploratory Data Analysis | ✅ Completed |
 | Data Preprocessing | ✅ Completed |
 | Feature Engineering | ✅ Completed |
-| Model Development | 🔄 In Progress |
-| Model Evaluation | ⏳ Pending |
+| Model Development | ✅ Completed |
+| Model Evaluation | 🔄 In Progress |
 | Backend API | ⏳ Pending |
 | Frontend Dashboard | ⏳ Pending |
 | Testing | ⏳ Pending |
@@ -875,7 +875,27 @@ The candidate models were compared on the held-out test dataset using accuracy, 
 
 The models show different performance trade-offs across the evaluation metrics. Final model selection is deferred to the next stage, where cross-validation stability and business-relevant performance considerations will be considered together.
 
-## 7.6 Final model selection
+## 7.6 Final Model Selection
+
+The final model was selected using a combination of cross-validation stability, held-out test performance, predictive discrimination, interpretability, and deployment practicality.
+
+Logistic Regression achieved the highest mean cross-validated ROC-AUC (0.8465) and maintained strong test performance.
+
+Although the Tuned Random Forest achieved the highest test ROC-AUC (0.8436) and the Tuned Decision Tree achieved the highest test F1 score (0.5821), Logistic Regression provided the strongest overall balance and the advantage of straightforward interpretability and deployment.
+
+Therefore, Logistic Regression was selected as the final model.
+
+#### Final Model Performance
+
+| Metric | Score |
+|---|---:|
+| Accuracy | 0.7999 |
+| Precision | 0.6554 |
+| Recall | 0.5187 |
+| F1 Score | 0.5791 |
+| ROC-AUC | 0.8424 |
+
+The selected model will proceed to detailed evaluation and explainability in Phase 8.
 
 # PHASE 8 — Model Evaluation & Explainability
 
