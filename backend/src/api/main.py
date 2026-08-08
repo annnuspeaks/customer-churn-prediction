@@ -3,6 +3,7 @@ from pathlib import Path
 import joblib
 import pandas as pd
 from fastapi import FastAPI
+from .schemas import CustomerInput
 
 app = FastAPI(
     title="Customer Churn Prediction API",
@@ -37,8 +38,8 @@ def health_check():
 
 
 @app.post("/predict")
-def predict(customer_data: dict):
-    input_data = pd.DataFrame([customer_data])
+def predict(customer_data: CustomerInput):
+    input_data = pd.DataFrame([customer_data.model_dump()])
 
     prediction = model.predict(input_data)[0]
     probability = model.predict_proba(input_data)[0][1]

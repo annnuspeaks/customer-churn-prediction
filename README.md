@@ -1035,7 +1035,22 @@ Example response:
 }
 ```
 
-## 9.3 Input validation
+## 9.3 Input Validation
+
+Pydantic-based request validation was added to the prediction endpoint.
+
+The API validates:
+
+- Required customer fields
+- Categorical values using constrained literals
+- Non-negative tenure
+- Non-negative monthly charges
+- Non-negative total charges
+- Supported payment methods and contract types
+
+Invalid requests are automatically rejected with HTTP 422 responses before reaching the ML model.
+
+This prevents malformed or unsupported customer data from being passed to the prediction pipeline.
 
 ## 9.4 API documentation
 
