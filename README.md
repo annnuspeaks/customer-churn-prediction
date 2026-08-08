@@ -480,8 +480,8 @@ The project is being developed incrementally using a structured, phase-based wor
 | Dataset & Understanding | ✅ Completed |
 | Exploratory Data Analysis | ✅ Completed |
 | Data Preprocessing | ✅ Completed |
-| Feature Engineering | 🔄 In Progress |
-| Model Development | ⏳ Pending |
+| Feature Engineering | ✅ Completed |
+| Model Development | 🔄 In Progress |
 | Model Evaluation | ⏳ Pending |
 | Backend API | ⏳ Pending |
 | Frontend Dashboard | ⏳ Pending |
@@ -774,7 +774,20 @@ Both features contain no missing values and are retained for further evaluation 
 
 The feature creation logic will be integrated into the final preprocessing workflow to ensure consistent transformations during training and inference.
 
-## 6.3 Pipeline optimization
+## 6.3 Pipeline Optimization
+
+The feature engineering and preprocessing steps were combined into a reusable machine learning pipeline using `Pipeline`, `FunctionTransformer`, and `ColumnTransformer`.
+
+The optimized workflow:
+
+- Creates `ServiceCount` and `TenureGroup`.
+- Separates the target variable.
+- Standardizes numerical features using `StandardScaler`.
+- Encodes categorical features using `OneHotEncoder`.
+- Handles previously unseen categories using `handle_unknown="ignore"`.
+- Fits transformations only on training data to prevent data leakage.
+
+The optimized pipeline produces **34 processed features** from the training and testing datasets.
 
 # PHASE 7 — Model Development
 
