@@ -915,7 +915,22 @@ The classification report shows stronger performance for non-churn customers tha
 
 The saved final model artifact was loaded for evaluation without retraining.
 
-## 8.2 Confusion matrix
+## 8.2 Confusion Matrix & Error Analysis
+
+A confusion matrix was used to examine correct and incorrect predictions for both churn classes.
+
+| Prediction Outcome | Count |
+|---|---:|
+| True Negatives | 933 |
+| False Positives | 102 |
+| False Negatives | 180 |
+| True Positives | 194 |
+
+The model missed 180 customers who actually churned, resulting in a missed churn rate of 48.13%.
+
+The false positive rate was 9.86%.
+
+The relatively high number of false negatives highlights recall as an important area for future model improvement, particularly because identifying potential churners is a key business objective.
 
 ## 8.3 ROC-AUC analysis
 
