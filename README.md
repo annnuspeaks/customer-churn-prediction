@@ -1012,7 +1012,28 @@ backend/
 └── requirements.txt
 ```
 
-## 9.2 Prediction endpoint
+## 9.2 Prediction Endpoint
+
+A `/predict` POST endpoint was implemented to serve predictions from the saved Logistic Regression model artifact.
+
+The endpoint:
+
+- Accepts customer feature data as JSON.
+- Applies the saved preprocessing pipeline automatically.
+- Returns the predicted churn class.
+- Returns the predicted churn probability.
+
+The model is loaded once when the API starts, avoiding repeated model loading for individual requests and keeping the API suitable for Render's free-tier deployment.
+
+Example response:
+
+```json
+{
+  "prediction": 1,
+  "churn": "Yes",
+  "churn_probability": 0.62
+}
+```
 
 ## 9.3 Input validation
 
