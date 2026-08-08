@@ -735,7 +735,23 @@ Stratification preserves a similar churn class distribution across both subsets.
 
 The test set is kept separate from training to provide an unbiased evaluation of model performance.
 
-## 5.6 Build preprocessing pipeline
+## 5.6 Build Preprocessing Pipeline
+
+A reusable preprocessing pipeline is implemented using `ColumnTransformer`.
+
+The pipeline:
+
+- Standardizes numerical features using `StandardScaler`.
+- Encodes categorical features using `OneHotEncoder`.
+- Ignores previously unseen categories during inference.
+- Excludes the `customerID` identifier.
+- Keeps the `Churn` target separate.
+
+The pipeline is fitted only on the training dataset and then applied to the test dataset, preventing preprocessing-related data leakage.
+
+This pipeline will serve as the foundation for model training and later production inference.
+
+---
 
 # PHASE 6 — Feature Engineering
 
