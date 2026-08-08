@@ -12,7 +12,7 @@ Customer Churn Prediction Platform
 
 Objective
 
-A production-ready web application that predicts, based on historical customer data, whether a customer has a high probability of churning..
+A production-ready web application that predicts, based on historical customer data, whether a customer has a high probability of churning.
 
 Business Problem
 
@@ -276,7 +276,7 @@ The backend application uses a dedicated Python virtual environment to isolate p
 
 ### Prerequisites
 
-- Python 3.12 or later
+- Python 3.14.4 (Current Development Environment)
 - Git
 - Node.js (for the frontend)
 
@@ -477,9 +477,9 @@ The project is being developed incrementally using a structured, phase-based wor
 |--------|--------|
 | Project Planning | ✅ Completed |
 | Development Environment | ✅ Completed |
-| Dataset & Understanding | ⏳ Next |
-| Exploratory Data Analysis | ⏳ Pending |
-| Data Preprocessing | ⏳ Pending |
+| Dataset & Understanding | ✅ Completed |
+| Exploratory Data Analysis | ✅ Completed |
+| Data Preprocessing | 🔄 In Progress |
 | Feature Engineering | ⏳ Pending |
 | Model Development | ⏳ Pending |
 | Model Evaluation | ⏳ Pending |
@@ -510,7 +510,7 @@ The project uses the **IBM Telco Customer Churn** dataset, a publicly available 
 - **Domain:** Telecommunications
 - **Problem Type:** Binary Classification
 - **Target Variable:** `Churn`
-- **Records:** Approximately 7,000 customer records
+- **Records:** 7,043 customer records
 - **Features:** Customer demographics, account information, subscribed services, contract details, billing information, and customer tenure.
 
 ### Dataset Management
@@ -561,7 +561,7 @@ This validation step establishes a reliable baseline before any preprocessing or
 
 # PHASE 4 — Exploratory Data Analysis (EDA)
 
-## Exploratory Data Analysis
+## 4.1 Exploratory Data Analysis
 
 Exploratory Data Analysis (EDA) is performed after validating the dataset to understand its structure, feature distribution, and business characteristics before any preprocessing or model training.
 
@@ -576,7 +576,7 @@ The EDA process includes:
 - Correlation analysis
 - Business insights
 
-## Missing Value Analysis
+## 4.2 Missing Value Analysis
 
 The dataset is evaluated for multiple forms of missing information before preprocessing.
 
@@ -590,7 +590,7 @@ A consolidated data quality report is generated to identify affected features. A
 
 The objective of EDA is to understand the dataset and identify meaningful patterns before applying machine learning techniques.
 
-## Target Variable Analysis
+## 4.3 Target Variable Analysis
 
 The target variable (`Churn`) is analyzed to understand customer retention and churn distribution.
 
@@ -603,7 +603,7 @@ The analysis includes:
 
 This evaluation establishes the baseline for selecting appropriate model evaluation metrics during the training phase.
 
-## Numerical Feature Analysis
+## 4.4 Numerical Feature Analysis
 
 All numerical features are analyzed using descriptive statistics and visualizations.
 
@@ -617,7 +617,7 @@ The analysis includes:
 
 Temporary data type conversions are performed only for visualization purposes. The original dataset remains unchanged throughout the exploratory analysis.
 
-## Categorical Feature Analysis
+## 4.5 Categorical Feature Analysis
 
 Categorical and binary features are analyzed to understand customer characteristics and their relationship with churn.
 
@@ -631,7 +631,7 @@ The analysis includes:
 
 This analysis helps identify customer segments with higher churn risk and provides valuable insights for feature engineering and model development.
 
-## Correlation Analysis
+## 4.6 Correlation Analysis
 
 Correlation analysis is performed on numerical features to understand linear relationships within the dataset.
 
@@ -722,7 +722,18 @@ One-hot encoded categorical features remain unchanged.
 
 The scaler is intentionally configured but not fitted on the complete dataset at this stage. It will be fitted only on training data during the final preprocessing pipeline to prevent data leakage.
 
-## 5.5 Train-test split
+## 5.5 Train-Test Split
+
+The encoded dataset is divided into training and testing subsets using an 80/20 stratified split.
+
+- Training set: 80%
+- Testing set: 20%
+- Random state: 42
+- Stratification: `Churn`
+
+Stratification preserves a similar churn class distribution across both subsets.
+
+The test set is kept separate from training to provide an unbiased evaluation of model performance.
 
 ## 5.6 Build preprocessing pipeline
 
