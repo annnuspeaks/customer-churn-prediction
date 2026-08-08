@@ -479,8 +479,8 @@ The project is being developed incrementally using a structured, phase-based wor
 | Development Environment | ✅ Completed |
 | Dataset & Understanding | ✅ Completed |
 | Exploratory Data Analysis | ✅ Completed |
-| Data Preprocessing | 🔄 In Progress |
-| Feature Engineering | ⏳ Pending |
+| Data Preprocessing | ✅ Completed |
+| Feature Engineering | 🔄 In Progress |
 | Model Development | ⏳ Pending |
 | Model Evaluation | ⏳ Pending |
 | Backend API | ⏳ Pending |
@@ -755,7 +755,13 @@ This pipeline will serve as the foundation for model training and later producti
 
 # PHASE 6 — Feature Engineering
 
-## 6.1 Feature selection
+## 6.1 Feature Selection
+
+Feature selection was performed using a zero-variance filter to identify features that provide no information to the model.
+
+No zero-variance features were identified, so all 30 processed features were retained.
+
+Further predictive feature relevance will be evaluated during model development using model-based feature importance and SHAP explainability.
 
 ## 6.2 Feature creation
 
