@@ -763,7 +763,16 @@ No zero-variance features were identified, so all 30 processed features were ret
 
 Further predictive feature relevance will be evaluated during model development using model-based feature importance and SHAP explainability.
 
-## 6.2 Feature creation
+## 6.2 Feature Creation
+
+Two business-oriented features were created from existing customer attributes:
+
+- `ServiceCount`: Represents the number of subscribed services for each customer.
+- `TenureGroup`: Groups customers into meaningful lifecycle stages based on tenure.
+
+Both features contain no missing values and are retained for further evaluation during model development.
+
+The feature creation logic will be integrated into the final preprocessing workflow to ensure consistent transformations during training and inference.
 
 ## 6.3 Pipeline optimization
 
