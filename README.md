@@ -932,7 +932,18 @@ The false positive rate was 9.86%.
 
 The relatively high number of false negatives highlights recall as an important area for future model improvement, particularly because identifying potential churners is a key business objective.
 
-## 8.3 ROC-AUC analysis
+## 8.3 ROC-AUC & Precision-Recall Analysis
+
+ROC-AUC and Precision-Recall analysis were performed to evaluate the model's discrimination capability across classification thresholds.
+
+| Metric | Score |
+|---|---:|
+| ROC-AUC | 0.8424 |
+| Average Precision | 0.6367 |
+
+The ROC-AUC score indicates good overall separation between churn and non-churn customers.
+
+The Precision-Recall analysis provides additional insight into churn-class performance and highlights the trade-off between identifying more churners and maintaining prediction precision.
 
 ## 8.4 SHAP explainability
 
