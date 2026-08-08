@@ -4,9 +4,9 @@ End-to-end customer churn prediction platform with feature engineering, model ex
 
 ---
 
-## PHASE 1 — Project Planning
+# PHASE 1 — Project Planning
 
-### 1.1 Define project objective
+## 1.1 Define project objective
 
 Customer Churn Prediction Platform
 
@@ -39,7 +39,7 @@ Real-time streaming predictions
 Complex admin panel
 Chatbot integration
 
-### 1.2 Identify target users & business problem
+## 1.2 Identify target users & business problem
 
 This project is for a Telecommunications Industry.
 
@@ -50,7 +50,7 @@ Target users are:
 3. Business Analyst - To Watch Report.
 4. Product Manager - To Improve Policies.
 
-### 1.3 Finalize project architecture
+## 1.3 Finalize project architecture
 
                 ┌─────────────────────────┐
                 │     React Frontend      │
@@ -73,11 +73,11 @@ Target users are:
 │ Prediction │
 └──────────────────┘
 
-#### System Architecture
+### System Architecture
 
 The application follows a modular monolithic architecture, separating the user interface, API layer, and machine learning components while keeping deployment simple and maintainable.
 
-#### Architecture Overview
+### Architecture Overview
 
 - **Frontend:** React + TypeScript (Vite)
 - **Backend:** FastAPI
@@ -86,7 +86,7 @@ The application follows a modular monolithic architecture, separating the user i
 - **Deployment:** Vercel (Frontend) + Render (Backend)
 - **Containerization:** Docker
 
-#### Request Flow
+### Request Flow
 
 1. The user enters customer information through the web interface.
 2. The frontend sends a prediction request to the FastAPI backend.
@@ -97,9 +97,9 @@ The application follows a modular monolithic architecture, separating the user i
 
 The architecture is intentionally lightweight, scalable, and designed to demonstrate production-level machine learning engineering practices without introducing unnecessary infrastructure complexity.
 
-### 1.4 Finalize technology stack
+## 1.4 Finalize technology stack
 
-#### Technology Stack
+### Technology Stack
 
 The project is intentionally built using a minimal yet production-ready technology stack. Every technology has been selected based on industry adoption, long-term maintainability, and its practical value within the project.
 
@@ -124,13 +124,13 @@ The project is intentionally built using a minimal yet production-ready technolo
 
 The technology stack prioritizes simplicity, performance, and production-readiness while avoiding unnecessary dependencies and infrastructure complexity.
 
-### 1.5 Finalize deployment strategy
+## 1.5 Finalize deployment strategy
 
-#### Deployment Strategy
+### Deployment Strategy
 
 The project is designed around a simple, production-oriented deployment workflow that remains completely free for portfolio use.
 
-#### Deployment Workflow
+### Deployment Workflow
 
 ```text
 Local Development
@@ -151,7 +151,7 @@ React Frontend     FastAPI Backend
       Live Customer Churn Platform
 ```
 
-#### Deployment Components
+### Deployment Components
 
 - **Frontend:** Vercel
 - **Backend:** Render
@@ -161,9 +161,9 @@ React Frontend     FastAPI Backend
 
 This deployment strategy provides a production-like workflow while remaining lightweight, maintainable, and compatible with free hosting services.
 
-### 1.6 Create development roadmap
+## 1.6 Create development roadmap
 
-#### Development Roadmap
+### Development Roadmap
 
 The project follows a structured, phase-based development process inspired by professional software engineering workflows. Each phase has clearly defined objectives, deliverables, and completion criteria before progressing to the next stage.
 
@@ -185,27 +185,27 @@ The project follows a structured, phase-based development process inspired by pr
 
 Each phase must satisfy its predefined completion criteria before the next phase begins. This approach ensures consistent quality, maintainability, and reproducibility throughout the project lifecycle.
 
-### 1.7 Define repository standards
+## 1.7 Define repository standards
 
-#### Repository Standards
+### Repository Standards
 
 The repository follows a consistent set of engineering standards to ensure readability, maintainability, and scalability throughout the project lifecycle.
 
-#### Coding Standards
+### Coding Standards
 
 - Follow the PEP 8 Python Style Guide.
 - Format Python code using Black.
 - Perform static analysis using Ruff.
 - Use descriptive and meaningful names for variables, functions, classes, and files.
 
-#### Naming Conventions
+### Naming Conventions
 
 - **Python files:** `snake_case`
 - **React components:** `PascalCase`
 - **Classes:** `PascalCase`
 - **Functions and variables:** `snake_case`
 
-#### Git Commit Convention
+### Git Commit Convention
 
 The project follows the Conventional Commits specification.
 
@@ -217,23 +217,25 @@ Examples:
 - `docs: update README`
 - `test: add evaluation tests`
 
-#### Documentation
+### Documentation
 
 The root `README.md` serves as the primary documentation for the project. Major architectural decisions, implementation details, and deployment instructions will be documented incrementally throughout development.
 
-#### Notebook Policy
+### Notebook Policy
 
 Jupyter notebooks are used exclusively for experimentation, exploratory data analysis, and visualization. Production code is implemented as reusable Python modules within the project structure.
 
-## PHASE 2 — Development Environment
+---
 
-### 2.1 Create GitHub repository
+# PHASE 2 — Development Environment
+
+## 2.1 Create GitHub repository
 
 customer-churn-prediction github repo created with README initiation.
 
-### 2.2 Initialize project structure
+## 2.2 Initialize project structure
 
-#### Project Structure
+### Project Structure
 
 The project follows a modular monorepo architecture that separates the frontend, backend, documentation, datasets, and development resources into well-defined directories.
 
@@ -258,7 +260,7 @@ customer-churn-prediction/
 
 Each directory has a single responsibility, ensuring a clean separation between application code, experimentation, documentation, and deployment resources. This structure improves maintainability and supports future scalability while keeping the repository organized.
 
-#### Design Principles
+### Design Principles
 
 - A single repository contains the complete application.
 - Frontend and backend are developed independently.
@@ -266,26 +268,26 @@ Each directory has a single responsibility, ensuring a clean separation between 
 - Each directory has a single responsibility.
 - The structure is designed to remain maintainable and scalable as the project grows.
 
-### 2.3 Setup Python virtual environment
+## 2.3 Setup Python virtual environment
 
-#### Development Environment
+### Development Environment
 
 The backend application uses a dedicated Python virtual environment to isolate project dependencies from the global Python installation.
 
-#### Prerequisites
+### Prerequisites
 
 - Python 3.12 or later
 - Git
 - Node.js (for the frontend)
 
-#### Creating the Virtual Environment
+### Creating the Virtual Environment
 
 ```bash
 cd backend
 python -m venv .venv
 ```
 
-#### Activating the Environment
+### Activating the Environment
 
 **Windows**
 
@@ -299,7 +301,7 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-#### Python Environment
+### Python Environment
 
 The project uses a dedicated virtual environment located inside the `backend` directory.
 
@@ -312,13 +314,13 @@ All backend dependencies are installed inside this isolated environment, ensurin
 
 A dedicated virtual environment ensures reproducible dependency management and avoids version conflicts across different Python projects.
 
-### 2.4 Install dependencies
+## 2.4 Install dependencies
 
-#### Development Environment
+### Development Environment
 
 The backend application is developed inside an isolated Python virtual environment to ensure reproducible dependency management and eliminate conflicts with other Python projects.
 
-#### Prerequisites
+### Prerequisites
 
 Before setting up the project, ensure the following software is installed:
 
@@ -327,7 +329,7 @@ Before setting up the project, ensure the following software is installed:
 - Node.js (Frontend Development)
 - Visual Studio Code (Recommended)
 
-#### Virtual Environment
+### Virtual Environment
 
 Create the virtual environment inside the `backend` directory:
 
@@ -356,39 +358,37 @@ Once activated, the terminal should display:
 (.venv)
 ```
 
----
-
-#### Dependency Installation
+### Dependency Installation
 
 Project dependencies are installed incrementally in logical groups instead of installing everything at once. This approach improves debugging, dependency management, and long-term maintainability.
 
-#### Core Machine Learning
+### Core Machine Learning
 
 - NumPy
 - Pandas
 - Scikit-learn
 
-#### Data Visualization
+### Data Visualization
 
 - Matplotlib
 - Plotly
 
-#### Backend API
+### Backend API
 
 - FastAPI
 - Uvicorn
 - Pydantic
 - python-multipart
 
-#### Model Libraries
+### Model Libraries
 
 - XGBoost
 
-#### Model Explainability
+### Model Explainability
 
 - SHAP
 
-#### Development Tools
+### Development Tools
 
 - Black
 - Ruff
@@ -397,19 +397,19 @@ Project dependencies are installed incrementally in logical groups instead of in
 
 The dependency installation strategy intentionally separates libraries by responsibility, making the project easier to understand, maintain, and extend throughout development.
 
-### 2.5 Configure code quality tools
+## 2.5 Configure code quality tools
 
-#### Code Quality
+### Code Quality
 
 The backend project follows modern Python development practices by centralizing formatting, linting, and testing configuration inside a single `pyproject.toml` file.
 
-#### Configured Tools
+### Configured Tools
 
 - **Black** — Automatic code formatting
 - **Ruff** — Fast static analysis and linting
 - **Pytest** — Unit testing framework
 
-#### Code Formatting
+### Code Formatting
 
 The project uses **Black** as the official Python code formatter.
 
@@ -422,7 +422,7 @@ cd backend
 black .
 ```
 
-#### Static Analysis
+### Static Analysis
 
 The project uses **Ruff** for fast static analysis and linting.
 
@@ -447,7 +447,7 @@ Automatically fix supported issues:
 ruff check . --fix
 ```
 
-#### Testing
+### Testing
 
 The project uses **Pytest** as the primary testing framework.
 
@@ -469,7 +469,7 @@ Future development will include unit tests, integration tests, and API validatio
 
 Using a single configuration file simplifies project maintenance and ensures a consistent development experience across different environments.
 
-#### Project Status
+### Project Status
 
 The project is being developed incrementally using a structured, phase-based workflow inspired by professional software engineering practices.
 
@@ -491,19 +491,21 @@ The project is being developed incrementally using a structured, phase-based wor
 
 The repository is now fully prepared for machine learning development. The next phase focuses on dataset selection, validation, and business understanding before any model training begins.
 
-### 2.6 Initial Git commit
+## 2.6 Initial Git commit
 
 Initialized and pushed to git origin main.
 
-## PHASE 3 — Dataset & Understanding
+---
 
-### 3.1 Select dataset
+# PHASE 3 — Dataset & Understanding
 
-#### Dataset
+## 3.1 Select dataset
+
+### Dataset
 
 The project uses the **IBM Telco Customer Churn** dataset, a publicly available benchmark dataset for customer churn prediction.
 
-#### Dataset Overview
+### Dataset Overview
 
 - **Domain:** Telecommunications
 - **Problem Type:** Binary Classification
@@ -511,7 +513,7 @@ The project uses the **IBM Telco Customer Churn** dataset, a publicly available 
 - **Records:** Approximately 7,000 customer records
 - **Features:** Customer demographics, account information, subscribed services, contract details, billing information, and customer tenure.
 
-#### Dataset Management
+### Dataset Management
 
 To preserve reproducibility:
 
@@ -519,17 +521,17 @@ To preserve reproducibility:
 - Cleaned and transformed datasets will be stored in `data/processed/`.
 - The raw dataset is never modified directly.
 
-### 3.2 Data dictionary
+## 3.2 Data dictionary
 
-#### Data Dictionary
+### Data Dictionary
 
 A complete data dictionary is maintained in `docs/dataset.md`.
 
 The document describes every feature, its data type, business meaning, and role within the machine learning pipeline. Maintaining a dedicated data dictionary improves reproducibility, simplifies feature engineering, and provides clear business context for model development and explainability.
 
-### 3.3 Define target variable
+## 3.3 Define target variable
 
-#### Target Variable
+### Target Variable
 
 The machine learning model predicts the **`Churn`** column, making this a **binary classification** problem.
 
@@ -538,7 +540,7 @@ The machine learning model predicts the **`Churn`** column, making this a **bina
 
 Target encoding is performed during the preprocessing stage, while the original dataset is preserved in its raw form to maintain reproducibility.
 
-#### Data Validation
+### Data Validation
 
 Before exploratory data analysis, the dataset undergoes an initial validation process to verify its overall quality and structure.
 
@@ -555,10 +557,11 @@ The validation includes:
 
 This validation step establishes a reliable baseline before any preprocessing or feature engineering is performed.
 
+---
 
-## PHASE 4 — Exploratory Data Analysis (EDA)
+# PHASE 4 — Exploratory Data Analysis (EDA)
 
-### Exploratory Data Analysis
+## Exploratory Data Analysis
 
 Exploratory Data Analysis (EDA) is performed after validating the dataset to understand its structure, feature distribution, and business characteristics before any preprocessing or model training.
 
@@ -573,7 +576,7 @@ The EDA process includes:
 - Correlation analysis
 - Business insights
 
-### Missing Value Analysis
+## Missing Value Analysis
 
 The dataset is evaluated for multiple forms of missing information before preprocessing.
 
@@ -587,7 +590,7 @@ A consolidated data quality report is generated to identify affected features. A
 
 The objective of EDA is to understand the dataset and identify meaningful patterns before applying machine learning techniques.
 
-### Target Variable Analysis
+## Target Variable Analysis
 
 The target variable (`Churn`) is analyzed to understand customer retention and churn distribution.
 
@@ -600,7 +603,7 @@ The analysis includes:
 
 This evaluation establishes the baseline for selecting appropriate model evaluation metrics during the training phase.
 
-### Numerical Feature Analysis
+## Numerical Feature Analysis
 
 All numerical features are analyzed using descriptive statistics and visualizations.
 
@@ -614,7 +617,7 @@ The analysis includes:
 
 Temporary data type conversions are performed only for visualization purposes. The original dataset remains unchanged throughout the exploratory analysis.
 
-### Categorical Feature Analysis
+## Categorical Feature Analysis
 
 Categorical and binary features are analyzed to understand customer characteristics and their relationship with churn.
 
@@ -628,7 +631,7 @@ The analysis includes:
 
 This analysis helps identify customer segments with higher churn risk and provides valuable insights for feature engineering and model development.
 
-### Correlation Analysis
+## Correlation Analysis
 
 Correlation analysis is performed on numerical features to understand linear relationships within the dataset.
 
@@ -641,7 +644,7 @@ The analysis includes:
 
 Categorical feature relationships are intentionally excluded from this stage and are handled later through preprocessing and feature importance analysis.
 
-### 4.7 Business insights
+## 4.7 Business insights
 
 The exploratory analysis concludes with a business-oriented interpretation of the findings.
 
@@ -649,7 +652,7 @@ Instead of reporting only statistical observations, the project translates data 
 
 All insights generated during EDA are treated as hypotheses and are validated later using machine learning models and explainability techniques.
 
-### 4.8 EDA report
+## 4.8 EDA report
 
 A consolidated exploratory data analysis report is maintained in `docs/eda_report.md`.
 
@@ -664,106 +667,151 @@ The report summarizes:
 
 This document serves as the formal conclusion of the exploratory analysis before feature engineering and machine learning model development begin.
 
-## PHASE 5 — Data Preprocessing
+---
 
-### 5.1 Handle missing values
+# PHASE 5 — Data Preprocessing
 
-### 5.2 Handle outliers
+The data preprocessing phase prepares the validated dataset for machine learning model development while preserving the original raw dataset.
 
-### 5.3 Encode categorical features
+## 5.1 Handle Missing Values
 
-### 5.4 Feature scaling
+The `TotalCharges` column contained 11 whitespace values that were identified as missing during exploratory data analysis.
 
-### 5.5 Train-test split
+These records were inspected individually and all affected customers had a tenure of 0 months, indicating newly acquired customers with no accumulated charges.
 
-### 5.6 Build preprocessing pipeline
+Therefore, the missing `TotalCharges` values were replaced with `0` instead of removing the records. This preserves all 7,043 customer records while maintaining a business-consistent interpretation of the data.
 
-## PHASE 6 — Feature Engineering
+The original raw dataset remains unchanged.
 
-### 6.1 Feature selection
+## 5.2 Handle Outliers
 
-### 6.2 Feature creation
+Numerical features were analyzed using the Interquartile Range (IQR) method:
 
-### 6.3 Pipeline optimization
+- `tenure`
+- `MonthlyCharges`
+- `TotalCharges`
 
-## PHASE 7 — Model Development
+No IQR-based outliers were identified in these numerical features.
 
-### 7.1 Baseline model
+No rows were removed and no values were clipped during this step because the observed numerical values were retained as valid customer observations.
 
-### 7.2 Train multiple models
+## 5.3 Encode Categorical Features
 
-### 7.3 Hyperparameter tuning
+Categorical input features were transformed using One-Hot Encoding with the first category dropped to avoid redundant dummy variables.
 
-### 7.4 Cross-validation
+The target variable `Churn` was encoded separately:
 
-### 7.5 Model comparison
+- `No` → `0`
+- `Yes` → `1`
 
-### 7.6 Final model selection
+The `customerID` identifier was excluded from model features because it does not provide predictive information.
 
-## PHASE 8 — Model Evaluation & Explainability
+The encoded dataset contains 7,043 records and 31 columns.
 
-### 8.1 Performance metrics
+## 5.4 Feature Scaling
 
-### 8.2 Confusion matrix
+Numerical features were prepared for standardization using `StandardScaler`.
 
-### 8.3 ROC-AUC analysis
+The selected numerical features are:
 
-### 8.4 SHAP explainability
+- `tenure`
+- `MonthlyCharges`
+- `TotalCharges`
 
-### 8.5 Final evaluation report
+One-hot encoded categorical features remain unchanged.
 
-## PHASE 9 — Backend API
+The scaler is intentionally configured but not fitted on the complete dataset at this stage. It will be fitted only on training data during the final preprocessing pipeline to prevent data leakage.
 
-### 9.1 FastAPI setup
+## 5.5 Train-test split
 
-### 9.2 Prediction endpoint
+## 5.6 Build preprocessing pipeline
 
-### 9.3 Input validation
+# PHASE 6 — Feature Engineering
 
-### 9.4 API documentation
+## 6.1 Feature selection
 
-### 9.5 Error handling
+## 6.2 Feature creation
 
-## PHASE 10 — Frontend Dashboard
+## 6.3 Pipeline optimization
 
-### 10.1 UI design
+# PHASE 7 — Model Development
 
-### 10.2 Prediction form
+## 7.1 Baseline model
 
-### 10.3 Results page
+## 7.2 Train multiple models
 
-### 10.4 Responsive design
+## 7.3 Hyperparameter tuning
 
-### 10.5 API integration
+## 7.4 Cross-validation
 
-## PHASE 11 — Testing
+## 7.5 Model comparison
 
-### 11.1 Unit tests
+## 7.6 Final model selection
 
-### 11.2 Integration testing
+# PHASE 8 — Model Evaluation & Explainability
 
-### 11.3 Manual testing
+## 8.1 Performance metrics
 
-### 11.4 Bug fixes
+## 8.2 Confusion matrix
 
-## PHASE 12 — Deployment
+## 8.3 ROC-AUC analysis
 
-### 12.1 Dockerize application
+## 8.4 SHAP explainability
 
-### 12.2 Deploy backend
+## 8.5 Final evaluation report
 
-### 12.3 Deploy frontend
+# PHASE 9 — Backend API
 
-### 12.4 Final production testing
+## 9.1 FastAPI setup
 
-## PHASE 13 — Documentation & Portfolio
+## 9.2 Prediction endpoint
 
-### 13.1 Professional README
+## 9.3 Input validation
 
-### 13.2 Architecture diagram
+## 9.4 API documentation
 
-### 13.3 Screenshots
+## 9.5 Error handling
 
-### 13.4 Demo video
+# PHASE 10 — Frontend Dashboard
 
-### 13.5 Portfolio integration
+## 10.1 UI design
+
+## 10.2 Prediction form
+
+## 10.3 Results page
+
+## 10.4 Responsive design
+
+## 10.5 API integration
+
+# PHASE 11 — Testing
+
+## 11.1 Unit tests
+
+## 11.2 Integration testing
+
+## 11.3 Manual testing
+
+## 11.4 Bug fixes
+
+# PHASE 12 — Deployment
+
+## 12.1 Dockerize application
+
+## 12.2 Deploy backend
+
+## 12.3 Deploy frontend
+
+## 12.4 Final production testing
+
+# PHASE 13 — Documentation & Portfolio
+
+## 13.1 Professional README
+
+## 13.2 Architecture diagram
+
+## 13.3 Screenshots
+
+## 13.4 Demo video
+
+## 13.5 Portfolio integration
