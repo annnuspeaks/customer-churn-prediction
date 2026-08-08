@@ -945,8 +945,15 @@ The ROC-AUC score indicates good overall separation between churn and non-churn 
 
 The Precision-Recall analysis provides additional insight into churn-class performance and highlights the trade-off between identifying more churners and maintaining prediction precision.
 
-## 8.4 SHAP explainability
+## 8.4 SHAP Explainability
 
+SHAP (SHapley Additive exPlanations) was used to provide model-level explainability for the selected Logistic Regression model.
+
+The analysis was performed on the transformed feature space used by the final model. SHAP values were generated for all 1,409 held-out test records across 34 processed features.
+
+The global SHAP summary identifies the features that contribute most strongly to the model's predictions, providing an interpretable view of the factors influencing churn predictions.
+
+The explainability analysis was performed without retraining the model.
 ## 8.5 Final evaluation report
 
 # PHASE 9 — Backend API
