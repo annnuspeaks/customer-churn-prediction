@@ -791,7 +791,32 @@ The optimized pipeline produces **34 processed features** from the training and 
 
 # PHASE 7 — Model Development
 
-## 7.1 Baseline model
+## 7.1 Baseline Model
+
+A Logistic Regression classifier was established as the baseline model for customer churn prediction.
+
+The baseline uses the reusable preprocessing pipeline developed during Phase 6, ensuring consistent data preparation, feature engineering, categorical encoding, and numerical scaling.
+
+An 80/20 stratified train-test split was used:
+
+- Training records: 5,634
+- Testing records: 1,409
+- Random state: 42
+- Stratification: `Churn`
+
+### Baseline Performance
+
+| Metric | Score |
+|--------|------:|
+| Accuracy | 0.7999 |
+| Precision | 0.6554 |
+| Recall | 0.5187 |
+| F1 Score | 0.5791 |
+| ROC-AUC | 0.8424 |
+
+The Logistic Regression model provides an interpretable reference point for evaluating more advanced classification models in subsequent phases.
+
+The baseline results will be used as a benchmark for model comparison and improvement.
 
 ## 7.2 Train multiple models
 
