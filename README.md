@@ -985,7 +985,32 @@ Phase 8 establishes the final evaluation baseline that will be carried forward i
 
 # PHASE 9 — Backend API
 
-## 9.1 FastAPI setup
+## 9.1 FastAPI Setup
+
+A lightweight FastAPI backend was established to serve the trained customer churn prediction model.
+
+The API currently provides:
+
+- Root API status endpoint
+- Health-check endpoint
+- FastAPI automatic API documentation
+- Uvicorn-based local development server
+
+The backend is designed for deployment on Render's free tier.
+
+### API Structure
+
+```text
+backend/
+├── artifacts/
+│   └── models/
+├── src/
+│   ├── api/
+│   │   ├── __init__.py
+│   │   └── main.py
+│   └── ml/
+└── requirements.txt
+```
 
 ## 9.2 Prediction endpoint
 
