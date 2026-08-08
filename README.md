@@ -818,7 +818,17 @@ The Logistic Regression model provides an interpretable reference point for eval
 
 The baseline results will be used as a benchmark for model comparison and improvement.
 
-## 7.2 Train multiple models
+## 7.2 Train Multiple Models
+
+Three additional classification algorithms were trained using the same reusable preprocessing workflow:
+
+- Decision Tree
+- Random Forest
+- Linear Support Vector Machine
+
+Each model receives an independent copy of the preprocessing pipeline to ensure consistent and isolated transformations during training.
+
+These models will be compared with the Logistic Regression baseline during the model comparison stage.
 
 ## 7.3 Hyperparameter tuning
 
