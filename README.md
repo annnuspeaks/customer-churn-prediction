@@ -482,8 +482,8 @@ The project is being developed incrementally using a structured, phase-based wor
 | Data Preprocessing | ✅ Completed |
 | Feature Engineering | ✅ Completed |
 | Model Development | ✅ Completed |
-| Model Evaluation | 🔄 In Progress |
-| Backend API | ⏳ Pending |
+| Model Evaluation | ✅ Completed |
+| Backend API | 🔄 In Progress |
 | Frontend Dashboard | ⏳ Pending |
 | Testing | ⏳ Pending |
 | Deployment | ⏳ Pending |
@@ -836,7 +836,7 @@ Hyperparameter tuning was performed for the Decision Tree and Random Forest mode
 
 A 3-fold cross-validation strategy was applied to the training data, with ROC-AUC used as the optimization metric.
 
-#### Best Configurations
+### Best Configurations
 
 | Model | Best Parameters | CV ROC-AUC |
 |---|---|---:|
@@ -885,7 +885,7 @@ Although the Tuned Random Forest achieved the highest test ROC-AUC (0.8436) and 
 
 Therefore, Logistic Regression was selected as the final model.
 
-#### Final Model Performance
+### Final Model Performance
 
 | Metric | Score |
 |---|---:|
@@ -954,7 +954,34 @@ The analysis was performed on the transformed feature space used by the final mo
 The global SHAP summary identifies the features that contribute most strongly to the model's predictions, providing an interpretable view of the factors influencing churn predictions.
 
 The explainability analysis was performed without retraining the model.
-## 8.5 Final evaluation report
+
+## 8.5 Final Evaluation Report
+
+The final evaluation consolidates the classification, threshold-based, error-analysis, and explainability results for the selected Logistic Regression model.
+
+### Final Performance
+
+| Metric | Score |
+|---|---:|
+| Accuracy | 0.7999 |
+| Precision | 0.6554 |
+| Recall | 0.5187 |
+| F1 Score | 0.5791 |
+| ROC-AUC | 0.8424 |
+| Average Precision | 0.6367 |
+
+### Confusion Matrix
+
+| | Predicted No Churn | Predicted Churn |
+|---|---:|---:|
+| Actual No Churn | 933 | 102 |
+| Actual Churn | 180 | 194 |
+
+The model demonstrates good overall discrimination with a ROC-AUC of 0.8424. However, 180 actual churn customers were classified as non-churn, highlighting recall as an important area for future improvement.
+
+SHAP analysis was also performed to provide global model explainability across the transformed feature space.
+
+Phase 8 establishes the final evaluation baseline that will be carried forward into the deployment phase.
 
 # PHASE 9 — Backend API
 
