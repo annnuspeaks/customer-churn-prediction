@@ -830,7 +830,20 @@ Each model receives an independent copy of the preprocessing pipeline to ensure 
 
 These models will be compared with the Logistic Regression baseline during the model comparison stage.
 
-## 7.3 Hyperparameter tuning
+## 7.3 Hyperparameter Tuning
+
+Hyperparameter tuning was performed for the Decision Tree and Random Forest models using `GridSearchCV`.
+
+A 3-fold cross-validation strategy was applied to the training data, with ROC-AUC used as the optimization metric.
+
+#### Best Configurations
+
+| Model | Best Parameters | CV ROC-AUC |
+|---|---|---:|
+| Decision Tree | `max_depth=5`, `min_samples_split=10` | 0.8236 |
+| Random Forest | `n_estimators=200`, `max_depth=8`, `min_samples_split=5` | 0.8449 |
+
+The tuned Random Forest achieved the strongest cross-validated ROC-AUC among the tuned models and will be evaluated further against the baseline and other candidate models.
 
 ## 7.4 Cross-validation
 
