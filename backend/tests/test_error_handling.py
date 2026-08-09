@@ -1,14 +1,9 @@
 from pathlib import Path
-
 from fastapi.testclient import TestClient
-
 from backend.src.api.main import app
-
 from unittest.mock import Mock, patch
 
-
 client = TestClient(app)
-
 
 VALID_PAYLOAD = {
     "gender": "Female",
@@ -32,7 +27,6 @@ VALID_PAYLOAD = {
     "TotalCharges": 29.85,
 }
 
-
 def test_invalid_tenure_returns_422():
     payload = VALID_PAYLOAD.copy()
     payload["tenure"] = -1
@@ -40,7 +34,6 @@ def test_invalid_tenure_returns_422():
     response = client.post("/predict", json=payload)
 
     assert response.status_code == 422
-
 
 def test_invalid_monthly_charges_returns_422():
     payload = VALID_PAYLOAD.copy()
@@ -50,7 +43,6 @@ def test_invalid_monthly_charges_returns_422():
 
     assert response.status_code == 422
 
-
 def test_invalid_total_charges_returns_422():
     payload = VALID_PAYLOAD.copy()
     payload["TotalCharges"] = -1
@@ -59,7 +51,6 @@ def test_invalid_total_charges_returns_422():
 
     assert response.status_code == 422
 
-
 def test_invalid_gender_returns_422():
     payload = VALID_PAYLOAD.copy()
     payload["gender"] = "Invalid"
@@ -67,7 +58,6 @@ def test_invalid_gender_returns_422():
     response = client.post("/predict", json=payload)
 
     assert response.status_code == 422
-
 
 def test_invalid_contract_returns_422():
     payload = VALID_PAYLOAD.copy()

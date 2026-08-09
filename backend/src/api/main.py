@@ -65,6 +65,10 @@ async def global_exception_handler(
     request: Request,
     exc: Exception
 ):
+    logger.exception(
+        "Unhandled application exception occurred."
+    )
+
     return JSONResponse(
         status_code=500,
         content=ErrorResponse(
@@ -73,14 +77,12 @@ async def global_exception_handler(
         ).model_dump()
     )
 
-
 @app.get("/")
 def root():
     return {
         "message": "Customer Churn Prediction API",
         "status": "running",
     }
-
 
 @app.get("/health")
 def health_check():
