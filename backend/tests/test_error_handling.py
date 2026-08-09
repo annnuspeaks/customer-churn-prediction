@@ -1,8 +1,10 @@
+from pathlib import Path
+
 from fastapi.testclient import TestClient
 
 from backend.src.api.main import app
 
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 
 client = TestClient(app)
@@ -117,3 +119,57 @@ def test_global_exception_handler_returns_500():
         "error": "InternalServerError",
         "message": "An unexpected internal server error occurred.",
     }
+
+def test_model_loads_successfully_during_startup(monkeypatch):
+    import backend.src.api.main as main_module
+
+    fake_model_path = Path("fake_model.joblib")
+    fake_model = Mock()
+
+    monkeypatch.setattr(
+        main_module,
+        "MODEL_PATH",
+        fake_model_path,
+    )
+
+    monkeypatch.setattr(
+        Path,
+        "exists",
+        lambda self: True,
+    )
+
+    with patch(
+        "backend.src.api.main.joblib.load",
+        return_value=fake_model,
+    ) as mock_load:
+        with TestClient(main_module.app):
+            mock_load.assert_called_once_with(fake_model_path)
+
+    assert main_module.model is fake_model
+
+def test_missing_model_artifact_aborts_startup(monkeypatch):
+    import backend.src.api.main as main_module
+
+    fake_model_path = Path("missing_model.joblib")
+
+    monkeypatch.setattr(
+        main_module,
+        "MODEL_PATH",
+        fake_model_path,
+    )
+
+    monkeypatch.setattr(
+        Path,
+        "exists",
+        lambda self: False,
+    )
+
+    try:
+        with TestClient(main_module.app):
+            pass
+    except FileNotFoundError as exc:
+        assert "Model artifact not found" in str(exc)
+    else:
+        raise AssertionError(
+            "Application startup should fail when the model artifact is missing."
+        )
