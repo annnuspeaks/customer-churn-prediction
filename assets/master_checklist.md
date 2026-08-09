@@ -99,6 +99,13 @@ Customer Churn Prediction Platform
 │   │   ├── 10.1.1 Fresh Frontend Project Setup
 │   │   ├── 10.1.2 Frontend Architecture & Structure
 │   │   ├── 10.1.3 — Global Design System & Theme Foundation
+│   │   ├── 10.1.4 Navigation System
+│   │   ├── 10.1.5 Global Floating Controls
+│   │   ├── 10.1.6 Navbar
+│   │   ├── 10.1.7 Home Page UI
+│   │   ├── 10.1.8 Footer
+│   │   ├── 10.1.9 Responsive UI
+│   │   └── 10.1.10 Final UI Review
 │   ├── 10.2 Prediction form
 │   ├── 10.3 Results page
 │   ├── 10.4 Responsive design
