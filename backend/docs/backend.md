@@ -2035,9 +2035,7 @@ This occurs when the submitted request does not satisfy the CustomerInput schema
 |----------|----------|----------|
 | 200 | Successful request | Root, health, prediction
 | 422 | Validation failure | Invalid prediction input
-| 500 | Internal server error | Possible runtime failure
-
-Detailed application-level error handling for unexpected failures will be addressed in Phase 9.5.
+| 500 | Internal server error | Global and prediction runtime handling |
 
 ## 22.4 Status Code Philosophy
 
@@ -2062,46 +2060,114 @@ Phase 9.5 — Error Handling
 
 ## 23.1 Current Validation Errors
 
-Invalid request data is automatically converted into HTTP 422 responses.
+Invalid request data is automatically converted into HTTP 422 responses through FastAPI and Pydantic validation.
 
-## 23.2 Current Runtime Errors
+The `CustomerInput` schema defines the accepted categorical values and numerical constraints.
 
-Unexpected errors such as model loading failures or unexpected inference exceptions are not yet wrapped in custom application-level handlers.
+Validation occurs before the prediction function executes.
 
-## 23.3 Planned Error Handling
+## 23.2 Current Runtime Error Handling
 
-Phase 9.5 will address:
- - Structured API error responses.
- - Prediction failures.
- - Model loading failures.
- - Unexpected inference exceptions.
- - Logging of backend errors.
- - Safe client-facing error messages.
+Unexpected application-level exceptions are handled through a global FastAPI exception handler.
+
+The global handler returns a standardized HTTP 500 response:
+
+```json
+{
+  "error": "InternalServerError",
+  "message": "An unexpected internal server error occurred."
+}
+```
+
+Internal exception details are intentionally not exposed to API clients.
+
+## 23.3 Prediction Runtime Errors
+
+The ```/predict``` endpoint additionally contains a prediction-specific error boundary.
+
+If an exception occurs while:
+ - Creating the inference DataFrame.
+ - Running ```model.predict()```.
+ - Running ```model.predict_proba()```.
+ - Constructing the prediction response.
+
+the endpoint returns:
+
+```text
+{
+  "error": "PredictionError",
+  "message": "Unable to generate churn prediction."
+}
+```
+
+with HTTP status:
+
+```text
+500 Internal Server Error
+```
 
 ## 23.4 Error Handling Boundary
 
-The intended architecture is:
+The current architecture is:
 
-```bash
+```text
 Client
   ↓
 Request Validation
-  ↓
-Prediction
-  ↓
-Success Response
-
-             OR
-
-             ↓
-        Runtime Failure
-             ↓
-      Error Handler
-             ↓
-   Structured Error Response
+  │
+  ├── Invalid
+  │      ↓
+  │    HTTP 422
+  │
+  └── Valid
+         ↓
+      Prediction
+         │
+         ├── Success
+         │      ↓
+         │    HTTP 200
+         │
+         └── Runtime Failure
+                ↓
+        PredictionError Handler
+                ↓
+             HTTP 500
 ```
 
-The exact implementation will be documented after Phase 9.5 is completed.
+Unexpected exceptions outside the prediction-specific boundary are handled by the global application exception handler.
+
+## 23.5 Client-Safe Error Messages
+
+The backend intentionally separates client-facing messages from internal exception details.
+
+Clients receive safe messages such as:
+
+```text
+InternalServerError
+PredictionError
+```
+
+rather than Python traceback information, file paths, stack traces, or implementation details.
+
+Internal diagnostic logging will be addressed in the later logging subphase.
+
+## 23.6 Error Handling Status
+
+The current implementation provides:
+
+| Capability | Status |
+|-------------|-------------|
+| Pydantic validation | Implemented |
+| HTTP 422 validation response | Implemented |
+| Global exception handler | Implemented |
+| Standard ```ErrorResponse``` model | Implemented |
+| Prediction-specific error handling | Implemented |
+| Client-safe runtime messages | Implemented |
+| Runtime failure test | Pending Phase 9.5.6 |
+| Detailed application logging | Pending Phase 9.5.5 |
+| Startup/model loading handling | Pending Phase 9.5.4 |
+
+---
 
 # 24. OpenAPI Documentation
 

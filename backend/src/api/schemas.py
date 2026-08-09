@@ -39,3 +39,7 @@ class CustomerInput(BaseModel):
 
     MonthlyCharges: float = Field(ge=0)
     TotalCharges: float = Field(ge=0)
+
+class ErrorResponse(BaseModel):
+    error: str
+    message: str

@@ -76,7 +76,13 @@ Customer Churn Prediction Platform
 │   │   ├── 9.4.6 Security, Reliability & Troubleshooting
 │   │   └── 9.4.7 Documentation Review & Finalization
 │   └── 9.5 Error handling
-│
+│   │   ├── 9.5.1  Error Response Contract & Handling Foundation
+│   │   ├── 9.5.2  Global Exception Handling
+│   │   ├── 9.5.3  Prediction Runtime Error Handling
+│   │   ├── 9.5.4  Model Loading & Startup Error Handling
+│   │   ├── 9.5.5  Logging & Diagnostic Information
+│   │   └── 9.5.6  Error Handling Tests
+│   │
 ├── PHASE 10 — Frontend Dashboard
 │   ├── 10.1 UI design
 │   ├── 10.2 Prediction form
