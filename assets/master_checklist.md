@@ -96,6 +96,9 @@ Customer Churn Prediction Platform
 │   │
 ├── PHASE 10 — Frontend Dashboard
 │   ├── 10.1 UI design
+│   │   ├── 10.1.1 Fresh Frontend Project Setup
+│   │   ├── 10.1.2 Frontend Architecture & Structure
+│   │   ├── 10.1.3 — Global Design System & Theme Foundation
 │   ├── 10.2 Prediction form
 │   ├── 10.3 Results page
 │   ├── 10.4 Responsive design
