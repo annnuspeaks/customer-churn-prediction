@@ -2151,21 +2151,51 @@ rather than Python traceback information, file paths, stack traces, or implement
 
 Internal diagnostic logging will be addressed in the later logging subphase.
 
-## 23.6 Error Handling Status
+## 23.6 Model Loading and Startup Errors
 
-The current implementation provides:
+The ML model is loaded during FastAPI application startup using the application lifespan mechanism.
 
-| Capability | Status |
-|-------------|-------------|
-| Pydantic validation | Implemented |
-| HTTP 422 validation response | Implemented |
-| Global exception handler | Implemented |
-| Standard ```ErrorResponse``` model | Implemented |
-| Prediction-specific error handling | Implemented |
-| Client-safe runtime messages | Implemented |
-| Runtime failure test | Pending Phase 9.5.6 |
-| Detailed application logging | Pending Phase 9.5.5 |
-| Startup/model loading handling | Pending Phase 9.5.4 |
+The model artifact is validated before loading.
+
+The startup sequence is:
+
+```text
+Application Startup
+        ↓
+Resolve Model Path
+        ↓
+Check Artifact Exists
+        ↓
+Load Joblib Artifact
+        │
+        ├── Success
+        │      ↓
+        │   Application Ready
+        │
+        └── Failure
+               ↓
+        Log Startup Error
+               ↓
+        Abort Application Startup
+```
+
+The backend does not intentionally start in a partially initialized state when the required model artifact cannot be loaded.
+
+## 23.7 Startup Error Logging
+
+Model-loading failures are logged using the backend logger.
+
+The log records the startup failure and retains the underlying exception for server-side diagnostics.
+
+Internal exception details are not returned through an API response because the application does not become available when model initialization fails.
+
+## 23.9 Lifespan-Based Initialization
+
+The application uses FastAPI's lifespan mechanism for startup initialization.
+
+This provides a centralized lifecycle boundary for resources that must be initialized before the API becomes ready.
+
+The model-loading operation is currently the primary startup resource.
 
 ---
 

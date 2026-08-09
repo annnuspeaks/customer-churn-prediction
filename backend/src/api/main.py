@@ -1,16 +1,53 @@
 from pathlib import Path
 
 import joblib
+import logging
 import pandas as pd
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from backend.src.api.schemas import CustomerInput, ErrorResponse
+
+logger = logging.getLogger(__name__)
+
+MODEL_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "artifacts"
+    / "models"
+    / "logistic_regression_final.joblib"
+)
+
+model = None
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    global model
+
+    try:
+        if not MODEL_PATH.exists():
+            raise FileNotFoundError(
+                f"Model artifact not found: {MODEL_PATH}"
+            )
+
+        model = joblib.load(MODEL_PATH)
+
+        logger.info("ML model loaded successfully.")
+
+        yield
+
+    except Exception:
+        logger.exception(
+            "Failed to load ML model during application startup."
+        )
+        raise
+
 
 app = FastAPI(
     title="Customer Churn Prediction API",
     description="API for predicting customer churn using the trained ML model.",
     version="1.0.0",
+    lifespan=lifespan,
 )
 
 
@@ -26,17 +63,6 @@ async def global_exception_handler(
             message="An unexpected internal server error occurred."
         ).model_dump()
     )
-
-
-MODEL_PATH = (
-    Path(__file__).resolve().parents[2]
-    / "artifacts"
-    / "models"
-    / "logistic_regression_final.joblib"
-)
-
-model = joblib.load(MODEL_PATH)
-
 
 @app.get("/")
 def root():
