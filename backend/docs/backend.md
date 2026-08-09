@@ -4604,6 +4604,70 @@ CRITICAL
 
 More detailed logging levels may be introduced if required by future debugging or production monitoring needs.
 
+## 56.5 Prediction Logging
+
+The `/predict` endpoint records operational information for successful and failed inference attempts.
+
+Successful predictions generate an informational log:
+
+```text
+Prediction completed successfully.
+```
+
+Prediction failures generate an exception log:
+
+```text
+Prediction failed during inference.
+```
+
+The failure log retains the server-side exception traceback for diagnostic purposes.
+
+## 56.6 Safe Prediction Logging
+
+Prediction logs intentionally do not contain the customer's submitted feature values.
+
+The backend does not log:
+ - Customer attributes.
+ - Raw request payloads.
+ - Customer identifiers.
+ - Individual feature values.
+ - Prediction probability as a diagnostic log field.
+
+The logging boundary is therefore:
+
+```text
+Prediction Request
+       ↓
+Model Inference
+       ↓
+Operational Log
+       │
+       ├── Success
+       │     └── "Prediction completed successfully."
+       │
+       └── Failure
+             └── Exception traceback
+```
+
+This provides diagnostic visibility without unnecessarily exposing customer information.
+
+## 56.7 Prediction Error Handling
+
+When prediction inference raises an exception, the backend records the exception server-side and returns a client-safe response.
+
+The client receives:
+
+```json
+{
+  "error": "PredictionError",
+  "message": "Unable to generate churn prediction."
+}
+```
+
+with HTTP status ```500```.
+
+Internal Python exception details are not included in the API response.
+
 ## 56.5 Monitoring
 
 Potential operational metrics include:

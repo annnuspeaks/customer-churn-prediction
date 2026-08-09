@@ -88,7 +88,6 @@ def health_check():
         "status": "healthy",
     }
 
-
 @app.post("/predict", response_model=dict)
 def predict(customer_data: CustomerInput):
     try:
@@ -97,13 +96,19 @@ def predict(customer_data: CustomerInput):
         prediction = model.predict(input_data)[0]
         probability = model.predict_proba(input_data)[0][1]
 
-        return {
+        result = {
             "prediction": int(prediction),
             "churn": "Yes" if prediction == 1 else "No",
             "churn_probability": round(float(probability), 4),
         }
 
+        logger.info("Prediction completed successfully.")
+
+        return result
+
     except Exception:
+        logger.exception("Prediction failed during inference.")
+
         return JSONResponse(
             status_code=500,
             content=ErrorResponse(
