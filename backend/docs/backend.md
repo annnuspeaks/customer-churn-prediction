@@ -4668,42 +4668,17 @@ with HTTP status ```500```.
 
 Internal Python exception details are not included in the API response.
 
-## 56.5 Monitoring
+## 56.8 Safe Diagnostic Information
 
-Potential operational metrics include:
+The backend logging strategy intentionally separates operational diagnostics from customer data.
 
-```text
-Request count
-Successful prediction count
-Validation error count
-Prediction error count
-Response latency
-Application availability
-Startup failures
-```
+The application does not log raw prediction request payloads or individual customer feature values.
 
-## 56.6 Health Endpoint
+Successful prediction requests generate a generic informational log, while prediction failures generate server-side exception diagnostics.
 
-The current:
+Client-facing error responses contain only safe, predefined error information and do not expose Python exceptions, tracebacks, file paths, or internal implementation details.
 
-```text
-GET /health
-```
-
-endpoint provides a lightweight availability signal.
-
-It should not currently be interpreted as a complete dependency health check.
-
-## 56.7 Future Observability
-
-As the project evolves, observability may include:
- - Structured logs.
- - Error tracking.
- - Request latency monitoring.
- - Health monitoring.
- - Deployment alerts.
-
-These are future improvements rather than current requirements.
+This provides diagnostic visibility while minimizing unnecessary exposure of customer information.
 
 # 57. Performance and Reliability Troubleshooting
 
