@@ -2189,7 +2189,7 @@ The log records the startup failure and retains the underlying exception for ser
 
 Internal exception details are not returned through an API response because the application does not become available when model initialization fails.
 
-## 23.9 Lifespan-Based Initialization
+## 23.8 Lifespan-Based Initialization
 
 The application uses FastAPI's lifespan mechanism for startup initialization.
 
@@ -2197,6 +2197,52 @@ This provides a centralized lifecycle boundary for resources that must be initia
 
 The model-loading operation is currently the primary startup resource.
 
+## 23.9 Prediction Runtime Error Tests
+
+The backend prediction runtime error path is covered by an automated test.
+
+The test temporarily replaces the in-memory ML model with a mock model whose `predict()` method raises a controlled `RuntimeError`.
+
+The production model artifact is not modified.
+
+The test verifies that:
+
+1. The `/predict` endpoint receives an otherwise valid request.
+2. The model inference operation raises an exception.
+3. The prediction-specific exception handler catches the failure.
+4. The API returns HTTP 500.
+5. The response uses the standardized `PredictionError` contract.
+6. Internal exception details are not exposed to the client.
+
+Expected response:
+
+```json
+{
+  "error": "PredictionError",
+  "message": "Unable to generate churn prediction."
+}
+```
+
+## 23.10 Global Exception Handler Tests
+
+The global application exception handler is covered by an automated test.
+
+The test registers a temporary test-only route that deliberately raises an unexpected `RuntimeError`.
+
+The test verifies that:
+
+1. The unexpected exception reaches the global exception handler.
+2. The API returns HTTP 500.
+3. The response uses the standardized `InternalServerError` contract.
+4. The internal exception message is not exposed to the client.
+
+Expected response:
+
+```json
+{
+  "error": "InternalServerError",
+  "message": "An unexpected internal server error occurred."
+}
 ---
 
 # 24. OpenAPI Documentation
