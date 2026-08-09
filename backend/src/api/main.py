@@ -9,6 +9,11 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from backend.src.api.schemas import CustomerInput, ErrorResponse
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+)
+
 logger = logging.getLogger(__name__)
 
 MODEL_PATH = (
@@ -19,6 +24,7 @@ MODEL_PATH = (
 )
 
 model = None
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -33,6 +39,7 @@ async def lifespan(app: FastAPI):
         model = joblib.load(MODEL_PATH)
 
         logger.info("ML model loaded successfully.")
+        logger.info("Application startup complete.")
 
         yield
 
@@ -41,6 +48,8 @@ async def lifespan(app: FastAPI):
             "Failed to load ML model during application startup."
         )
         raise
+    
+    logger.info("Application shutdown complete.")
 
 
 app = FastAPI(
@@ -63,6 +72,7 @@ async def global_exception_handler(
             message="An unexpected internal server error occurred."
         ).model_dump()
     )
+
 
 @app.get("/")
 def root():

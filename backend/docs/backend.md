@@ -4523,30 +4523,45 @@ Logging provides visibility into backend behavior.
 
 ## 56.1 Current Logging
 
-The current backend primarily relies on standard FastAPI/Uvicorn runtime output.
+The backend uses Python's standard `logging` module with a centralized logging configuration.
 
-Dedicated application-level structured logging has not yet been implemented.
+The current configuration uses:
 
-## 56.2 Useful Operational Events
+- `INFO` as the default logging level.
+- Timestamped log messages.
+- Log severity.
+- Logger name.
+- Human-readable log message.
 
-Future application logging may include:
+The current format is:
 
 ```text
-Application startup
-Model loading
-Application shutdown
-Prediction failures
-Unexpected exceptions
-Configuration failures
+timestamp | level | logger | message
 ```
+
+Application-level logging is currently used for backend lifecycle and model initialization events.
+
+## 56.2 Current Operational Events
+
+The backend currently logs:
+ - ML model loaded successfully.
+ - Application startup complete.
+ - Application shutdown complete.
+ - Failed to load ML model during application startup.
+
+These events provide basic visibility into application lifecycle and model initialization.
+
+Prediction-specific logging is handled separately as part of the backend logging implementation.
 
 ## 56.3 Avoid Logging Raw Customer Data
 
 The API receives customer attributes.
 
-Therefore, logging complete request payloads should be avoided unless there is a strong debugging requirement.
+Therefore, complete prediction request payloads should not be written to application logs.
 
-For example, this should generally be avoided:
+The logging strategy should focus on operational information rather than raw customer records.
+
+For example, the backend should not log:
 
 ```text
 POST /predict
@@ -4557,20 +4572,27 @@ POST /predict
 }
 ```
 
-Instead, operational logs should focus on:
+Instead, logs should contain safe operational information such as:
 
 ```text
-Request received
-Validation failed
+Prediction request received
 Prediction completed
 Prediction failed
 ```
 
-without unnecessarily exposing customer attributes.
+without exposing customer attributes.
 
 ## 56.4 Logging Levels
 
-A future logging strategy may distinguish:
+The backend currently uses:
+
+```text
+INFO
+```
+
+as the default logging level.
+
+The logging system supports standard Python logging levels:
 
 ```text
 DEBUG
@@ -4580,9 +4602,7 @@ ERROR
 CRITICAL
 ```
 
-Development can use more verbose logging.
-
-Production should avoid excessive debug-level output.
+More detailed logging levels may be introduced if required by future debugging or production monitoring needs.
 
 ## 56.5 Monitoring
 
