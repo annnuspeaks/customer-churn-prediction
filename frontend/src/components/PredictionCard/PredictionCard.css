@@ -259,3 +259,57 @@
     min-height: 130px;
   }
 }
+
+/* =================================
+   GLASS INTERACTION POLISH
+   ================================= */
+
+.prediction-card {
+  will-change: transform;
+}
+
+.prediction-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08),
+    transparent 45%,
+    var(--color-accent-soft)
+  );
+
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.prediction-card:hover::before {
+  opacity: 0.55;
+}
+
+.prediction-card__action {
+  position: relative;
+  z-index: 2;
+}
+
+.prediction-card__person {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prediction-card,
+  .prediction-card__brain,
+  .prediction-card__person,
+  .prediction-card__action svg {
+    animation: none;
+    transition: none;
+  }
+
+  .prediction-card:hover {
+    transform: none;
+  }
+}
