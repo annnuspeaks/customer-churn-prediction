@@ -1102,3 +1102,21 @@ Completed the final Navbar review covering desktop UI, navigation, active routes
 
 No further Navbar amendments are required.
 
+### 10.1.7 — Home Page UI
+
+Established the Home page as the primary landing experience with a full-width responsive foundation.
+
+#### 10.1.7.1 — Home Architecture & Component Structure
+
+Created a dedicated `Home.jsx` and `Home.css` structure for isolated page content and styling.
+
+#### 10.1.7.2 — Hero / Intro Content
+
+Implemented the Home hero with:
+
+- AI-focused eyebrow
+- Primary churn prediction headline
+- Supporting descriptions
+- Prediction CTA
+- Responsive typography
+- Dark/light theme compatibility
