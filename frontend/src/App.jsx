@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+
+import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 
 import Home from "./pages/Home/Home";
 import Prediction from "./pages/Prediction/Prediction";
@@ -7,9 +10,26 @@ import Support from "./pages/Support/Support";
 import "./App.css";
 
 function App() {
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  const handleThemeToggle = () => {
+    setTheme((currentTheme) =>
+      currentTheme === "dark" ? "light" : "dark"
+    );
+  };
+
   return (
     <BrowserRouter>
       <div className="app">
+        <ThemeToggle
+          theme={theme}
+          onToggle={handleThemeToggle}
+        />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/prediction" element={<Prediction />} />

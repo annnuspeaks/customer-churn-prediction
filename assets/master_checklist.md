@@ -101,6 +101,13 @@ Customer Churn Prediction Platform
 │   │   ├── 10.1.3 — Global Design System & Theme Foundation
 │   │   ├── 10.1.4 Navigation System
 │   │   ├── 10.1.5 Global Floating Controls
+│   │   ├── ├── 10.1.5.1 Theme Toggle Foundation
+│   │   ├── ├── 10.1.5.2 Theme Popup UI
+│   │   ├── ├── 10.1.5.3 Persistent Theme State
+│   │   ├── ├── 10.1.5.4 Back-to-Top Control
+│   │   ├── ├── 10.1.5.5 Fixed Position & Layering
+│   │   ├── ├── 10.1.5.6 Responsive Floating Controls
+│   │   ├── └── 10.1.5.7 Final Floating Controls Review
 │   │   ├── 10.1.6 Navbar
 │   │   ├── 10.1.7 Home Page UI
 │   │   ├── 10.1.8 Footer

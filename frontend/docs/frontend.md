@@ -721,3 +721,269 @@ http://localhost:5173/
 
 10.1.4 is considered complete and locked.
 
+
+### 10.1.5 — Global Floating Controls
+
+### Objective
+
+The Global Floating Controls subsystem provides viewport-level controls that remain independent of individual application pages.
+
+The controls are designed to remain available while users navigate between Home, Prediction, and Support and while page content is scrolled.
+
+The initial global controls are:
+ - Theme Toggle
+ - Back-to-Top Control
+
+The controls are implemented as independent reusable React components.
+
+Each component maintains its own JSX and CSS files.
+
+## Global Control Architecture
+
+The global controls are located under:
+
+```text
+src/
+└── components/
+    ├── ThemeToggle/
+    │   ├── ThemeToggle.jsx
+    │   └── ThemeToggle.css
+    │
+    └── BackToTop/
+        ├── BackToTop.jsx
+        └── BackToTop.css
+```
+
+The controls are mounted at the application level rather than inside individual pages.
+
+This prevents page-specific implementations from being duplicated across Home, Prediction, and Support.
+
+#### 10.1.5.1 — Architecture & Component Structure
+
+##### Objective
+
+The first subphase established the component architecture for global viewport-level controls.
+
+Two dedicated components were defined:
+ - ThemeToggle
+ - BackToTop
+
+Each component has a dedicated stylesheet.
+
+This follows the project's component-specific styling architecture.
+
+##### ThemeToggle
+
+The ThemeToggle component is responsible for presenting the user's current theme state and providing the interaction required to switch between supported themes.
+
+Its implementation is located at:
+
+```text
+src/components/ThemeToggle/
+├── ThemeToggle.jsx
+└── ThemeToggle.css
+```
+
+##### BackToTop
+
+The BackToTop component is responsible for providing a viewport-level mechanism for returning the user to the top of a long page.
+
+Its implementation is located at:
+
+```text
+src/components/BackToTop/
+├── BackToTop.jsx
+└── BackToTop.css
+```
+
+##### Global Mounting Strategy
+
+The global controls are intended to be mounted at the application level.
+
+Conceptually:
+
+```text
+App
+│
+├── Global Floating Controls
+│   ├── ThemeToggle
+│   └── BackToTop
+│
+└── Application Routes
+    ├── Home
+    ├── Prediction
+    └── Support
+```
+
+This ensures that global controls are independent from individual page implementations.
+
+##### Positioning Strategy
+
+The controls use viewport-level positioning rather than normal document flow.
+
+The design system provides a dedicated floating z-index layer for these controls.
+
+The controls therefore remain visually independent from page content.
+
+#### 10.1.5.2 — Theme Toggle Implementation
+
+##### Objective
+
+The second subphase implements the first functional global floating control: the Theme Toggle.
+
+The implementation provides a compact glass-style control positioned independently from the page content.
+
+##### Component
+
+The implementation is located at:
+
+```text
+src/components/ThemeToggle/ThemeToggle.jsx
+```
+
+The component receives two values through props:
+
+```text
+theme
+onToggle
+```
+
+```theme``` represents the currently active theme.
+
+```onToggle``` provides the state transition callback controlled by the application layer.
+
+##### Icon System
+
+Lucide React is used for theme-state icons.
+
+The component displays:
+ - Moon icon for dark theme.
+ - Sun icon for light theme.
+
+The icon therefore communicates the currently active theme and the available state transition.
+
+##### Theme Label
+
+The control displays the current theme label:
+
+```text
+Dark
+```
+
+or:
+
+```text
+Light
+```
+
+The label is hidden on very narrow screens so the control can become a compact icon-only control.
+
+##### Accessibility
+
+The control uses a semantic HTML button.
+
+An accessible ```aria-label``` is dynamically generated based on the current theme.
+
+A matching ```title``` attribute is also provided for pointer-based users.
+
+The button can therefore be operated using standard keyboard interaction.
+
+##### Visual Design
+
+The Theme Toggle follows the application's glassmorphism design system.
+
+The control uses:
+ - Glass background.
+ - Glass border.
+ - Backdrop blur.
+ - Rounded pill shape.
+ - Application shadow tokens.
+ - Accent-colored icon container.
+ - Accent hover border.
+ - Smooth transitions.
+
+##### Desktop Position
+
+The control is positioned independently in the top-right portion of the viewport.
+
+The intended desktop positioning is:
+
+```text
+top: 1.25rem
+right: 1.5rem
+```
+
+The control uses the global floating z-index layer.
+
+##### Hover Interaction
+
+Hovering over the control produces:
+ - Slight upward movement.
+ - Increased glass surface visibility.
+ - Accent border emphasis.
+ - Accent shadow.
+
+The interaction remains subtle to avoid distracting from the primary application content.
+
+##### Keyboard Focus
+
+A visible focus state is provided through:
+ - Accent-colored outline.
+ - Additional outline offset.
+
+This improves keyboard accessibility without changing the component's normal visual appearance.
+
+##### Responsive Behavior
+
+At tablet-sized widths, the control moves closer to the viewport edges.
+
+At very narrow mobile widths, the text label is hidden and the control becomes an icon-focused circular control.
+
+This prevents the floating control from occupying unnecessary horizontal space on small screens.
+
+##### Current Theme State
+
+The current implementation supports:
+
+```text
+Dark
+Light
+```
+
+The initial application state is:
+
+```text
+dark
+```
+
+The active theme is applied through the document root using:
+
+```text
+data-theme
+```
+
+The global CSS design system then resolves the corresponding CSS custom properties.
+
+##### Persistence Scope
+
+Persistent theme storage is intentionally not part of 10.1.5.2.
+
+At this stage the theme state exists in React application state.
+
+Consequently, refreshing the browser resets the application to its initial dark theme.
+
+Theme persistence will be implemented separately in:
+
+```text
+10.1.5.3 — Persistent Theme State
+```
+
+##### Validation
+
+The Theme Toggle implementation was visually validated in the browser.
+
+The control appears independently in the upper-right area of the viewport.
+
+The dark-theme state is displayed correctly.
+
+The component architecture and stylesheet separation were also verified.
