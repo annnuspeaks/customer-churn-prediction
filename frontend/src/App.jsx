@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-
+import BackToTop from "./components/BackToTop/BackToTop";
 import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 
 import Home from "./pages/Home/Home";
@@ -38,7 +38,7 @@ function App() {
           theme={theme}
           onToggle={handleThemeToggle}
         />
-
+        <BackToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/prediction" element={<Prediction />} />

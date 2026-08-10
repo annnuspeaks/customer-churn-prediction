@@ -1007,3 +1007,15 @@ Verified that:
 - Dark theme survives browser refresh.
 - Theme remains consistent across application routes.
 
+#### 10.1.5.4 — Back-to-Top Implementation
+
+Implemented the global Back-to-Top control.
+
+- Uses Lucide `ArrowUp` icon.
+- Appears after the user scrolls beyond 300px.
+- Uses fixed viewport positioning.
+- Smoothly scrolls the page back to the top.
+- Includes accessible label and title.
+- Responsive bottom-right positioning.
+
+The current minimal pages may not produce enough scrollable content to display the control; this is expected. It will become visible once longer page content is implemented.
