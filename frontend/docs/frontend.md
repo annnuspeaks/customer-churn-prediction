@@ -1086,3 +1086,12 @@ Implemented the responsive mobile Navbar with a hamburger menu.
 - Removed the separate floating theme control on mobile.
 - Preserved the independent desktop Theme Toggle.
 - Added responsive glass styling and accessibility states.
+
+#### 10.1.6.5 — Active Route & Interactions
+
+Implemented route-aware navigation using React Router `NavLink`.
+
+- Added active styling for Home, Prediction and Support.
+- Used `end` for the Home route.
+- Preserved mobile menu closing behavior.
+- Maintained keyboard focus states.

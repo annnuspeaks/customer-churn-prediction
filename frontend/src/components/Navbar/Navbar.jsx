@@ -8,7 +8,7 @@ import {
   X,
 } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar({ theme, onToggle }) {
@@ -45,20 +45,39 @@ function Navbar({ theme, onToggle }) {
           className={`navbar__nav ${menuOpen ? "navbar__nav--open" : ""}`}
           aria-label="Primary navigation"
         >
-          <Link to="/" className="navbar__link" onClick={closeMenu}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `navbar__link ${isActive ? "navbar__link--active" : ""}`
+            }
+            onClick={closeMenu}
+            end
+          >
             <House size={17} aria-hidden="true" />
             <span>Home</span>
-          </Link>
+          </NavLink>
 
-          <Link to="/prediction" className="navbar__link" onClick={closeMenu}>
+          <NavLink
+            to="/prediction"
+            className={({ isActive }) =>
+              `navbar__link ${isActive ? "navbar__link--active" : ""}`
+            }
+            onClick={closeMenu}
+          >
             <BrainCircuit size={17} aria-hidden="true" />
             <span>Prediction</span>
-          </Link>
+          </NavLink>
 
-          <Link to="/support" className="navbar__link" onClick={closeMenu}>
+          <NavLink
+            to="/support"
+            className={({ isActive }) =>
+              `navbar__link ${isActive ? "navbar__link--active" : ""}`
+            }
+            onClick={closeMenu}
+          >
             <CircleHelp size={17} aria-hidden="true" />
             <span>Support</span>
-          </Link>
+          </NavLink>
 
           <div className="navbar__mobile-divider" />
 
