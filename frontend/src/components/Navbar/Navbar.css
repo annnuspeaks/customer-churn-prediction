@@ -91,6 +91,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.45rem;
 
   min-height: 40px;
   padding: 0.5rem 0.9rem;
@@ -108,10 +109,19 @@
     transform var(--transition-fast);
 }
 
+.navbar__link svg {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
 .navbar__link:hover {
   color: var(--color-text-primary);
   background: var(--color-surface-hover);
   transform: translateY(-1px);
+}
+
+.navbar__link:hover svg {
+  transform: scale(1.08);
 }
 
 .navbar__link:focus-visible {
