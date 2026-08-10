@@ -1019,3 +1019,13 @@ Implemented the global Back-to-Top control.
 - Responsive bottom-right positioning.
 
 The current minimal pages may not produce enough scrollable content to display the control; this is expected. It will become visible once longer page content is implemented.
+
+#### 10.1.5.5 — Fixed Positioning & Layering
+
+Both global floating controls use viewport-fixed positioning and the dedicated `--z-floating` layer.
+
+- Theme Toggle: fixed top-right.
+- Back-to-Top: fixed bottom-right.
+- Both remain independent of page content and scrolling.
+- Floating controls use z-index `900`, above normal content and below modal layers.
+- No conflicting application-level stacking context was identified.
