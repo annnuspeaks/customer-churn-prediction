@@ -1029,3 +1029,12 @@ Both global floating controls use viewport-fixed positioning and the dedicated `
 - Both remain independent of page content and scrolling.
 - Floating controls use z-index `900`, above normal content and below modal layers.
 - No conflicting application-level stacking context was identified.
+
+#### 10.1.5.6 — Responsive Floating Controls
+
+Both global floating controls were reviewed for responsive behavior.
+
+- Theme Toggle adapts its position at tablet widths and becomes icon-only on narrow mobile screens.
+- Back-to-Top reduces its viewport offsets on smaller screens.
+- Both controls retain fixed positioning and the global floating z-index.
+- Existing 1024px, 768px and 480px responsive foundations support the controls.
