@@ -1120,3 +1120,24 @@ Implemented the Home hero with:
 - Prediction CTA
 - Responsive typography
 - Dark/light theme compatibility
+
+#### 10.1.7.3 — Home Hero & Prediction Card Refinement
+
+##### Objective
+
+Refine the Home page hero section for responsive behavior, clear CTA separation, and improved visual interaction.
+
+##### Completed
+
+- Implemented responsive two-column desktop hero layout.
+- Converted the mobile layout into a single vertical stack.
+- Replaced the left-side "Start Prediction" CTA with "View Documentation".
+- Separated the Prediction Card from its CTA navigation.
+- Made only "Start Prediction" navigate to `/prediction`.
+- Added animated customer/person visual elements around the ML analysis icon.
+- Improved card hover, CTA, spacing, and responsive behavior.
+- Verified the updated layout in desktop and mobile views.
+
+##### Result
+
+The Home page now provides a cleaner responsive experience with clear navigation boundaries and a more dynamic ML-focused visual presentation.
