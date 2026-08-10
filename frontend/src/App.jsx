@@ -1,3 +1,4 @@
+import Navbar from "./components/Navbar/Navbar";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import BackToTop from "./components/BackToTop/BackToTop";
@@ -26,28 +27,21 @@ function App() {
   }, [theme]);
 
   const handleThemeToggle = () => {
-    setTheme((currentTheme) =>
-      currentTheme === "dark" ? "light" : "dark"
-    );
+    setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"));
   };
 
   return (
     <BrowserRouter>
       <div className="app">
-        <ThemeToggle
-          theme={theme}
-          onToggle={handleThemeToggle}
-        />
+        <Navbar />
+        <ThemeToggle theme={theme} onToggle={handleThemeToggle} />
         <BackToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/prediction" element={<Prediction />} />
           <Route path="/support" element={<Support />} />
 
-          <Route
-            path="*"
-            element={<Navigate to="/" replace />}
-          />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
     </BrowserRouter>

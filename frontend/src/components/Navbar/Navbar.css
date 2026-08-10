@@ -1,0 +1,130 @@
+.navbar {
+  position: relative;
+  z-index: var(--z-navbar);
+
+  width: 100%;
+  padding: 1rem var(--container-padding);
+}
+
+.navbar__container {
+  width: min(100%, var(--container-width));
+  min-height: 64px;
+  margin-inline: auto;
+  padding: 0.65rem 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+
+  box-shadow: var(--shadow-md);
+
+  transition:
+    background-color var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+
+  min-width: 0;
+
+  color: var(--color-text-primary);
+
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+
+  white-space: nowrap;
+}
+
+.navbar__brand-mark {
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  border: 1px solid var(--color-accent-border);
+  border-radius: var(--radius-md);
+
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+
+  font-size: 0.8rem;
+
+  transition:
+    transform var(--transition-normal),
+    background-color var(--transition-normal);
+}
+
+.navbar__brand:hover .navbar__brand-mark {
+  transform: rotate(45deg);
+  background: var(--color-accent-soft);
+}
+
+.navbar__brand-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.navbar__link {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+  padding: 0.5rem 0.9rem;
+
+  border-radius: var(--radius-md);
+
+  color: var(--color-text-secondary);
+
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.navbar__link:hover {
+  color: var(--color-text-primary);
+  background: var(--color-surface-hover);
+  transform: translateY(-1px);
+}
+
+.navbar__link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .navbar__container {
+    gap: 1rem;
+  }
+
+  .navbar__brand-text {
+    max-width: 260px;
+  }
+}
