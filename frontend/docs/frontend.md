@@ -987,3 +987,23 @@ The control appears independently in the upper-right area of the viewport.
 The dark-theme state is displayed correctly.
 
 The component architecture and stylesheet separation were also verified.
+
+#### 10.1.5.3 — Persistent Theme State
+
+Theme selection is persisted using browser `localStorage`.
+
+##### Implementation
+
+- Added a dedicated theme storage key.
+- Restores the saved `light` or `dark` theme on application startup.
+- Saves theme changes automatically.
+- Falls back to `dark` when no valid saved theme exists.
+
+##### Validation
+
+Verified that:
+
+- Light theme survives browser refresh.
+- Dark theme survives browser refresh.
+- Theme remains consistent across application routes.
+

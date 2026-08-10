@@ -9,11 +9,20 @@ import Support from "./pages/Support/Support";
 
 import "./App.css";
 
+const THEME_STORAGE_KEY = "customer-churn-theme";
+
 function App() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+
+    return savedTheme === "light" || savedTheme === "dark"
+      ? savedTheme
+      : "dark";
+  });
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
   }, [theme]);
 
   const handleThemeToggle = () => {
