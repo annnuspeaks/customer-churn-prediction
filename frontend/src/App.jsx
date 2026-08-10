@@ -33,7 +33,8 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        <Navbar />
+        <Navbar theme={theme} onToggle={handleThemeToggle} />
+
         <ThemeToggle theme={theme} onToggle={handleThemeToggle} />
         <BackToTop />
         <Routes>

@@ -1076,3 +1076,13 @@ Enhanced the primary navigation with Lucide icons for Home, Prediction, and Supp
 - Added icon spacing and hover interaction.
 - Maintained keyboard focus accessibility.
 
+#### 10.1.6.4 — Mobile Navbar
+
+Implemented the responsive mobile Navbar with a hamburger menu.
+
+- Added responsive menu toggle.
+- Added Home, Prediction and Support navigation.
+- Integrated Theme Toggle inside the mobile menu.
+- Removed the separate floating theme control on mobile.
+- Preserved the independent desktop Theme Toggle.
+- Added responsive glass styling and accessibility states.

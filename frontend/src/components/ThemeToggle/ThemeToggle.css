@@ -67,13 +67,15 @@
 
 @media (max-width: 768px) {
   .theme-toggle {
-    top: 1rem;
-    right: 1rem;
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
   .theme-toggle {
+    top: 5.5rem;
+    right: 0.75rem;
+
     min-width: 42px;
     width: 42px;
     height: 42px;
