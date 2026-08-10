@@ -1141,3 +1141,13 @@ Refine the Home page hero section for responsive behavior, clear CTA separation,
 ##### Result
 
 The Home page now provides a cleaner responsive experience with clear navigation boundaries and a more dynamic ML-focused visual presentation.
+
+#### 10.1.7.4 — Two-Column Layout & Spacing
+
+Implemented the Home page desktop two-column layout with responsive spacing and alignment.
+
+- Hero content on the left.
+- Prediction Card on the right.
+- Responsive grid spacing and sizing.
+- Mobile layout switches to a vertical stack.
+
