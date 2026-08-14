@@ -126,7 +126,7 @@ Customer Churn Prediction Platform
 │ │ ├── 10.1.8 Footer
 │ │ ├── 10.1.9 Responsive UI
 │ │ └── 10.1.10 Final UI Review
-│ │ 
+│ │
 │ ├── 10.2 Prediction form
 │ │ ├── 10.2.1 Form structure & layout
 │ │ ├── 10.2.2 Customer input fields
@@ -134,15 +134,66 @@ Customer Churn Prediction Platform
 │ │ ├── 10.2.4 Validation & error states
 │ │ ├── 10.2.5 Submit / prediction action
 │ │ └── 10.2.6 Final form review
-│ │ 
+│ │
 │ ├── 10.3 Results page
 │ │ ├── 10.3.1 Results Structure & State
 │ │ ├── 10.3.2 Churn Risk Result Card
 │ │ ├── 10.3.3 Risk Details & Insights
 │ │ ├── 10.3.4 Result Actions & UX
-│ │ └── 10.3.5 Final Results Page Review 
-│ ├── 10.4 Responsive design
-│ └── 10.5 API integration
+│ │ └── 10.3.5 Final Results Page Review
+│ │
+│ ├── 10.4 Support & Global Footer
+│ │ ├── 10.4.1 Support page structure
+│ │ │ ├── 10.4.1.1 Page Hero
+│ │ │ │ ├── 10.4.1.1.1 Eyebrow
+│ │ │ │ ├── 10.4.1.1.2 Heading
+│ │ │ │ └── 10.4.1.1.3 Short description
+│ │ │ │
+│ │ │ ├── 10.4.1.2 Support Options
+│ │ │ │ ├── 10.4.1.2.1 Getting Started
+│ │ │ │ ├── 10.4.1.2.2 Prediction Help
+│ │ │ │ └── 10.4.1.2.3 Troubleshooting
+│ │ │ │
+│ │ │ └── 10.4.1.3 Contact / Assistance placeholder
+│ │ │
+│ │ ├── 10.4.2 Support content & UX
+│ │ ├── 10.4.3 Support responsive design
+│ │ ├── 10.4.4 Global Footer
+│ │ └── 10.4.5 Footer responsive + navigation review
+│ │
+│ ├── 10.5 Loading & Aplication States
+│ │ ├── 10.5.1 Loading component foundation
+│ │ ├── 10.5.2 Animated loading UI
+│ │ ├── 10.5.3 Prediction loading state
+│ │ ├── 10.5.4 Error / empty / success states
+│ │ └── 10.5.5 Loading UX final review
+│ │
+│ ├── 10.6 Global UX / Interaction Polish
+│ │ ├── 10.6.1 Back-to-top behavior
+│ │ ├── 10.6.2 Theme transition & interaction polish
+│ │ ├── 10.6.3 Button / form interaction states
+│ │ ├── 10.6.4 Focus & accessibility polish
+│ │ ├── 10.6.5 Scroll & floating element behavior
+│ │ └── 10.6.6 Cross-page visual consistency
+│ │
+│ ├── 10.7 Responsive design
+│ │ ├── 10.7.1 Global responsive foundation
+│ │ ├── 10.7.2 Navbar & mobile navigation
+│ │ ├── 10.7.3 Home responsive review
+│ │ ├── 10.7.4 Prediction responsive review
+│ │ ├── 10.7.5 Results responsive review
+│ │ ├── 10.7.6 Support & Footer responsive review
+│ │ ├── 10.7.7 Loading & global UX responsive review
+│ │ └── 10.7.8 Cross-page responsive final review
+│ │
+│ └── 10.8 API integration
+│ ├── 10.8.1 API client/service setup
+│ ├── 10.8.2 Prediction API connection
+│ ├── 10.8.3 Request payload mapping
+│ ├── 10.8.4 Response mapping
+│ ├── 10.8.5 Loading/error handling integration
+│ ├── 10.8.6 Results API data integration
+│ └── 10.8.7 API integration final review
 │
 ├── PHASE 11 — Testing
 │ ├── 11.1 Unit tests

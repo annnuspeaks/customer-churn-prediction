@@ -1297,3 +1297,9 @@ Established the Results page structure and prediction-state flow.
 - Verified responsive desktop/mobile layouts.
 - Verified dark/light theme compatibility.
 - Verified Results routing and navigation.
+
+#### 10.4.1 Support Page Structure
+
+- Added Support page hero with eyebrow, heading, and description.
+- Added three support option cards: Getting Started, Prediction Help, and Troubleshooting.
+- Added dark/light theme styling and responsive layout.
