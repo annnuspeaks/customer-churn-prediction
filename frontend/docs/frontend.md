@@ -1221,3 +1221,17 @@ Implemented the complete customer input form based on the churn model features.
 #### 10.2.3 — Field Grouping & UX
 
 Improved the prediction form UX with logical field groups, section descriptions, clearer labels, placeholders, and consistent responsive spacing.
+
+#### 10.2.4 Form Validation
+
+Implemented client-side validation for the customer prediction form.
+
+- Added controlled form state
+- Added required-field validation
+- Added tenure range validation (0–72 months)
+- Added Monthly Charges and Total Charges validation
+- Added inline validation messages
+- Added invalid-field styling
+- Added accessibility attributes for validation errors
+- Prevented submission when validation fails
+

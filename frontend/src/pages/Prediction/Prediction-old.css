@@ -556,29 +556,3 @@
     padding: 0.9rem;
   }
 }
-
-
-/* =================================
-   VALIDATION
-   ================================= */
-
-.prediction__field--error input,
-.prediction__field--error select {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px var(--color-accent-soft);
-}
-
-.prediction__field--error input:focus,
-.prediction__field--error select:focus {
-  border-color: var(--color-accent);
-  box-shadow:
-    0 0 0 3px var(--color-accent-soft),
-    0 0 18px var(--color-accent-soft);
-}
-
-.prediction__error {
-  margin-top: -0.15rem;
-  color: var(--color-accent);
-  font-size: var(--font-size-xs);
-  line-height: var(--line-height-relaxed);
-}
