@@ -175,8 +175,8 @@ Customer Churn Prediction Platform
 │ │ │ │ └── 10.4.4.3.3 Email
 │ │ │ │
 │ │ │ ├── 10.4.4.4 Footer Metadata
-│ │ │ │ ├── 10.4.4.4.1 LinkedIn
-│ │ │ │ └── 10.4.4.4.2 Email
+│ │ │ │ ├── 10.4.4.4.1 Copyright / Ownership
+│ │ │ │ └── 10.4.4.4.2 Technology / Project Credit
 │ │ │ │
 │ │ │ └── 10.4.4.5 Global Footer Integration
 │ │ │   └── 10.4.4.5.1 App / All Routes

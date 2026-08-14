@@ -89,6 +89,18 @@ function Footer() {
           </a>
         </div>
       </div>
+      {/* ================================
+    FOOTER METADATA
+    ================================ */}
+      <div className="site-footer__bottom">
+        <span className="site-footer__copyright">
+          © {new Date().getFullYear()} Customer Churn Prediction
+        </span>
+
+        <span className="site-footer__credit">
+          Built with React • Machine Learning
+        </span>
+      </div>
     </footer>
   );
 }
