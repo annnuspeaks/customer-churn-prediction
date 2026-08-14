@@ -6,6 +6,30 @@ import {
 } from "lucide-react";
 import "./Prediction.css";
 
+const yesNoOptions = ["Yes", "No"];
+
+const serviceOptions = ["Yes", "No", "No internet service"];
+
+function SelectField({ label, options, placeholder = "Select option" }) {
+  return (
+    <label className="prediction__field">
+      <span>{label}</span>
+
+      <select defaultValue="">
+        <option value="" disabled>
+          {placeholder}
+        </option>
+
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
+
 function Prediction() {
   return (
     <main className="prediction">
@@ -40,60 +64,23 @@ function Prediction() {
           </div>
 
           <form className="prediction__form">
+            {/* Customer Profile */}
             <section className="prediction__form-section">
               <h3>Customer Profile</h3>
 
               <div className="prediction__fields">
-                <label className="prediction__field">
-                  <span>Gender</span>
-                  <select defaultValue="">
-                    <option value="" disabled>
-                      Select gender
-                    </option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                  </select>
-                </label>
+                <SelectField
+                  label="Gender"
+                  options={["Male", "Female"]}
+                  placeholder="Select gender"
+                />
 
-                <label className="prediction__field">
-                  <span>Senior Citizen</span>
-                  <select defaultValue="">
-                    <option value="" disabled>
-                      Select option
-                    </option>
-                    <option value="0">No</option>
-                    <option value="1">Yes</option>
-                  </select>
-                </label>
+                <SelectField label="Senior Citizen" options={["0", "1"]} />
 
-                <label className="prediction__field">
-                  <span>Partner</span>
-                  <select defaultValue="">
-                    <option value="" disabled>
-                      Select option
-                    </option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                  </select>
-                </label>
+                <SelectField label="Partner" options={yesNoOptions} />
 
-                <label className="prediction__field">
-                  <span>Dependents</span>
-                  <select defaultValue="">
-                    <option value="" disabled>
-                      Select option
-                    </option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                  </select>
-                </label>
-              </div>
-            </section>
+                <SelectField label="Dependents" options={yesNoOptions} />
 
-            <section className="prediction__form-section">
-              <h3>Account Information</h3>
-
-              <div className="prediction__fields">
                 <label className="prediction__field">
                   <span>
                     <Clock3 size={14} aria-hidden="true" />
@@ -102,18 +89,74 @@ function Prediction() {
 
                   <input type="number" placeholder="Enter tenure" />
                 </label>
+              </div>
+            </section>
 
-                <label className="prediction__field">
-                  <span>Contract</span>
-                  <select defaultValue="">
-                    <option value="" disabled>
-                      Select contract
-                    </option>
-                    <option value="Month-to-month">Month-to-month</option>
-                    <option value="One year">One year</option>
-                    <option value="Two year">Two year</option>
-                  </select>
-                </label>
+            {/* Phone & Internet */}
+            <section className="prediction__form-section">
+              <h3>Phone & Internet Services</h3>
+
+              <div className="prediction__fields">
+                <SelectField label="Phone Service" options={yesNoOptions} />
+
+                <SelectField
+                  label="Multiple Lines"
+                  options={["Yes", "No", "No phone service"]}
+                />
+
+                <SelectField
+                  label="Internet Service"
+                  options={["DSL", "Fiber optic", "No"]}
+                />
+              </div>
+            </section>
+
+            {/* Additional Services */}
+            <section className="prediction__form-section">
+              <h3>Additional Services</h3>
+
+              <div className="prediction__fields">
+                <SelectField label="Online Security" options={serviceOptions} />
+
+                <SelectField label="Online Backup" options={serviceOptions} />
+
+                <SelectField
+                  label="Device Protection"
+                  options={serviceOptions}
+                />
+
+                <SelectField label="Tech Support" options={serviceOptions} />
+
+                <SelectField label="Streaming TV" options={serviceOptions} />
+
+                <SelectField
+                  label="Streaming Movies"
+                  options={serviceOptions}
+                />
+              </div>
+            </section>
+
+            {/* Account & Billing */}
+            <section className="prediction__form-section">
+              <h3>Account & Billing</h3>
+
+              <div className="prediction__fields">
+                <SelectField
+                  label="Contract"
+                  options={["Month-to-month", "One year", "Two year"]}
+                />
+
+                <SelectField label="Paperless Billing" options={yesNoOptions} />
+
+                <SelectField
+                  label="Payment Method"
+                  options={[
+                    "Electronic check",
+                    "Mailed check",
+                    "Bank transfer (automatic)",
+                    "Credit card (automatic)",
+                  ]}
+                />
 
                 <label className="prediction__field">
                   <span>
