@@ -155,6 +155,11 @@ Customer Churn Prediction Platform
 │ │ │ └── 10.4.2.4 Contact / Assistance UX
 │ │ │ 
 │ │ ├── 10.4.3 Support responsive design
+│ │ │ ├── 10.4.3.1 Hero scaling & spacing
+│ │ │ ├── 10.4.3.2 Support cards responsive layout
+│ │ │ ├── 10.4.3.3 Content sections responsive layout
+│ │ │ └── 10.4.3.4 Assistance CTA mobile UX
+│ │ │ 
 │ │ ├── 10.4.4 Global Footer
 │ │ └── 10.4.5 Footer responsive + navigation review
 │ │
