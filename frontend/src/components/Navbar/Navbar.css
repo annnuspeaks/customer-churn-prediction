@@ -187,39 +187,59 @@
 
 @media (max-width: 768px) {
   .navbar__container {
-    position: relative;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 0.75rem;
+    row-gap: 0.75rem;
+  }
+
+  .navbar__brand {
+    min-width: 0;
+  }
+
+  .navbar__brand-text {
+    min-width: 0;
+    max-width: none;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .navbar__menu-toggle {
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
     flex-shrink: 0;
   }
 
   .navbar__nav {
     display: none;
 
-    position: absolute;
-    top: calc(100% + 0.6rem);
-    left: 0;
-    right: 0;
+    grid-column: 1 / -1;
+
+    width: 100%;
 
     flex-direction: column;
     align-items: stretch;
     gap: 0.35rem;
 
+    margin-top: 0.25rem;
     padding: 0.65rem;
 
-    background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
+
+    background: var(--glass-bg);
 
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
 
     box-shadow: var(--shadow-md);
-
-    z-index: calc(var(--z-navbar) + 10);
   }
 
   .navbar__nav--open {
@@ -227,8 +247,8 @@
   }
 
   .navbar__link {
-    justify-content: flex-start;
     width: 100%;
+    justify-content: flex-start;
   }
 
   .navbar__mobile-divider {
@@ -248,7 +268,7 @@
     gap: 0.75rem;
 
     width: 100%;
-    padding: 0.6rem 0.5rem;
+    padding: 0.65rem 0.5rem;
 
     border: 1px solid transparent;
     border-radius: var(--radius-md);
@@ -258,20 +278,11 @@
 
     text-align: left;
     cursor: pointer;
-
-    transition:
-      background-color var(--transition-fast),
-      border-color var(--transition-fast);
   }
 
   .navbar__theme-toggle:hover {
     background: var(--color-surface-hover);
     border-color: var(--glass-border);
-  }
-
-  .navbar__theme-toggle:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
   }
 
   .navbar__theme-toggle-icon {
@@ -280,7 +291,6 @@
 
     width: 34px;
     height: 34px;
-
     flex-shrink: 0;
 
     border: 1px solid var(--color-accent-border);
@@ -304,10 +314,6 @@
   .navbar__theme-toggle-description {
     color: var(--color-text-muted);
     font-size: 0.75rem;
-  }
-
-  .navbar__brand-text {
-    max-width: 260px;
   }
 }
 

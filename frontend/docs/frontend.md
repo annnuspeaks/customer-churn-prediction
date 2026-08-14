@@ -125,7 +125,7 @@ The initialization command was:
 npm create vite@latest . -- --template react
 ```
 
-Vite created the frontend project in the existing ```frontend``` directory.
+Vite created the frontend project in the existing `frontend` directory.
 
 The project initialization process also installed the initial project dependencies and started the development server.
 
@@ -164,12 +164,13 @@ Icons should not be added purely for decoration when they reduce clarity or intr
 #### Frontend Technology Direction
 
 The frontend technology foundation is:
- - React
- - Vite
- - JavaScript / JSX
- - CSS
- - React Router
- - Lucide React
+
+- React
+- Vite
+- JavaScript / JSX
+- CSS
+- React Router
+- Lucide React
 
 The project does not use Expo or React Native.
 
@@ -202,13 +203,14 @@ This approach keeps component styling localized and makes individual UI sections
 #### Initial Setup Status
 
 The following setup tasks were completed:
- - Fresh Vite React project created.
- - Frontend directory initialized.
- - Dependencies installed.
- - ESLint foundation created.
- - Lucide React installed.
- - Development server verified.
- - Local frontend URL verified.
+
+- Fresh Vite React project created.
+- Frontend directory initialized.
+- Dependencies installed.
+- ESLint foundation created.
+- Lucide React installed.
+- Development server verified.
+- Local frontend URL verified.
 
 #### Setup Completion
 
@@ -221,12 +223,13 @@ The following setup tasks were completed:
 The frontend architecture was established before implementing the actual application UI.
 
 The goal is to separate:
- - Reusable components.
- - Page-level components.
- - Global styling.
- - Component-specific styling.
- - Static assets.
- - Documentation.
+
+- Reusable components.
+- Page-level components.
+- Global styling.
+- Component-specific styling.
+- Static assets.
+- Documentation.
 
 The architecture is intentionally simple enough for a portfolio project while remaining scalable enough to support the prediction workflow.
 
@@ -300,10 +303,11 @@ src/components/
 ```
 
 The initial component groups are:
- - Navbar
- - Footer
- - ThemeToggle
- - BackToTop
+
+- Navbar
+- Footer
+- ThemeToggle
+- BackToTop
 
 Each component has its own JSX file and CSS file.
 
@@ -354,19 +358,21 @@ The architecture follows a clear distinction.
 Components represent reusable or globally significant interface elements.
 
 Examples:
- - Navbar
- - Footer
- - ThemeToggle
- - BackToTop
+
+- Navbar
+- Footer
+- ThemeToggle
+- BackToTop
 
 #### Pages
 
 Pages represent complete navigable destinations.
 
 Examples:
- - Home
- - Prediction
- - Support
+
+- Home
+- Prediction
+- Support
 
 A page may contain multiple reusable components.
 
@@ -379,9 +385,9 @@ src/index.css
 src/App.css
 ```
 
-```index.css``` is responsible for global design foundations and browser-level normalization.
+`index.css` is responsible for global design foundations and browser-level normalization.
 
-```App.css``` contains application-level layout utilities and shared visual helpers that are not tied to a specific component.
+`App.css` contains application-level layout utilities and shared visual helpers that are not tied to a specific component.
 
 Component-specific visual rules should remain in component CSS files.
 
@@ -398,16 +404,17 @@ The document will grow throughout the frontend development phases and will event
 #### Architecture Principles
 
 The frontend architecture follows these principles:
- - Keep components modular.
- - Keep page-level composition separate from reusable components.
- - Keep component-specific styles in dedicated CSS files.
- - Avoid unnecessary global CSS.
- - Keep routing centralized at the application level.
- - Keep global controls independent from page content.
- - Avoid unnecessary dependencies.
- - Prefer readable JSX over excessive abstraction.
- - Keep the frontend ready for backend API integration.
- - Maintain responsive behavior from the beginning rather than adding it only at the end.
+
+- Keep components modular.
+- Keep page-level composition separate from reusable components.
+- Keep component-specific styles in dedicated CSS files.
+- Avoid unnecessary global CSS.
+- Keep routing centralized at the application level.
+- Keep global controls independent from page content.
+- Avoid unnecessary dependencies.
+- Prefer readable JSX over excessive abstraction.
+- Keep the frontend ready for backend API integration.
+- Maintain responsive behavior from the beginning rather than adding it only at the end.
 
 #### Architecture Completion
 
@@ -420,48 +427,52 @@ The frontend uses a centralized CSS design-token system to maintain visual consi
 #### Theme System
 
 Two visual themes are defined:
- - Dark theme — primary application theme
- - Light theme — alternate accessible theme
+
+- Dark theme — primary application theme
+- Light theme — alternate accessible theme
 
 Theme values are exposed through CSS custom properties, allowing individual components to consume shared colors without hard-coding component-specific values.
 
 #### Color System
 
 The design system defines tokens for:
- - Primary background
- - Secondary background
- - Tertiary background
- - Surface backgrounds
- - Borders
- - Primary text
- - Secondary text
- - Muted text
- - Accent color
- - Accent hover state
- - Accent soft background
- - Accent border
- - Danger
- - Warning
- - Information
+
+- Primary background
+- Secondary background
+- Tertiary background
+- Surface backgrounds
+- Borders
+- Primary text
+- Secondary text
+- Muted text
+- Accent color
+- Accent hover state
+- Accent soft background
+- Accent border
+- Danger
+- Warning
+- Information
 
 #### Glassmorphism System
 
 The frontend defines reusable glass design tokens covering:
- - Glass background
- - Glass hover background
- - Glass border
- - Backdrop blur
+
+- Glass background
+- Glass hover background
+- Glass border
+- Backdrop blur
 
 Interactive glass surfaces additionally use transitions, hover elevation, accent borders, and accent shadows.
 
 #### Typography
 
 A centralized typography system defines:
- - Base font family
- - Font-size scale
- - Hero typography
- - Font-weight scale
- - Line-height scale
+
+- Base font family
+- Font-size scale
+- Hero typography
+- Font-weight scale
+- Line-height scale
 
 #### Spacing
 
@@ -470,11 +481,12 @@ A reusable spacing scale is provided through CSS custom properties so that compo
 #### Shape System
 
 Shared border-radius tokens are defined for:
- - Small surfaces
- - Medium surfaces
- - Large surfaces
- - Extra-large surfaces
- - Pill-shaped controls
+
+- Small surfaces
+- Medium surfaces
+- Large surfaces
+- Extra-large surfaces
+- Pill-shaped controls
 
 #### Shadow System
 
@@ -489,34 +501,37 @@ Components should consume these tokens rather than introducing arbitrary transit
 #### Layout Foundation
 
 The design system defines:
- - Maximum content width
- - Responsive horizontal container padding
- - Shared section spacing
+
+- Maximum content width
+- Responsive horizontal container padding
+- Shared section spacing
 
 #### Z-Index System
 
 Dedicated z-index levels are defined for:
- - Base content
- - Navbar
- - Overlays
- - Floating controls
- - Modal layers
+
+- Base content
+- Navbar
+- Overlays
+- Floating controls
+- Modal layers
 
 This is particularly important for the global theme control and move-to-top control planned for the frontend.
 
 #### Global CSS Foundation
 
 The global stylesheet provides:
- - Box-sizing reset
- - Body defaults
- - Typography defaults
- - Button/input inheritance
- - Link normalization
- - Image and SVG normalization
- - List normalization
- - Heading and paragraph margin reset
- - Text selection styling
- - Custom scrollbar styling
+
+- Box-sizing reset
+- Body defaults
+- Typography defaults
+- Button/input inheritance
+- Link normalization
+- Image and SVG normalization
+- List normalization
+- Heading and paragraph margin reset
+- Text selection styling
+- Custom scrollbar styling
 
 #### Responsive Foundation
 
@@ -535,9 +550,10 @@ The design system therefore provides the visual foundation required by the subse
 The navigation system establishes the application's primary client-side routes.
 
 The application contains three primary destinations:
- - Home
- - Prediction
- - Support
+
+- Home
+- Prediction
+- Support
 
 React Router is used for client-side navigation.
 
@@ -721,7 +737,6 @@ http://localhost:5173/
 
 10.1.4 is considered complete and locked.
 
-
 ### 10.1.5 — Global Floating Controls
 
 ### Objective
@@ -731,8 +746,9 @@ The Global Floating Controls subsystem provides viewport-level controls that rem
 The controls are designed to remain available while users navigate between Home, Prediction, and Support and while page content is scrolled.
 
 The initial global controls are:
- - Theme Toggle
- - Back-to-Top Control
+
+- Theme Toggle
+- Back-to-Top Control
 
 The controls are implemented as independent reusable React components.
 
@@ -765,8 +781,9 @@ This prevents page-specific implementations from being duplicated across Home, P
 The first subphase established the component architecture for global viewport-level controls.
 
 Two dedicated components were defined:
- - ThemeToggle
- - BackToTop
+
+- ThemeToggle
+- BackToTop
 
 Each component has a dedicated stylesheet.
 
@@ -848,17 +865,18 @@ theme
 onToggle
 ```
 
-```theme``` represents the currently active theme.
+`theme` represents the currently active theme.
 
-```onToggle``` provides the state transition callback controlled by the application layer.
+`onToggle` provides the state transition callback controlled by the application layer.
 
 ##### Icon System
 
 Lucide React is used for theme-state icons.
 
 The component displays:
- - Moon icon for dark theme.
- - Sun icon for light theme.
+
+- Moon icon for dark theme.
+- Sun icon for light theme.
 
 The icon therefore communicates the currently active theme and the available state transition.
 
@@ -882,9 +900,9 @@ The label is hidden on very narrow screens so the control can become a compact i
 
 The control uses a semantic HTML button.
 
-An accessible ```aria-label``` is dynamically generated based on the current theme.
+An accessible `aria-label` is dynamically generated based on the current theme.
 
-A matching ```title``` attribute is also provided for pointer-based users.
+A matching `title` attribute is also provided for pointer-based users.
 
 The button can therefore be operated using standard keyboard interaction.
 
@@ -893,14 +911,15 @@ The button can therefore be operated using standard keyboard interaction.
 The Theme Toggle follows the application's glassmorphism design system.
 
 The control uses:
- - Glass background.
- - Glass border.
- - Backdrop blur.
- - Rounded pill shape.
- - Application shadow tokens.
- - Accent-colored icon container.
- - Accent hover border.
- - Smooth transitions.
+
+- Glass background.
+- Glass border.
+- Backdrop blur.
+- Rounded pill shape.
+- Application shadow tokens.
+- Accent-colored icon container.
+- Accent hover border.
+- Smooth transitions.
 
 ##### Desktop Position
 
@@ -918,18 +937,20 @@ The control uses the global floating z-index layer.
 ##### Hover Interaction
 
 Hovering over the control produces:
- - Slight upward movement.
- - Increased glass surface visibility.
- - Accent border emphasis.
- - Accent shadow.
+
+- Slight upward movement.
+- Increased glass surface visibility.
+- Accent border emphasis.
+- Accent shadow.
 
 The interaction remains subtle to avoid distracting from the primary application content.
 
 ##### Keyboard Focus
 
 A visible focus state is provided through:
- - Accent-colored outline.
- - Additional outline offset.
+
+- Accent-colored outline.
+- Additional outline offset.
 
 This improves keyboard accessibility without changing the component's normal visual appearance.
 
@@ -1164,3 +1185,14 @@ Implemented responsive Home layouts for desktop, tablet, and mobile.
 - Mobile uses a vertical stack.
 - Small screens receive compact spacing and full-width CTA handling.
 - Prevents horizontal layout issues.
+
+#### 10.1.7.7 — Final Home Page Review
+
+Completed final review of the Home page across desktop and mobile layouts.
+
+- Verified Hero section and Prediction Card.
+- Verified glass UI and interactions.
+- Verified dark/light themes.
+- Verified responsive stacking.
+- Verified mobile hamburger navigation and theme control.
+- No major UI or structural issues remain.
