@@ -1196,3 +1196,15 @@ Completed final review of the Home page across desktop and mobile layouts.
 - Verified responsive stacking.
 - Verified mobile hamburger navigation and theme control.
 - No major UI or structural issues remain.
+
+### 10.2 Prediction form
+
+#### 10.2.1 — Form Structure & Layout
+
+Created the initial Prediction Form structure with a glass UI layout.
+
+- Added prediction heading and description.
+- Added Customer Profile and Account Information sections.
+- Implemented responsive field grid.
+- Added form CTA.
+- Kept validation and API logic separate for later phases.

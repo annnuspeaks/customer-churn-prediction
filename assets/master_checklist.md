@@ -127,6 +127,12 @@ Customer Churn Prediction Platform
 │ │ ├── 10.1.9 Responsive UI
 │ │ └── 10.1.10 Final UI Review
 │ ├── 10.2 Prediction form
+│ │ ├── 10.2.1 Form structure & layout
+│ │ ├── 10.2.2 Customer input fields
+│ │ ├── 10.2.3 Field grouping / UX
+│ │ ├── 10.2.4 Validation & error states
+│ │ ├── 10.2.5 Submit / prediction action
+│ │ └── 10.2.6 Final form review
 │ ├── 10.3 Results page
 │ ├── 10.4 Responsive design
 │ └── 10.5 API integration
