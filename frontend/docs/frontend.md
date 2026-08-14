@@ -1273,9 +1273,11 @@ Established the Results page structure and prediction-state flow.
 - Added New Prediction navigation action.
 - Used mock prediction data for UI; API integration remains for Phase 10.5.
 
-#### 10.3.3 Customer Summary
+#### 10.3.3 Risk Details & Insights
 
-- Added submitted customer information summary to the results page.
-- Dynamically displays prediction payload fields.
-- Added responsive detail grid with dark/light theme support.
-- Added empty-state handling when payload data is unavailable.
+- Added risk score, risk category, and retention insight cards.
+- Added concise interpretation of the predicted churn risk.
+- Preserved the existing Customer Summary section.
+- Dynamically displays submitted prediction payload fields.
+- Added responsive layouts with dark/light theme support.
+- Added empty-state handling when customer payload data is unavailable.

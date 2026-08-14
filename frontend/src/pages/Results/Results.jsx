@@ -4,6 +4,8 @@ import {
   BrainCircuit,
   CheckCircle2,
   ClipboardList,
+  Gauge,
+  Lightbulb,
   ShieldCheck,
   TrendingUp,
   UserRound,
@@ -54,6 +56,10 @@ function Results() {
     riskLevel: "High Risk",
     summary:
       "This customer shows a relatively high likelihood of churning based on the submitted profile and service information.",
+    interpretation:
+      "The estimated risk is above the high-risk threshold, indicating that this customer may require closer retention attention.",
+    decisionSignal:
+      "Consider reviewing the customer profile and service experience before taking a retention action.",
   };
 
   const customerDetails = getDisplayEntries(predictionPayload);
@@ -135,7 +141,67 @@ function Results() {
           </div>
         </article>
 
-        <section className="results__details" aria-labelledby="customer-summary-title">
+        {/* 10.3.3 — Risk Details & Insights */}
+        <section
+          className="results__insights"
+          aria-labelledby="risk-details-title"
+        >
+          <div className="results__insights-heading">
+            <div className="results__insights-icon" aria-hidden="true">
+              <Gauge size={21} />
+            </div>
+
+            <div>
+              <span className="results__insights-kicker">
+                <TrendingUp size={14} aria-hidden="true" />
+                Risk Details &amp; Insights
+              </span>
+              <h2 id="risk-details-title">What This Result Means</h2>
+              <p>
+                A concise interpretation of the estimated churn risk for this
+                customer.
+              </p>
+            </div>
+          </div>
+
+          <div className="results__insights-grid">
+            <article className="results__insight-card">
+              <div className="results__insight-card-icon" aria-hidden="true">
+                <Gauge size={18} />
+              </div>
+              <span className="results__insight-label">Risk Score</span>
+              <strong>{predictionResult.riskPercentage}%</strong>
+              <p>
+                The model estimates a {predictionResult.riskPercentage}%
+                likelihood of customer churn.
+              </p>
+            </article>
+
+            <article className="results__insight-card">
+              <div className="results__insight-card-icon" aria-hidden="true">
+                <ShieldCheck size={18} />
+              </div>
+              <span className="results__insight-label">Risk Category</span>
+              <strong>{predictionResult.riskLevel}</strong>
+              <p>{predictionResult.interpretation}</p>
+            </article>
+
+            <article className="results__insight-card">
+              <div className="results__insight-card-icon" aria-hidden="true">
+                <Lightbulb size={18} />
+              </div>
+              <span className="results__insight-label">Recommended Signal</span>
+              <strong>Retention Attention</strong>
+              <p>{predictionResult.decisionSignal}</p>
+            </article>
+          </div>
+        </section>
+
+        {/* Existing customer summary from the previous implementation. */}
+        <section
+          className="results__details"
+          aria-labelledby="customer-summary-title"
+        >
           <div className="results__details-heading">
             <div className="results__details-icon" aria-hidden="true">
               <UserRound size={21} />

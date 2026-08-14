@@ -140,7 +140,7 @@ Customer Churn Prediction Platform
 │ │ ├── 10.3.2 Churn Risk Result Card
 │ │ ├── 10.3.3 Risk Details & Insights
 │ │ ├── 10.3.4 Result Actions & UX
-│ │ └── 10.3.5 Final Results Page Review
+│ │ └── 10.3.5 Final Results Page Review 
 │ ├── 10.4 Responsive design
 │ └── 10.5 API integration
 │
