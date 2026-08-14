@@ -1266,3 +1266,9 @@ Established the Results page structure and prediction-state flow.
 - Passed prediction payload through router state
 - Added initial Results page structure
 
+#### 10.3.2 — Churn Risk Result Card
+- Added dedicated churn-risk result card.
+- Added risk percentage, risk level, summary, and status.
+- Added responsive dark/light styling.
+- Added New Prediction navigation action.
+- Used mock prediction data for UI; API integration remains for Phase 10.5.
