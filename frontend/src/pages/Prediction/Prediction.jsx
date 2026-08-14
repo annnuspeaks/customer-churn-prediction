@@ -66,7 +66,12 @@ function Prediction() {
           <form className="prediction__form">
             {/* Customer Profile */}
             <section className="prediction__form-section">
-              <h3>Customer Profile</h3>
+              <div className="prediction__section-header">
+                <div>
+                  <h3>Customer Profile</h3>
+                  <p>Basic information about the customer.</p>
+                </div>
+              </div>
 
               <div className="prediction__fields">
                 <SelectField
@@ -87,14 +92,19 @@ function Prediction() {
                     Tenure
                   </span>
 
-                  <input type="number" placeholder="Enter tenure" />
+                  <input type="number" placeholder="e.g. 24 months" />
                 </label>
               </div>
             </section>
 
             {/* Phone & Internet */}
             <section className="prediction__form-section">
-              <h3>Phone & Internet Services</h3>
+              <div className="prediction__section-header">
+                <div>
+                  <h3>Phone & Internet Services</h3>
+                  <p>Customer connectivity and internet service details.</p>
+                </div>
+              </div>
 
               <div className="prediction__fields">
                 <SelectField label="Phone Service" options={yesNoOptions} />
@@ -113,7 +123,14 @@ function Prediction() {
 
             {/* Additional Services */}
             <section className="prediction__form-section">
-              <h3>Additional Services</h3>
+              <div className="prediction__section-header">
+                <div>
+                  <h3>Additional Services</h3>
+                  <p>
+                    Optional services currently associated with the customer.
+                  </p>
+                </div>
+              </div>
 
               <div className="prediction__fields">
                 <SelectField label="Online Security" options={serviceOptions} />
@@ -138,7 +155,12 @@ function Prediction() {
 
             {/* Account & Billing */}
             <section className="prediction__form-section">
-              <h3>Account & Billing</h3>
+              <div className="prediction__section-header">
+                <div>
+                  <h3>Account & Billing</h3>
+                  <p>Contract, payment and billing information.</p>
+                </div>
+              </div>
 
               <div className="prediction__fields">
                 <SelectField
@@ -164,13 +186,13 @@ function Prediction() {
                     Monthly Charges
                   </span>
 
-                  <input type="number" placeholder="Enter monthly charges" />
+                  <input type="number" placeholder="e.g. 79.50" />
                 </label>
 
                 <label className="prediction__field">
                   <span>Total Charges</span>
 
-                  <input type="number" placeholder="Enter total charges" />
+                  <input type="number" placeholder="e.g. 1850.25" />
                 </label>
               </div>
             </section>

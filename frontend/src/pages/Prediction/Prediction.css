@@ -236,6 +236,32 @@
 }
 
 /* =================================
+   SECTION HEADER
+   ================================= */
+
+.prediction__section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-bottom: 0.15rem;
+}
+
+.prediction__section-header h3 {
+  margin: 0;
+}
+
+.prediction__section-header p {
+  margin-top: 0.3rem;
+  margin-left: 1.2rem;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-relaxed);
+}
+
+/* =================================
    FIELD GRID
    ================================= */
 
@@ -244,7 +270,7 @@
 
   grid-template-columns: repeat(3, minmax(0, 1fr));
 
-  gap: 1rem;
+  gap: 1.15rem;
 }
 
 /* =================================
@@ -270,6 +296,16 @@
 
 .prediction__field > span svg {
   color: var(--color-accent);
+}
+
+.prediction__field > span::after {
+  content: "*";
+
+  margin-left: 0.15rem;
+
+  color: var(--color-accent);
+
+  font-size: 0.7rem;
 }
 
 /* =================================
