@@ -97,7 +97,7 @@
 
 .site-footer__product-card {
   min-height: 58px;
-
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;

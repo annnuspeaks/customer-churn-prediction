@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import BackToTop from "./components/BackToTop/BackToTop";
 import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
+import Footer from "./components/Footer/Footer";
 
 import Home from "./pages/Home/Home";
 import Prediction from "./pages/Prediction/Prediction";
@@ -45,6 +46,7 @@ function App() {
           <Route path="/results" element={<Results />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const otherProducts = [
-  { name: "Fraud Detection System" },
+  { name: "Fraud Detection System", url: "https://fraudmatrix.vercel.app/" },
   { name: "Enterprise RAG AI Assistant" },
   { name: "Recommendation System" },
   { name: "Time-Series Forecasting Platform" },
@@ -43,23 +43,48 @@ function Footer() {
           <h2 id="footer-products-title">Our Other Products</h2>
 
           <div className="site-footer__product-grid">
-            {otherProducts.map((product) => (
-              <div
-                key={product.name}
-                className={`site-footer__product-card ${
-                  product.badge ? "site-footer__product-card--college" : ""
-                }`}
-              >
-                <span>{product.name}</span>
+            {otherProducts.map((product) => {
+              const cardContent = (
+                <>
+                  <span>{product.name}</span>
 
-                {product.badge && (
-                  <span className="site-footer__product-badge">
-                    <span className="site-footer__product-badge-dot" />
-                    {product.badge}
-                  </span>
-                )}
-              </div>
-            ))}
+                  {product.badge && (
+                    <span className="site-footer__product-badge">
+                      <span className="site-footer__product-badge-dot" />
+                      {product.badge}
+                    </span>
+                  )}
+                </>
+              );
+
+              if (product.url) {
+                return (
+                  <a
+                    key={product.name}
+                    href={product.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`site-footer__product-card ${
+                      product.badge ? "site-footer__product-card--college" : ""
+                    }`}
+                    aria-label={`Open ${product.name}`}
+                  >
+                    {cardContent}
+                  </a>
+                );
+              }
+
+              return (
+                <div
+                  key={product.name}
+                  className={`site-footer__product-card ${
+                    product.badge ? "site-footer__product-card--college" : ""
+                  }`}
+                >
+                  {cardContent}
+                </div>
+              );
+            })}
           </div>
         </section>
         {/* ================================
