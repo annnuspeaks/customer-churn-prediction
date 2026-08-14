@@ -7,6 +7,7 @@ import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 import Home from "./pages/Home/Home";
 import Prediction from "./pages/Prediction/Prediction";
 import Support from "./pages/Support/Support";
+import Results from "./pages/Results/Results";
 
 import "./App.css";
 
@@ -41,7 +42,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/prediction" element={<Prediction />} />
           <Route path="/support" element={<Support />} />
-
+          <Route path="/results" element={<Results />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

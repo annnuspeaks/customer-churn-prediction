@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {
   BrainCircuit,
@@ -120,7 +121,7 @@ function Prediction() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
-
+  const navigate = useNavigate();
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -192,10 +193,9 @@ function Prediction() {
     // API integration will be implemented in Phase 10.5.
     console.log("Prediction payload ready:", predictionPayload);
 
-    window.setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitMessage("Prediction request prepared successfully.");
-    }, 700);
+    navigate("/results", {
+      state: { predictionPayload },
+    });
   };
 
   return (
