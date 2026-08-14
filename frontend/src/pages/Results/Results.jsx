@@ -64,6 +64,10 @@ function Results() {
 
   const customerDetails = getDisplayEntries(predictionPayload);
 
+  const handleNewPrediction = () => {
+    navigate("/prediction");
+  };
+
   return (
     <main className="results">
       <section className="results__hero">
@@ -125,23 +129,23 @@ function Results() {
           </div>
 
           <div className="results__risk-footer">
-            <div className="results__status">
+            <div className="results__status" role="status">
               <CheckCircle2 size={16} aria-hidden="true" />
-              Prediction generated successfully
+              <span>Prediction generated successfully</span>
             </div>
 
             <button
               type="button"
               className="results__action"
-              onClick={() => navigate("/prediction")}
+              onClick={handleNewPrediction}
+              aria-label="Start a new churn prediction"
             >
-              New Prediction
+              <span>New Prediction</span>
               <ArrowRight size={17} aria-hidden="true" />
             </button>
           </div>
         </article>
 
-        {/* 10.3.3 — Risk Details & Insights */}
         <section
           className="results__insights"
           aria-labelledby="risk-details-title"
@@ -197,7 +201,6 @@ function Results() {
           </div>
         </section>
 
-        {/* Existing customer summary from the previous implementation. */}
         <section
           className="results__details"
           aria-labelledby="customer-summary-title"
@@ -236,12 +239,21 @@ function Results() {
           )}
         </section>
 
-        {predictionPayload && (
+        <div className="results__bottom-actions">
           <p className="results__note">
             Result generated from the customer information submitted in the
             prediction form.
           </p>
-        )}
+
+          <button
+            type="button"
+            className="results__secondary-action"
+            onClick={handleNewPrediction}
+          >
+            Run Another Prediction
+            <ArrowRight size={16} aria-hidden="true" />
+          </button>
+        </div>
       </section>
     </main>
   );
