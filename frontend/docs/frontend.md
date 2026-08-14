@@ -1306,3 +1306,11 @@ Established the Results page structure and prediction-state flow.
 - Added Getting Started, Prediction Help, and Troubleshooting support options.
 - Added Contact / Assistance placeholder.
 - Added dark/light theme compatible styling and responsive foundation.
+
+#### 10.4.2 Support Content & UX
+
+- Added Getting Started guidance for the prediction workflow.
+- Added Prediction Help for form, risk score, and result interpretation.
+- Added Troubleshooting guidance for common platform issues.
+- Added Contact / Assistance interaction placeholder.
+- Reused responsive support content components and theme-aware styling.

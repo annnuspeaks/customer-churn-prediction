@@ -145,18 +145,15 @@ Customer Churn Prediction Platform
 │ ├── 10.4 Support & Global Footer
 │ │ ├── 10.4.1 Support page structure
 │ │ │ ├── 10.4.1.1 Page Hero
-│ │ │ │ ├── 10.4.1.1.1 Eyebrow
-│ │ │ │ ├── 10.4.1.1.2 Heading
-│ │ │ │ └── 10.4.1.1.3 Short description
-│ │ │ │
 │ │ │ ├── 10.4.1.2 Support Options
-│ │ │ │ ├── 10.4.1.2.1 Getting Started
-│ │ │ │ ├── 10.4.1.2.2 Prediction Help
-│ │ │ │ └── 10.4.1.2.3 Troubleshooting
-│ │ │ │
 │ │ │ └── 10.4.1.3 Contact / Assistance placeholder
 │ │ │
 │ │ ├── 10.4.2 Support content & UX
+│ │ │ ├── 10.4.2.1 Getting Started content
+│ │ │ ├── 10.4.2.2 Prediction Help content
+│ │ │ ├── 10.4.2.3 Troubleshooting content
+│ │ │ └── 10.4.2.4 Contact / Assistance UX
+│ │ │ 
 │ │ ├── 10.4.3 Support responsive design
 │ │ ├── 10.4.4 Global Footer
 │ │ └── 10.4.5 Footer responsive + navigation review
