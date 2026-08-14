@@ -62,10 +62,10 @@
   margin-top: var(--space-12);
 }
 
-.results__risk-card {
+.results__risk-card,
+.results__details {
   overflow: hidden;
   position: relative;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   background: var(--glass-bg);
@@ -74,7 +74,12 @@
   -webkit-backdrop-filter: blur(var(--glass-blur));
 }
 
-.results__risk-card::after {
+.results__risk-card {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.results__risk-card::after,
+.results__details::after {
   content: "";
   position: absolute;
   top: -140px;
@@ -97,19 +102,24 @@
   border-bottom: 1px solid var(--glass-border);
 }
 
-.results__risk-icon {
+.results__risk-icon,
+.results__details-icon {
   display: grid;
   flex: 0 0 auto;
   place-items: center;
-  width: 3.5rem;
-  height: 3.5rem;
   border: 1px solid var(--color-accent-border);
   border-radius: var(--radius-md);
   background: var(--color-accent-soft);
   color: var(--color-accent);
 }
 
-.results__risk-kicker {
+.results__risk-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.results__risk-kicker,
+.results__details-kicker {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -118,13 +128,15 @@
   font-weight: var(--font-weight-semibold);
 }
 
-.results__risk-header h2 {
+.results__risk-header h2,
+.results__details-heading h2 {
   margin: 0.3rem 0 0;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   line-height: 1.1;
 }
 
-.results__risk-header p {
+.results__risk-header p,
+.results__details-heading p {
   margin: 0.45rem 0 0;
   color: var(--color-text-secondary);
   line-height: var(--line-height-relaxed);
@@ -266,6 +278,85 @@
   box-shadow: var(--shadow-accent);
 }
 
+/* =================================
+   10.3.3 CUSTOMER SUMMARY
+   ================================= */
+
+.results__details {
+  margin-top: var(--space-8);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.results__details-heading {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.results__details-icon {
+  width: 3.25rem;
+  height: 3.25rem;
+}
+
+.results__details-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: var(--space-6);
+}
+
+.results__detail-item {
+  min-width: 0;
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  background: var(--color-accent-soft);
+}
+
+.results__detail-item span {
+  display: block;
+  overflow: hidden;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  white-space: nowrap;
+}
+
+.results__detail-item strong {
+  display: block;
+  overflow: hidden;
+  margin-top: 0.4rem;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.results__details-empty {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: var(--space-6);
+  padding: 1.25rem;
+  border: 1px dashed var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
 .results__note {
   margin: 1rem 0 0;
   color: var(--color-text-tertiary);
@@ -276,6 +367,12 @@
 /* =================================
    RESPONSIVE
    ================================= */
+
+@media (max-width: 900px) {
+  .results__details-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
 @media (max-width: 768px) {
   .results {
@@ -315,6 +412,10 @@
   .results__action {
     width: 100%;
   }
+
+  .results__details-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
@@ -327,15 +428,18 @@
     font-size: var(--font-size-xs);
   }
 
-  .results__risk-card {
+  .results__risk-card,
+  .results__details {
     padding: 1.25rem;
   }
 
-  .results__risk-header {
+  .results__risk-header,
+  .results__details-heading {
     align-items: flex-start;
   }
 
-  .results__risk-icon {
+  .results__risk-icon,
+  .results__details-icon {
     width: 3rem;
     height: 3rem;
   }

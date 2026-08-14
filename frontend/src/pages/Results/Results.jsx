@@ -3,10 +3,44 @@ import {
   ArrowRight,
   BrainCircuit,
   CheckCircle2,
+  ClipboardList,
   ShieldCheck,
   TrendingUp,
+  UserRound,
 } from "lucide-react";
 import "./Results.css";
+
+function formatLabel(key) {
+  return key
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/[_-]+/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function formatValue(value) {
+  if (value === null || value === undefined || value === "") {
+    return "—";
+  }
+
+  if (typeof value === "boolean") {
+    return value ? "Yes" : "No";
+  }
+
+  return String(value);
+}
+
+function getDisplayEntries(payload) {
+  if (!payload || typeof payload !== "object") {
+    return [];
+  }
+
+  return Object.entries(payload).filter(
+    ([, value]) =>
+      value === null ||
+      value === undefined ||
+      typeof value !== "object",
+  );
+}
 
 function Results() {
   const { state } = useLocation();
@@ -21,6 +55,8 @@ function Results() {
     summary:
       "This customer shows a relatively high likelihood of churning based on the submitted profile and service information.",
   };
+
+  const customerDetails = getDisplayEntries(predictionPayload);
 
   return (
     <main className="results">
@@ -98,6 +134,41 @@ function Results() {
             </button>
           </div>
         </article>
+
+        <section className="results__details" aria-labelledby="customer-summary-title">
+          <div className="results__details-heading">
+            <div className="results__details-icon" aria-hidden="true">
+              <UserRound size={21} />
+            </div>
+
+            <div>
+              <span className="results__details-kicker">
+                <ClipboardList size={14} aria-hidden="true" />
+                Customer Summary
+              </span>
+              <h2 id="customer-summary-title">Submitted Information</h2>
+              <p>
+                A quick view of the customer details used for this prediction.
+              </p>
+            </div>
+          </div>
+
+          {customerDetails.length > 0 ? (
+            <div className="results__details-grid">
+              {customerDetails.map(([key, value]) => (
+                <div className="results__detail-item" key={key}>
+                  <span>{formatLabel(key)}</span>
+                  <strong>{formatValue(value)}</strong>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="results__details-empty">
+              <ClipboardList size={18} aria-hidden="true" />
+              <span>Customer submission details will appear here.</span>
+            </div>
+          )}
+        </section>
 
         {predictionPayload && (
           <p className="results__note">
