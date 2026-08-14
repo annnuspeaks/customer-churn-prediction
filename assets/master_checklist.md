@@ -161,6 +161,26 @@ Customer Churn Prediction Platform
 │ │ │ └── 10.4.3.4 Assistance CTA mobile UX
 │ │ │ 
 │ │ ├── 10.4.4 Global Footer
+│ │ │ │
+│ │ │ ├── 10.4.4.1 Footer Base structure
+│ │ │ │
+│ │ │ ├── 10.4.4.2 Brand + Project Ecosystem
+│ │ │ │ ├── 10.4.4.2.1 Project Identity
+│ │ │ │ ├── 10.4.4.2.2 Short Description
+│ │ │ │ └── 10.4.4.2.3 Other Projects / Products
+│ │ │ │
+│ │ │ ├── 10.4.4.3 Project Navigation + Social Links
+│ │ │ │ ├── 10.4.4.3.1 GitHub
+│ │ │ │ ├── 10.4.4.3.2 LinkedIn
+│ │ │ │ └── 10.4.4.3.3 Email
+│ │ │ │
+│ │ │ ├── 10.4.4.4 Footer Metadata
+│ │ │ │ ├── 10.4.4.4.1 LinkedIn
+│ │ │ │ └── 10.4.4.4.2 Email
+│ │ │ │
+│ │ │ └── 10.4.4.5 Global Footer Integration
+│ │ │   └── 10.4.4.5.1 App / All Routes
+│ │ │
 │ │ └── 10.4.5 Footer responsive + navigation review
 │ │
 │ ├── 10.5 Loading & Aplication States
