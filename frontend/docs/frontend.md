@@ -1235,3 +1235,13 @@ Implemented client-side validation for the customer prediction form.
 - Added accessibility attributes for validation errors
 - Prevented submission when validation fails
 
+#### 10.2.5 Submit / Prediction Action
+
+Implemented the prediction form submission flow.
+
+- Added submit handling
+- Added validation gate before submission
+- Added prediction payload preparation
+- Added submitting/loading state
+- Added success feedback
+- Kept API integration for Phase 10.5

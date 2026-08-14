@@ -32,9 +32,19 @@ const initialFormData = {
   totalCharges: "",
 };
 
-function SelectField({ id, label, options, value, onChange, error, placeholder = "Select option" }) {
+function SelectField({
+  id,
+  label,
+  options,
+  value,
+  onChange,
+  error,
+  placeholder = "Select option",
+}) {
   return (
-    <label className={`prediction__field${error ? " prediction__field--error" : ""}`}>
+    <label
+      className={`prediction__field${error ? " prediction__field--error" : ""}`}
+    >
       <span>{label}</span>
       <select
         id={id}
@@ -44,23 +54,45 @@ function SelectField({ id, label, options, value, onChange, error, placeholder =
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
       >
-        <option value="" disabled>{placeholder}</option>
+        <option value="" disabled>
+          {placeholder}
+        </option>
         {options.map((option) => (
-          <option key={option} value={option}>{option}</option>
+          <option key={option} value={option}>
+            {option}
+          </option>
         ))}
       </select>
-      {error && <small id={`${id}-error`} className="prediction__error">{error}</small>}
+      {error && (
+        <small id={`${id}-error`} className="prediction__error">
+          {error}
+        </small>
+      )}
     </label>
   );
 }
 
 function InputField({
-  id, label, value, onChange, error, type = "text", placeholder,
-  icon, min, max, step,
+  id,
+  label,
+  value,
+  onChange,
+  error,
+  type = "text",
+  placeholder,
+  icon,
+  min,
+  max,
+  step,
 }) {
   return (
-    <label className={`prediction__field${error ? " prediction__field--error" : ""}`}>
-      <span>{icon}{label}</span>
+    <label
+      className={`prediction__field${error ? " prediction__field--error" : ""}`}
+    >
+      <span>
+        {icon}
+        {label}
+      </span>
       <input
         id={id}
         name={id}
@@ -74,7 +106,11 @@ function InputField({
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
       />
-      {error && <small id={`${id}-error`} className="prediction__error">{error}</small>}
+      {error && (
+        <small id={`${id}-error`} className="prediction__error">
+          {error}
+        </small>
+      )}
     </label>
   );
 }
@@ -82,6 +118,8 @@ function InputField({
 function Prediction() {
   const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -115,7 +153,8 @@ function Prediction() {
     if (formData.monthlyCharges !== "") {
       const monthlyCharges = Number(formData.monthlyCharges);
       if (!Number.isFinite(monthlyCharges) || monthlyCharges < 0) {
-        nextErrors.monthlyCharges = "Enter a valid non-negative monthly charge.";
+        nextErrors.monthlyCharges =
+          "Enter a valid non-negative monthly charge.";
       }
     }
 
@@ -132,12 +171,31 @@ function Prediction() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    setSubmitMessage("");
+
     const validationErrors = validateForm();
 
-    if (Object.keys(validationErrors).length > 0) return;
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
 
-    // API integration is handled in a later phase.
-    console.log("Validated prediction input:", formData);
+    setIsSubmitting(true);
+
+    const predictionPayload = {
+      ...formData,
+      tenure: Number(formData.tenure),
+      monthlyCharges: Number(formData.monthlyCharges),
+      totalCharges: Number(formData.totalCharges),
+    };
+
+    // API integration will be implemented in Phase 10.5.
+    console.log("Prediction payload ready:", predictionPayload);
+
+    window.setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitMessage("Prediction request prepared successfully.");
+    }, 700);
   };
 
   return (
@@ -181,19 +239,52 @@ function Prediction() {
               </div>
 
               <div className="prediction__fields">
-                <SelectField id="gender" label="Gender" options={["Male", "Female"]}
-                  value={formData.gender} onChange={handleChange} error={errors.gender}
-                  placeholder="Select gender" />
-                <SelectField id="seniorCitizen" label="Senior Citizen" options={["0", "1"]}
-                  value={formData.seniorCitizen} onChange={handleChange} error={errors.seniorCitizen} />
-                <SelectField id="partner" label="Partner" options={yesNoOptions}
-                  value={formData.partner} onChange={handleChange} error={errors.partner} />
-                <SelectField id="dependents" label="Dependents" options={yesNoOptions}
-                  value={formData.dependents} onChange={handleChange} error={errors.dependents} />
-                <InputField id="tenure" label="Tenure" type="number"
-                  value={formData.tenure} onChange={handleChange} error={errors.tenure}
-                  placeholder="e.g. 24 months" icon={<Clock3 size={14} aria-hidden="true" />}
-                  min="0" max="72" step="1" />
+                <SelectField
+                  id="gender"
+                  label="Gender"
+                  options={["Male", "Female"]}
+                  value={formData.gender}
+                  onChange={handleChange}
+                  error={errors.gender}
+                  placeholder="Select gender"
+                />
+                <SelectField
+                  id="seniorCitizen"
+                  label="Senior Citizen"
+                  options={["0", "1"]}
+                  value={formData.seniorCitizen}
+                  onChange={handleChange}
+                  error={errors.seniorCitizen}
+                />
+                <SelectField
+                  id="partner"
+                  label="Partner"
+                  options={yesNoOptions}
+                  value={formData.partner}
+                  onChange={handleChange}
+                  error={errors.partner}
+                />
+                <SelectField
+                  id="dependents"
+                  label="Dependents"
+                  options={yesNoOptions}
+                  value={formData.dependents}
+                  onChange={handleChange}
+                  error={errors.dependents}
+                />
+                <InputField
+                  id="tenure"
+                  label="Tenure"
+                  type="number"
+                  value={formData.tenure}
+                  onChange={handleChange}
+                  error={errors.tenure}
+                  placeholder="e.g. 24 months"
+                  icon={<Clock3 size={14} aria-hidden="true" />}
+                  min="0"
+                  max="72"
+                  step="1"
+                />
               </div>
             </section>
 
@@ -206,14 +297,30 @@ function Prediction() {
               </div>
 
               <div className="prediction__fields">
-                <SelectField id="phoneService" label="Phone Service" options={yesNoOptions}
-                  value={formData.phoneService} onChange={handleChange} error={errors.phoneService} />
-                <SelectField id="multipleLines" label="Multiple Lines"
+                <SelectField
+                  id="phoneService"
+                  label="Phone Service"
+                  options={yesNoOptions}
+                  value={formData.phoneService}
+                  onChange={handleChange}
+                  error={errors.phoneService}
+                />
+                <SelectField
+                  id="multipleLines"
+                  label="Multiple Lines"
                   options={["Yes", "No", "No phone service"]}
-                  value={formData.multipleLines} onChange={handleChange} error={errors.multipleLines} />
-                <SelectField id="internetService" label="Internet Service"
+                  value={formData.multipleLines}
+                  onChange={handleChange}
+                  error={errors.multipleLines}
+                />
+                <SelectField
+                  id="internetService"
+                  label="Internet Service"
                   options={["DSL", "Fiber optic", "No"]}
-                  value={formData.internetService} onChange={handleChange} error={errors.internetService} />
+                  value={formData.internetService}
+                  onChange={handleChange}
+                  error={errors.internetService}
+                />
               </div>
             </section>
 
@@ -221,23 +328,61 @@ function Prediction() {
               <div className="prediction__section-header">
                 <div>
                   <h3>Additional Services</h3>
-                  <p>Optional services currently associated with the customer.</p>
+                  <p>
+                    Optional services currently associated with the customer.
+                  </p>
                 </div>
               </div>
 
               <div className="prediction__fields">
-                <SelectField id="onlineSecurity" label="Online Security" options={serviceOptions}
-                  value={formData.onlineSecurity} onChange={handleChange} error={errors.onlineSecurity} />
-                <SelectField id="onlineBackup" label="Online Backup" options={serviceOptions}
-                  value={formData.onlineBackup} onChange={handleChange} error={errors.onlineBackup} />
-                <SelectField id="deviceProtection" label="Device Protection" options={serviceOptions}
-                  value={formData.deviceProtection} onChange={handleChange} error={errors.deviceProtection} />
-                <SelectField id="techSupport" label="Tech Support" options={serviceOptions}
-                  value={formData.techSupport} onChange={handleChange} error={errors.techSupport} />
-                <SelectField id="streamingTV" label="Streaming TV" options={serviceOptions}
-                  value={formData.streamingTV} onChange={handleChange} error={errors.streamingTV} />
-                <SelectField id="streamingMovies" label="Streaming Movies" options={serviceOptions}
-                  value={formData.streamingMovies} onChange={handleChange} error={errors.streamingMovies} />
+                <SelectField
+                  id="onlineSecurity"
+                  label="Online Security"
+                  options={serviceOptions}
+                  value={formData.onlineSecurity}
+                  onChange={handleChange}
+                  error={errors.onlineSecurity}
+                />
+                <SelectField
+                  id="onlineBackup"
+                  label="Online Backup"
+                  options={serviceOptions}
+                  value={formData.onlineBackup}
+                  onChange={handleChange}
+                  error={errors.onlineBackup}
+                />
+                <SelectField
+                  id="deviceProtection"
+                  label="Device Protection"
+                  options={serviceOptions}
+                  value={formData.deviceProtection}
+                  onChange={handleChange}
+                  error={errors.deviceProtection}
+                />
+                <SelectField
+                  id="techSupport"
+                  label="Tech Support"
+                  options={serviceOptions}
+                  value={formData.techSupport}
+                  onChange={handleChange}
+                  error={errors.techSupport}
+                />
+                <SelectField
+                  id="streamingTV"
+                  label="Streaming TV"
+                  options={serviceOptions}
+                  value={formData.streamingTV}
+                  onChange={handleChange}
+                  error={errors.streamingTV}
+                />
+                <SelectField
+                  id="streamingMovies"
+                  label="Streaming Movies"
+                  options={serviceOptions}
+                  value={formData.streamingMovies}
+                  onChange={handleChange}
+                  error={errors.streamingMovies}
+                />
               </div>
             </section>
 
@@ -250,28 +395,75 @@ function Prediction() {
               </div>
 
               <div className="prediction__fields">
-                <SelectField id="contract" label="Contract"
+                <SelectField
+                  id="contract"
+                  label="Contract"
                   options={["Month-to-month", "One year", "Two year"]}
-                  value={formData.contract} onChange={handleChange} error={errors.contract} />
-                <SelectField id="paperlessBilling" label="Paperless Billing" options={yesNoOptions}
-                  value={formData.paperlessBilling} onChange={handleChange} error={errors.paperlessBilling} />
-                <SelectField id="paymentMethod" label="Payment Method"
-                  options={["Electronic check", "Mailed check", "Bank transfer (automatic)", "Credit card (automatic)"]}
-                  value={formData.paymentMethod} onChange={handleChange} error={errors.paymentMethod} />
-                <InputField id="monthlyCharges" label="Monthly Charges" type="number"
-                  value={formData.monthlyCharges} onChange={handleChange} error={errors.monthlyCharges}
-                  placeholder="e.g. 79.50" icon={<CircleDollarSign size={14} aria-hidden="true" />}
-                  min="0" step="0.01" />
-                <InputField id="totalCharges" label="Total Charges" type="number"
-                  value={formData.totalCharges} onChange={handleChange} error={errors.totalCharges}
-                  placeholder="e.g. 1850.25" min="0" step="0.01" />
+                  value={formData.contract}
+                  onChange={handleChange}
+                  error={errors.contract}
+                />
+                <SelectField
+                  id="paperlessBilling"
+                  label="Paperless Billing"
+                  options={yesNoOptions}
+                  value={formData.paperlessBilling}
+                  onChange={handleChange}
+                  error={errors.paperlessBilling}
+                />
+                <SelectField
+                  id="paymentMethod"
+                  label="Payment Method"
+                  options={[
+                    "Electronic check",
+                    "Mailed check",
+                    "Bank transfer (automatic)",
+                    "Credit card (automatic)",
+                  ]}
+                  value={formData.paymentMethod}
+                  onChange={handleChange}
+                  error={errors.paymentMethod}
+                />
+                <InputField
+                  id="monthlyCharges"
+                  label="Monthly Charges"
+                  type="number"
+                  value={formData.monthlyCharges}
+                  onChange={handleChange}
+                  error={errors.monthlyCharges}
+                  placeholder="e.g. 79.50"
+                  icon={<CircleDollarSign size={14} aria-hidden="true" />}
+                  min="0"
+                  step="0.01"
+                />
+                <InputField
+                  id="totalCharges"
+                  label="Total Charges"
+                  type="number"
+                  value={formData.totalCharges}
+                  onChange={handleChange}
+                  error={errors.totalCharges}
+                  placeholder="e.g. 1850.25"
+                  min="0"
+                  step="0.01"
+                />
               </div>
             </section>
 
-            <button type="submit" className="prediction__submit">
+            <button
+              type="submit"
+              className="prediction__submit"
+              disabled={isSubmitting}
+              aria-busy={isSubmitting}
+            >
               <BrainCircuit size={18} aria-hidden="true" />
-              Predict Churn Risk
+              {isSubmitting ? "Preparing Prediction..." : "Predict Churn Risk"}
             </button>
+            {submitMessage && (
+              <p className="prediction__submit-message" role="status">
+                {submitMessage}
+              </p>
+            )}
           </form>
         </div>
       </section>
