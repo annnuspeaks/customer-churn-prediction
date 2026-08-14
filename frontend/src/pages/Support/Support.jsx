@@ -55,6 +55,22 @@ function Support() {
           </div>
         </article>
       </section>
+      <section className="support-assistance" aria-label="Contact assistance">
+        <div className="support-assistance__content">
+          <span className="support-assistance__eyebrow">Still need help?</span>
+
+          <h2>We're here to help.</h2>
+
+          <p>
+            If you cannot find what you are looking for, get in touch for
+            additional assistance.
+          </p>
+        </div>
+
+        <div className="support-assistance__action">
+          <span>Contact Support</span>
+        </div>
+      </section>
     </main>
   );
 }
