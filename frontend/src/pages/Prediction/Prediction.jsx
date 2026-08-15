@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Loading from "../../components/Loading/Loading";
 import {
   BrainCircuit,
   CircleDollarSign,
@@ -170,7 +171,7 @@ function Prediction() {
     return nextErrors;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     setSubmitMessage("");
@@ -190,13 +191,28 @@ function Prediction() {
       totalCharges: Number(formData.totalCharges),
     };
 
-    // API integration will be implemented in Phase 10.5.
+    // Temporary processing delay for the prediction loading state.
+    // Actual API integration will replace this in the API integration phase.
     console.log("Prediction payload ready:", predictionPayload);
+
+    await new Promise((resolve) => {
+      setTimeout(resolve, 1800);
+    });
 
     navigate("/results", {
       state: { predictionPayload },
     });
   };
+
+  if (isSubmitting) {
+    return (
+      <Loading
+        message="Generating your churn prediction..."
+        size="large"
+        fullScreen
+      />
+    );
+  }
 
   return (
     <main className="prediction">

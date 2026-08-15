@@ -45,6 +45,12 @@ function App() {
           <Route path="/prediction" element={<Prediction />} />
           <Route path="/support" element={<Support />} />
           <Route path="/results" element={<Results />} />
+          <Route
+            path="/loading-preview"
+            element={
+              <Loading message="Preparing your prediction..." size="large" />
+            }
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <Footer />
