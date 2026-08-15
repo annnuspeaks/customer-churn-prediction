@@ -180,9 +180,39 @@
   outline-offset: 3px;
 }
 
+.navbar__menu-toggle:active {
+  transform: scale(0.95);
+}
+
+.navbar__menu-toggle:focus:not(:focus-visible) {
+  outline: none;
+}
+
 .navbar__mobile-divider,
 .navbar__theme-toggle {
   display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__brand-mark,
+  .navbar__link,
+  .navbar__link svg,
+  .navbar__menu-toggle,
+  .navbar__nav,
+  .navbar__theme-toggle {
+    transition: none;
+  }
+
+  .navbar__brand:hover .navbar__brand-mark,
+  .navbar__link:hover,
+  .navbar__link:hover svg,
+  .navbar__link--active:hover,
+  .navbar__menu-toggle:active,
+  .navbar__nav,
+  .navbar__nav--open,
+  .navbar__theme-toggle:active {
+    transform: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -217,34 +247,49 @@
     flex-shrink: 0;
   }
 
-  .navbar__nav {
-    display: none;
+.navbar__nav {
+  grid-column: 1 / -1;
 
-    grid-column: 1 / -1;
+  width: 100%;
 
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.35rem;
 
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.35rem;
+  margin-top: 0.25rem;
+  padding: 0.65rem;
 
-    margin-top: 0.25rem;
-    padding: 0.65rem;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
 
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-lg);
+  background: var(--glass-bg);
 
-    background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
 
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--shadow-md);
 
-    box-shadow: var(--shadow-md);
-  }
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 
-  .navbar__nav--open {
-    display: flex;
-  }
+  transform: translateY(-8px) scale(0.985);
+  transform-origin: top;
+
+  transition:
+    opacity var(--transition-fast),
+    visibility var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.navbar__nav--open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateY(0) scale(1);
+}
 
   .navbar__link {
     width: 100%;
@@ -284,6 +329,19 @@
     background: var(--color-surface-hover);
     border-color: var(--glass-border);
   }
+
+  .navbar__theme-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.navbar__theme-toggle:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.navbar__theme-toggle:active {
+  transform: scale(0.99);
+}
 
   .navbar__theme-toggle-icon {
     display: grid;

@@ -5,10 +5,7 @@
 .results {
   width: 100%;
   min-height: 100vh;
-  padding:
-    calc(var(--space-20) + 2rem)
-    var(--container-padding)
-    var(--space-20);
+  padding: calc(var(--space-20) + 2rem) var(--container-padding) var(--space-20);
   color: var(--color-text-primary);
 }
 
@@ -165,11 +162,10 @@
   aspect-ratio: 1;
   margin-inline: auto;
   border-radius: 50%;
-  background:
-    conic-gradient(
-      var(--color-accent) 0 var(--risk-progress),
-      var(--glass-border) var(--risk-progress) 100%
-    );
+  background: conic-gradient(
+    var(--color-accent) 0 var(--risk-progress),
+    var(--glass-border) var(--risk-progress) 100%
+  );
   box-shadow: 0 0 40px var(--color-accent-soft);
 }
 
@@ -290,7 +286,15 @@
 
 .results__action:active,
 .results__secondary-action:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.995);
+}
+
+.results__action:disabled,
+.results__secondary-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
 }
 
 .results__action:focus-visible,
@@ -507,9 +511,7 @@
 
 @media (max-width: 768px) {
   .results {
-    padding:
-      calc(var(--space-16) + 2rem)
-      var(--container-padding)
+    padding: calc(var(--space-16) + 2rem) var(--container-padding)
       var(--space-16);
   }
 
@@ -708,6 +710,21 @@
   box-shadow: var(--shadow-accent);
 }
 
+.results__state-action:active {
+  transform: translateY(0) scale(0.995);
+}
+
+.results__state-action:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.results__state-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+}
+
 .results__state-action:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
@@ -715,6 +732,23 @@
 
 .results__state-card--error .results__state-icon {
   color: var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .results__action,
+  .results__secondary-action,
+  .results__state-action {
+    transition: none;
+  }
+
+  .results__action:hover,
+  .results__action:active,
+  .results__secondary-action:hover,
+  .results__secondary-action:active,
+  .results__state-action:hover,
+  .results__state-action:active {
+    transform: none;
+  }
 }
 
 @media (max-width: 480px) {

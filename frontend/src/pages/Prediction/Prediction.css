@@ -381,39 +381,47 @@
 
 /* Hover */
 
-.prediction__field input:hover,
-.prediction__field select:hover {
-  border-color: var(--color-accent-border);
-}
-
-/* Focus */
-
-.prediction__field input:focus,
-.prediction__field select:focus {
-  border-color: var(--color-accent);
-
-  background-color: var(--color-surface);
-
-  box-shadow:
-    0 0 0 3px var(--color-accent-soft),
-    0 0 18px var(--color-accent-soft);
-}
-
 .prediction__field input::placeholder {
   color: var(--color-text-muted);
 }
 
-/* hover */
+/* =================================
+   FORM CONTROL INTERACTIONS
+   ================================= */
+
+.prediction__field input,
+.prediction__field select {
+  width: 100%;
+  min-height: 48px;
+
+  padding: 0.7rem 0.9rem;
+
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+
+  font: inherit;
+  font-size: var(--font-size-sm);
+
+  outline: none;
+
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
 
 .prediction__field input:hover,
 .prediction__field select:hover {
   border-color: var(--color-accent-border);
+  background: var(--glass-bg-hover);
 }
 
-/* focus */
-
-.prediction__field input:focus,
-.prediction__field select:focus {
+.prediction__field input:focus-visible,
+.prediction__field select:focus-visible {
   border-color: var(--color-accent);
 
   background: var(--color-surface);
@@ -421,6 +429,11 @@
   box-shadow:
     0 0 0 3px var(--color-accent-soft),
     0 0 18px var(--color-accent-soft);
+}
+
+.prediction__field input:active,
+.prediction__field select:active {
+  transform: scale(0.995);
 }
 
 /* =================================
@@ -496,7 +509,8 @@
 }
 
 .prediction__submit:active {
-  transform: translateY(0);
+  transform: translateY(1px) scale(0.995);
+  box-shadow: 0 4px 16px var(--color-accent-soft);
 }
 
 .prediction__submit:focus-visible {
@@ -563,30 +577,28 @@
 
 .prediction__field--error input,
 .prediction__field--error select {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px var(--color-accent-soft);
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
 }
 
-.prediction__field--error input:focus,
-.prediction__field--error select:focus {
-  border-color: var(--color-accent);
+.prediction__field--error input:focus-visible,
+.prediction__field--error select:focus-visible {
+  border-color: var(--color-danger);
+
   box-shadow:
-    0 0 0 3px var(--color-accent-soft),
-    0 0 18px var(--color-accent-soft);
+    0 0 0 3px rgba(239, 68, 68, 0.12),
+    0 0 18px rgba(239, 68, 68, 0.12);
 }
 
 .prediction__error {
-  margin-top: -0.15rem;
-  color: var(--color-accent);
-  font-size: var(--font-size-xs);
-  line-height: var(--line-height-relaxed);
+  color: var(--color-danger);
 }
 
 .prediction__submit:disabled {
   cursor: not-allowed;
-  opacity: 0.7;
+  opacity: 0.65;
   transform: none;
-  filter: none;
+  filter: saturate(0.7);
   box-shadow: none;
 }
 
@@ -609,4 +621,19 @@
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prediction__field input,
+  .prediction__field select,
+  .prediction__submit {
+    transition: none;
+  }
+
+  .prediction__field input:active,
+  .prediction__field select:active,
+  .prediction__submit:active,
+  .prediction__submit:hover {
+    transform: none;
+  }
 }
