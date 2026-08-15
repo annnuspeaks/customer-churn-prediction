@@ -1407,3 +1407,14 @@ Implemented a reusable loading component foundation for consistent application l
 - Verified loading-to-results transition flow.
 - Confirmed accessibility attributes and interaction states.
 - Final loading UX approved and locked.
+
+### 10.6 Global UX / Interaction Polish
+
+#### 10.6.1 Back-to-Top UX
+
+- Added reusable floating back-to-top control.
+- Added smooth scroll-to-top interaction.
+- Added fade, slide, and scale visibility transitions.
+- Added keyboard accessibility and focus handling.
+- Added reduced-motion support.
+- Added responsive mobile positioning.
