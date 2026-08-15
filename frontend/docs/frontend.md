@@ -1323,6 +1323,8 @@ Established the Results page structure and prediction-state flow.
 - Improved mobile Contact / Assistance CTA usability.
 - Maintained consistent dark/light theme styling across breakpoints.
 
+#### 10.4.4 Global Footer
+
 ##### 10.4.4.1 Footer Base Structure
 
 - Created reusable global Footer component.
@@ -1356,3 +1358,21 @@ Established the Results page structure and prediction-state flow.
 - Made the footer available across all routed pages.
 - Connected the live Fraud Detection System product URL.
 - Preserved responsive and theme-aware footer behavior.
+
+#### 10.5.1 Loading Component Foundation
+
+Implemented a reusable loading component foundation for consistent application loading states.
+
+##### Completed
+- Reusable `Loading` component
+- Configurable loading message
+- Small, medium, and large size variants
+- Optional fullscreen mode
+- Accessible `role="status"` and live-region support
+- Theme-aware styling using global design tokens
+- Responsive mobile behavior
+- Reduced-motion accessibility support
+
+##### Files
+- `src/components/Loading/Loading.jsx`
+- `src/components/Loading/Loading.css`

@@ -182,6 +182,10 @@ Customer Churn Prediction Platform
 │ │ │   └── 10.4.4.5.1 App / All Routes
 │ │ │
 │ │ └── 10.4.5 Footer responsive + navigation review
+│ │   ├── 10.4.5.1 Responsive layout review
+│ │   ├── 10.4.5.2 Footer navigation review
+│ │   ├── 10.4.5.3 Mobile/small-device polish
+│ │   └── 10.4.5.4 Accessibility + interaction review
 │ │
 │ ├── 10.5 Loading & Aplication States
 │ │ ├── 10.5.1 Loading component foundation
