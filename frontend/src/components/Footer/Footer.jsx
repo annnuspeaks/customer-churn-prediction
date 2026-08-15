@@ -119,7 +119,7 @@ function Footer() {
     ================================ */}
       <div className="site-footer__bottom">
         <span className="site-footer__copyright">
-          © {new Date().getFullYear()} Customer Churn Prediction
+          © {new Date().getFullYear()} TAS Communication Services | Anurag Shukla
         </span>
 
         <span className="site-footer__credit">

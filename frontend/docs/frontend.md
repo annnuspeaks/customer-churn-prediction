@@ -1376,3 +1376,10 @@ Implemented a reusable loading component foundation for consistent application l
 ##### Files
 - `src/components/Loading/Loading.jsx`
 - `src/components/Loading/Loading.css`
+
+#### 10.5.2 Animated Loading UI
+
+- Added staggered three-dot loading animation.
+- Added smooth pulse and vertical motion.
+- Preserved size variants, fullscreen mode, and theme tokens.
+- Added reduced-motion accessibility support.
