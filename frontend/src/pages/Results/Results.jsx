@@ -6,6 +6,8 @@ import {
   ClipboardList,
   Gauge,
   Lightbulb,
+  RefreshCw,
+  ShieldAlert,
   ShieldCheck,
   TrendingUp,
   UserRound,
@@ -38,19 +40,35 @@ function getDisplayEntries(payload) {
 
   return Object.entries(payload).filter(
     ([, value]) =>
-      value === null ||
-      value === undefined ||
-      typeof value !== "object",
+      value === null || value === undefined || typeof value !== "object",
   );
 }
 
 function Results() {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const { predictionPayload } = state || {};
 
-  // Mock result for UI development.
-  // Actual ML/API result will replace this in Phase 10.5.
+  const predictionPayload = state?.predictionPayload;
+  const resultStatus = state?.resultStatus;
+  const resultError = state?.resultError;
+
+  /*
+   * Result state priority:
+   * 1. Explicit error state
+   * 2. Explicit success state
+   * 3. Missing payload = empty state
+   * 4. Payload available = success
+   *
+   * Actual API response will replace this state flow later.
+   */
+  const status = resultStatus
+    ? resultStatus
+    : resultError
+      ? "error"
+      : predictionPayload
+        ? "success"
+        : "empty";
+
   const predictionResult = {
     riskPercentage: 68,
     riskLevel: "High Risk",
@@ -67,6 +85,70 @@ function Results() {
   const handleNewPrediction = () => {
     navigate("/prediction");
   };
+
+  const handleRetry = () => {
+    navigate("/prediction");
+  };
+
+  if (status === "empty") {
+    return (
+      <main className="results results--state">
+        <section className="results__state-card" aria-labelledby="empty-title">
+          <div className="results__state-icon" aria-hidden="true">
+            <ClipboardList size={28} />
+          </div>
+
+          <span className="results__state-kicker">No Prediction Available</span>
+
+          <h1 id="empty-title">Your Results Are Waiting.</h1>
+
+          <p>
+            No prediction data is currently available. Submit customer
+            information first to generate a churn risk prediction.
+          </p>
+
+          <button
+            type="button"
+            className="results__state-action"
+            onClick={handleNewPrediction}
+          >
+            <span>Start Prediction</span>
+            <ArrowRight size={17} aria-hidden="true" />
+          </button>
+        </section>
+      </main>
+    );
+  }
+
+  if (status === "error") {
+    return (
+      <main className="results results--state">
+        <section className="results__state-card results__state-card--error">
+          <div className="results__state-icon" aria-hidden="true">
+            <ShieldAlert size={28} />
+          </div>
+
+          <span className="results__state-kicker">Prediction Error</span>
+
+          <h1>We Couldn't Generate Your Result.</h1>
+
+          <p>
+            {resultError ||
+              "Something went wrong while generating the churn prediction. Please try again."}
+          </p>
+
+          <button
+            type="button"
+            className="results__state-action"
+            onClick={handleRetry}
+          >
+            <RefreshCw size={17} aria-hidden="true" />
+            <span>Try Again</span>
+          </button>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="results">
@@ -89,7 +171,10 @@ function Results() {
         </div>
       </section>
 
-      <section className="results__content" aria-labelledby="results-card-title">
+      <section
+        className="results__content"
+        aria-labelledby="results-card-title"
+      >
         <article className="results__risk-card">
           <div className="results__risk-header">
             <div className="results__risk-icon" aria-hidden="true">
@@ -101,7 +186,9 @@ function Results() {
                 <TrendingUp size={14} aria-hidden="true" />
                 ML Risk Analysis
               </span>
+
               <h2 id="results-card-title">Customer Churn Risk</h2>
+
               <p>Estimated likelihood that this customer may churn.</p>
             </div>
           </div>
@@ -109,7 +196,9 @@ function Results() {
           <div className="results__risk-main">
             <div
               className="results__risk-ring"
-              style={{ "--risk-progress": `${predictionResult.riskPercentage}%` }}
+              style={{
+                "--risk-progress": `${predictionResult.riskPercentage}%`,
+              }}
               aria-label={`${predictionResult.riskPercentage}% churn risk`}
             >
               <div className="results__risk-ring-inner">
@@ -120,10 +209,12 @@ function Results() {
 
             <div className="results__risk-copy">
               <span className="results__risk-label">Predicted Risk Level</span>
+
               <div className="results__risk-level">
                 <span className="results__risk-dot" />
                 {predictionResult.riskLevel}
               </div>
+
               <p>{predictionResult.summary}</p>
             </div>
           </div>
@@ -160,7 +251,9 @@ function Results() {
                 <TrendingUp size={14} aria-hidden="true" />
                 Risk Details &amp; Insights
               </span>
+
               <h2 id="risk-details-title">What This Result Means</h2>
+
               <p>
                 A concise interpretation of the estimated churn risk for this
                 customer.
@@ -173,8 +266,11 @@ function Results() {
               <div className="results__insight-card-icon" aria-hidden="true">
                 <Gauge size={18} />
               </div>
+
               <span className="results__insight-label">Risk Score</span>
+
               <strong>{predictionResult.riskPercentage}%</strong>
+
               <p>
                 The model estimates a {predictionResult.riskPercentage}%
                 likelihood of customer churn.
@@ -185,8 +281,11 @@ function Results() {
               <div className="results__insight-card-icon" aria-hidden="true">
                 <ShieldCheck size={18} />
               </div>
+
               <span className="results__insight-label">Risk Category</span>
+
               <strong>{predictionResult.riskLevel}</strong>
+
               <p>{predictionResult.interpretation}</p>
             </article>
 
@@ -194,8 +293,11 @@ function Results() {
               <div className="results__insight-card-icon" aria-hidden="true">
                 <Lightbulb size={18} />
               </div>
+
               <span className="results__insight-label">Recommended Signal</span>
+
               <strong>Retention Attention</strong>
+
               <p>{predictionResult.decisionSignal}</p>
             </article>
           </div>
@@ -215,7 +317,9 @@ function Results() {
                 <ClipboardList size={14} aria-hidden="true" />
                 Customer Summary
               </span>
+
               <h2 id="customer-summary-title">Submitted Information</h2>
+
               <p>
                 A quick view of the customer details used for this prediction.
               </p>
