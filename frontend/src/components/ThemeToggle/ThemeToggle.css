@@ -112,20 +112,3 @@
   }
 }
 
-@media (max-width: 480px) {
-  .theme-toggle {
-    top: 5.5rem;
-    right: 0.75rem;
-
-    min-width: 42px;
-    width: 42px;
-    height: 42px;
-    padding: 0;
-
-    justify-content: center;
-  }
-
-  .theme-toggle__label {
-    display: none;
-  }
-}

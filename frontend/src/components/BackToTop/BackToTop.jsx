@@ -34,7 +34,6 @@ function BackToTop() {
       aria-label="Back to top"
       title="Back to top"
       tabIndex={visible ? 0 : -1}
-      aria-hidden={!visible}
     >
       <ArrowUp size={20} strokeWidth={2.2} aria-hidden="true" />
     </button>

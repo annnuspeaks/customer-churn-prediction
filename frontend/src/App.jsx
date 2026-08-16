@@ -5,6 +5,7 @@ import BackToTop from "./components/BackToTop/BackToTop";
 import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 import Footer from "./components/Footer/Footer";
 import Loading from "./components/Loading/Loading";
+import ScrollManager from "./components/ScrollManager/ScrollManager";
 
 import Home from "./pages/Home/Home";
 import Prediction from "./pages/Prediction/Prediction";
@@ -35,6 +36,8 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollManager />
+      
       <div className="app">
         <a className="skip-link" href="#main-content">
           Skip to main content

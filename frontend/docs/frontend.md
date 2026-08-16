@@ -1444,3 +1444,12 @@ Implemented a reusable loading component foundation for consistent application l
 - Added reduced-motion support for animated loading UI.
 - Added accessible skip navigation and floating controls.
 - Verified accessible labels for icon-based and external actions.
+
+#### 10.6.5 Scroll & Floating Element Behaviour
+
+- Added centralized route-based scroll position management.
+- Added hash/anchor scrolling with reduced-motion support.
+- Improved Back-to-Top visibility and accessibility behaviour.
+- Verified floating element positioning and collision handling.
+- Verified responsive floating behaviour across mobile and tablet sizes.
+- Completed final scroll and reduced-motion audit.
