@@ -92,7 +92,7 @@ function Results() {
 
   if (status === "empty") {
     return (
-      <main className="results results--state">
+      <div className="results results--state">
         <section className="results__state-card" aria-labelledby="empty-title">
           <div className="results__state-icon" aria-hidden="true">
             <ClipboardList size={28} />
@@ -116,13 +116,13 @@ function Results() {
             <ArrowRight size={17} aria-hidden="true" />
           </button>
         </section>
-      </main>
+      </div>
     );
   }
 
   if (status === "error") {
     return (
-      <main className="results results--state">
+      <div className="results results--state">
         <section className="results__state-card results__state-card--error">
           <div className="results__state-icon" aria-hidden="true">
             <ShieldAlert size={28} />
@@ -146,12 +146,12 @@ function Results() {
             <span>Try Again</span>
           </button>
         </section>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className="results">
+    <div className="results">
       <section className="results__hero">
         <div className="results__heading">
           <div className="results__eyebrow">
@@ -359,7 +359,7 @@ function Results() {
           </button>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

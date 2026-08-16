@@ -54,6 +54,7 @@ function SelectField({
         value={value}
         onChange={onChange}
         aria-invalid={Boolean(error)}
+        aria-required="true"
         aria-describedby={error ? `${id}-error` : undefined}
       >
         <option value="" disabled>
@@ -106,6 +107,7 @@ function InputField({
         max={max}
         step={step}
         aria-invalid={Boolean(error)}
+        aria-required="true"
         aria-describedby={error ? `${id}-error` : undefined}
       />
       {error && (
@@ -215,7 +217,7 @@ function Prediction() {
   }
 
   return (
-    <main className="prediction">
+    <div className="prediction">
       <section className="prediction__hero">
         <div className="prediction__heading">
           <div className="prediction__eyebrow">
@@ -240,12 +242,17 @@ function Prediction() {
               <ShieldCheck size={24} aria-hidden="true" />
             </div>
             <div>
-              <h2>Customer Information</h2>
+              <h2 id="prediction-form-title">Customer Information</h2>{" "}
               <p>Provide the required customer details below.</p>
             </div>
           </div>
 
-          <form className="prediction__form" onSubmit={handleSubmit} noValidate>
+          <form
+            className="prediction__form"
+            onSubmit={handleSubmit}
+            noValidate
+            aria-labelledby="prediction-form-title"
+          >
             <section className="prediction__form-section">
               <div className="prediction__section-header">
                 <div>
@@ -303,7 +310,6 @@ function Prediction() {
                 />
               </div>
             </section>
-
             <section className="prediction__form-section">
               <div className="prediction__section-header">
                 <div>
@@ -339,7 +345,6 @@ function Prediction() {
                 />
               </div>
             </section>
-
             <section className="prediction__form-section">
               <div className="prediction__section-header">
                 <div>
@@ -401,7 +406,6 @@ function Prediction() {
                 />
               </div>
             </section>
-
             <section className="prediction__form-section">
               <div className="prediction__section-header">
                 <div>
@@ -465,7 +469,6 @@ function Prediction() {
                 />
               </div>
             </section>
-
             <button
               type="submit"
               className="prediction__submit"
@@ -483,7 +486,7 @@ function Prediction() {
           </form>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

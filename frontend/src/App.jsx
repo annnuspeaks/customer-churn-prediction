@@ -36,23 +36,29 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
+
         <Navbar theme={theme} onToggle={handleThemeToggle} />
 
         <ThemeToggle theme={theme} onToggle={handleThemeToggle} />
         <BackToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/prediction" element={<Prediction />} />
-          <Route path="/support" element={<Support />} />
-          <Route path="/results" element={<Results />} />
-          <Route
-            path="/loading-preview"
-            element={
-              <Loading message="Preparing your prediction..." size="large" />
-            }
-          />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        <main id="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/prediction" element={<Prediction />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/results" element={<Results />} />
+            <Route
+              path="/loading-preview"
+              element={
+                <Loading message="Preparing your prediction..." size="large" />
+              }
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
         <Footer />
       </div>
     </BrowserRouter>

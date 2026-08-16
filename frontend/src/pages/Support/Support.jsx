@@ -9,7 +9,7 @@ import "./Support.css";
 
 function Support() {
   return (
-    <main className="support-page">
+    <div className="support-page">
       {/* ================================
           SUPPORT HERO
           ================================ */}
@@ -344,7 +344,7 @@ function Support() {
           <ArrowRight size={18} aria-hidden="true" />
         </a>
       </section>
-    </main>
+    </div>
   );
 }
 

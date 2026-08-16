@@ -37,11 +37,13 @@ function Navbar({ theme, onToggle }) {
             menuOpen ? "Close navigation menu" : "Open navigation menu"
           }
           aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
         >
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
 
         <nav
+          id="primary-navigation"
           className={`navbar__nav ${menuOpen ? "navbar__nav--open" : ""}`}
           aria-label="Primary navigation"
         >

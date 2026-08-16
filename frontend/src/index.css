@@ -41,13 +41,8 @@
      ================================ */
 
   --font-family-base:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -104,8 +99,7 @@
   --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.22);
   --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.3);
 
-  --shadow-accent:
-    0 10px 35px rgba(34, 197, 94, 0.18);
+  --shadow-accent: 0 10px 35px rgba(34, 197, 94, 0.18);
 
   /* ================================
      TRANSITIONS
@@ -236,6 +230,64 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+/* ==================================
+   GLOBAL FOCUS & ACCESSIBILITY
+   FOCUS & ACCESSIBILITY POLISH
+   ================================== */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ==================================
+   SKIP LINK
+   NAVIGATION ACCESSIBILITY
+   ================================== */
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+
+  z-index: calc(var(--z-modal) + 1);
+
+  padding: 0.65rem 0.9rem;
+
+  border: 1px solid var(--color-accent-border);
+  border-radius: var(--radius-md);
+
+  color: #ffffff;
+  background: var(--color-accent);
+
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+
+  box-shadow: var(--shadow-md);
+
+  transform: translateY(-150%);
+  transition: transform var(--transition-fast);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.skip-link:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* ==================================
