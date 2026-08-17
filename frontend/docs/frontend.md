@@ -1469,3 +1469,12 @@ Implemented a reusable loading component foundation for consistent application l
 - Verified mobile breakpoints, stacking, spacing, typography, and overflow behavior.
 - Completed final cross-page responsive review.
 - No major responsive issues remain.
+
+### 10.8 API integration
+
+#### 10.8.1 API Client / Service Setup
+
+- Added centralized frontend API request utility.
+- Added environment-based backend API base URL configuration.
+- Added reusable response and API error handling.
+- Verified frontend production build successfully.
