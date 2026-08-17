@@ -213,13 +213,13 @@ Customer Churn Prediction Platform
 │ │ └── 10.7.8 Cross-page responsive final review
 │ │
 │ └── 10.8 API integration
-│ ├── 10.8.1 API client/service setup
-│ ├── 10.8.2 Prediction API connection
-│ ├── 10.8.3 Request payload mapping
-│ ├── 10.8.4 Response mapping
-│ ├── 10.8.5 Loading/error handling integration
-│ ├── 10.8.6 Results API data integration
-│ └── 10.8.7 API integration final review
+│   ├── 10.8.1 API client/service setup
+│   ├── 10.8.2 Prediction API connection
+│   ├── 10.8.3 Request payload mapping
+│   ├── 10.8.4 Response mapping
+│   ├── 10.8.5 Loading/error handling integration
+│   ├── 10.8.6 Results API data integration
+│   └── 10.8.7 API integration final review
 │
 ├── PHASE 11 — Testing
 │ ├── 11.1 Unit tests

@@ -22,8 +22,8 @@
   background: var(--color-accent-soft);
   color: var(--color-accent);
 
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
 }
 
 .support-hero h1 {
@@ -32,10 +32,10 @@
 
   color: var(--color-text-primary);
 
-  font-size: clamp(3.25rem, 7vw, 6rem);
   font-weight: var(--font-weight-extrabold);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.045em;
 }
 
 .support-hero h1 span {
@@ -204,8 +204,8 @@
 
   color: var(--color-accent);
 
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
 }
 
 .support-assistance h2 {
@@ -241,8 +241,8 @@
   background: var(--color-accent-soft);
   color: var(--color-accent);
 
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
 
   text-decoration: none;
 
@@ -401,8 +401,8 @@
 
   color: var(--color-accent);
 
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
 }
 
 .support-content__header h2 {

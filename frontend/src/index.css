@@ -320,6 +320,98 @@ a:focus:not(:focus-visible) {
   background: var(--color-text-muted);
 }
 
+/* =======================================================
+   CROSS-PAGE VISUAL CONSISTENCY || GLOBAL VISUAL LANGUAGE
+   ======================================================= */
+
+.page-shell {
+  width: min(
+    100% - (var(--container-padding) * 2),
+    var(--container-width)
+  );
+
+  margin-inline: auto;
+}
+
+.page-hero {
+  width: 100%;
+  max-width: 760px;
+}
+
+.page-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+
+  margin-bottom: var(--space-6);
+  padding: 0.5rem 0.8rem;
+
+  border: 1px solid var(--color-accent-border);
+  border-radius: var(--radius-pill);
+
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+}
+
+.page-title {
+  color: var(--color-text-primary);
+
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.045em;
+}
+
+.page-title-accent {
+  display: block;
+
+  background: linear-gradient(
+    135deg,
+    var(--color-text-primary),
+    var(--color-accent)
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page-description {
+  max-width: 680px;
+  margin-top: var(--space-6);
+
+  color: var(--color-text-secondary);
+
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+}
+
+/* ==================================
+   10.6.6.2 PAGE CONTAINER & RHYTHM
+   ================================== */
+
+.page-container {
+  width: min(
+    100% - (var(--container-padding) * 2),
+    var(--container-width)
+  );
+
+  margin-inline: auto;
+}
+
+.page-section {
+  width: 100%;
+  margin-top: var(--space-16);
+}
+
+.page-section:first-child {
+  margin-top: 0;
+}
+
 /* ==================================
    RESPONSIVE FOUNDATION
    ================================== */

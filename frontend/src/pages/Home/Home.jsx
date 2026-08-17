@@ -5,7 +5,7 @@ import PredictionCard from "../../components/PredictionCard/PredictionCard";
 function Home() {
   return (
     <main className="home">
-      <section className="home__hero">
+      <section className="home__hero page-container">
         <div className="home__hero-content">
           <div className="home__eyebrow">
             <Sparkles size={16} aria-hidden="true" />

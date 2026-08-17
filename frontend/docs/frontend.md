@@ -1453,3 +1453,11 @@ Implemented a reusable loading component foundation for consistent application l
 - Verified floating element positioning and collision handling.
 - Verified responsive floating behaviour across mobile and tablet sizes.
 - Completed final scroll and reduced-motion audit.
+
+#### 10.6.6 Cross-page Visual Consistency
+
+- Standardized visual language across Home, Prediction, Results, and Support.
+- Audited page containers, section spacing, typography hierarchy, cards, surfaces, borders, buttons, and interactive states.
+- Preserved intentional page-specific differences where appropriate.
+- Verified responsive and accessibility-related interaction states.
+- No major cross-page visual inconsistencies remain.
