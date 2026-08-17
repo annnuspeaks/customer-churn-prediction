@@ -1070,7 +1070,13 @@ This prevents malformed or unsupported customer data from being passed to the pr
 
 # PHASE 11 — Testing
 
-## 11.1 Unit tests
+## 11.1 Unit Tests
+
+- Implemented backend unit and validation tests using Pytest.
+- Covered invalid input validation, prediction runtime errors,
+  global exception handling, model loading, and missing model artifacts.
+- Test result: **9 tests passed**.
+- One non-blocking Starlette/httpx deprecation warning remains.
 
 ## 11.2 Integration testing
 
