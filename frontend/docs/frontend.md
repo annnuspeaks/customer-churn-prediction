@@ -1493,3 +1493,29 @@ Implemented a reusable loading component foundation for consistent application l
 - Verified field names and required value types.
 - Verified the complete payload through a real `/predict` request.
 - Confirmed successful backend acceptance and prediction response.
+
+#### 10.8.4 Response Mapping
+
+- Mapped the backend prediction response to frontend result data.
+- Converted churn probability into a display percentage.
+- Added dynamic risk-level classification.
+
+#### 10.8.5 Loading & Error Handling
+
+- Added prediction loading state during API requests.
+- Disabled duplicate submissions while processing.
+- Added frontend API error handling and user feedback.
+- Added Results-page error state and retry action.
+
+#### 10.8.6 Results API Data Integration
+
+- Connected API prediction results to the Results page.
+- Displayed real churn probability and risk information.
+- Verified successful end-to-end result rendering.
+
+#### 10.8.7 API Integration Final Review
+
+- Reviewed the complete frontend-backend prediction flow.
+- Verified request, response, loading, and error handling.
+- Completed a successful real prediction test.
+- No major integration issues remain.
