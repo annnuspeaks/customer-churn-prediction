@@ -1078,7 +1078,13 @@ This prevents malformed or unsupported customer data from being passed to the pr
 - Test result: **9 tests passed**.
 - One non-blocking Starlette/httpx deprecation warning remains.
 
-## 11.2 Integration testing
+## 11.2 Integration Testing
+
+- Verified frontend-to-backend prediction flow with valid customer data.
+- Confirmed successful API response and Results page rendering.
+- Verified prediction probability, risk category, and submitted customer data.
+- Tested backend-unavailable scenario and confirmed frontend error handling.
+- Integration flow passed successfully.
 
 ## 11.3 Manual testing
 
