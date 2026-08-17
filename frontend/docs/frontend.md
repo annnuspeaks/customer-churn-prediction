@@ -1486,3 +1486,10 @@ Implemented a reusable loading component foundation for consistent application l
 - Mapped frontend form values to the backend prediction request.
 - Passed the API prediction result to the Results page.
 - Verified the complete prediction flow with a real API request.
+
+#### 10.8.3 Request Payload Mapping
+
+- Mapped frontend prediction fields to the backend API contract.
+- Verified field names and required value types.
+- Verified the complete payload through a real `/predict` request.
+- Confirmed successful backend acceptance and prediction response.
