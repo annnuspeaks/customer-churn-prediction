@@ -1478,3 +1478,11 @@ Implemented a reusable loading component foundation for consistent application l
 - Added environment-based backend API base URL configuration.
 - Added reusable response and API error handling.
 - Verified frontend production build successfully.
+
+#### 10.8.2 Prediction API Connection
+
+- Connected the Prediction form to the FastAPI `/predict` endpoint.
+- Added frontend-to-backend request handling.
+- Mapped frontend form values to the backend prediction request.
+- Passed the API prediction result to the Results page.
+- Verified the complete prediction flow with a real API request.

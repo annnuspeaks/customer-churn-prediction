@@ -49,6 +49,7 @@ function Results() {
   const navigate = useNavigate();
 
   const predictionPayload = state?.predictionPayload;
+  const predictionApiResult = state?.predictionResult;
   const resultStatus = state?.resultStatus;
   const resultError = state?.resultError;
 
@@ -69,15 +70,38 @@ function Results() {
         ? "success"
         : "empty";
 
+  const riskPercentage = predictionApiResult
+    ? Number((predictionApiResult.churn_probability * 100).toFixed(2))
+    : 0;
+
+  const riskLevel =
+    riskPercentage >= 70
+      ? "High Risk"
+      : riskPercentage >= 40
+        ? "Medium Risk"
+        : "Low Risk";
+
   const predictionResult = {
-    riskPercentage: 68,
-    riskLevel: "High Risk",
+    riskPercentage,
+    riskLevel,
     summary:
-      "This customer shows a relatively high likelihood of churning based on the submitted profile and service information.",
+      riskLevel === "High Risk"
+        ? "This customer shows a relatively high likelihood of churning based on the submitted profile and service information."
+        : riskLevel === "Medium Risk"
+          ? "This customer shows a moderate likelihood of churning and may benefit from closer monitoring."
+          : "This customer shows a relatively low likelihood of churning based on the submitted profile and service information.",
     interpretation:
-      "The estimated risk is above the high-risk threshold, indicating that this customer may require closer retention attention.",
+      riskLevel === "High Risk"
+        ? "The estimated risk is high, indicating that this customer may require closer retention attention."
+        : riskLevel === "Medium Risk"
+          ? "The estimated risk is moderate, suggesting that the customer profile should be monitored for potential churn signals."
+          : "The estimated risk is low, suggesting that immediate retention intervention may not be necessary.",
     decisionSignal:
-      "Consider reviewing the customer profile and service experience before taking a retention action.",
+      riskLevel === "High Risk"
+        ? "Consider reviewing the customer profile and service experience before taking a retention action."
+        : riskLevel === "Medium Risk"
+          ? "Consider monitoring the customer profile and engagement for emerging retention risks."
+          : "Continue normal customer engagement while monitoring for changes in behavior.",
   };
 
   const customerDetails = getDisplayEntries(predictionPayload);

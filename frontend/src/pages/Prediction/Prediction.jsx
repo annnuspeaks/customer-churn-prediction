@@ -8,6 +8,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import "./Prediction.css";
+import { apiRequest } from "../../services/api";
 
 const yesNoOptions = ["Yes", "No"];
 const serviceOptions = ["Yes", "No", "No internet service"];
@@ -193,17 +194,43 @@ function Prediction() {
       totalCharges: Number(formData.totalCharges),
     };
 
-    // Temporary processing delay for the prediction loading state.
-    // Actual API integration will replace this in the API integration phase.
-    console.log("Prediction payload ready:", predictionPayload);
+    try {
+      const predictionResult = await apiRequest("/predict", {
+        method: "POST",
+        body: JSON.stringify({
+          gender: formData.gender,
+          SeniorCitizen: Number(formData.seniorCitizen),
+          Partner: formData.partner,
+          Dependents: formData.dependents,
+          tenure: Number(formData.tenure),
+          PhoneService: formData.phoneService,
+          MultipleLines: formData.multipleLines,
+          InternetService: formData.internetService,
+          OnlineSecurity: formData.onlineSecurity,
+          OnlineBackup: formData.onlineBackup,
+          DeviceProtection: formData.deviceProtection,
+          TechSupport: formData.techSupport,
+          StreamingTV: formData.streamingTV,
+          StreamingMovies: formData.streamingMovies,
+          Contract: formData.contract,
+          PaperlessBilling: formData.paperlessBilling,
+          PaymentMethod: formData.paymentMethod,
+          MonthlyCharges: Number(formData.monthlyCharges),
+          TotalCharges: Number(formData.totalCharges),
+        }),
+      });
 
-    await new Promise((resolve) => {
-      setTimeout(resolve, 1800);
-    });
-
-    navigate("/results", {
-      state: { predictionPayload },
-    });
+      navigate("/results", {
+        state: {
+          predictionPayload,
+          predictionResult,
+        },
+      });
+    } catch (error) {
+      setSubmitMessage(error.message || "Unable to generate churn prediction.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitting) {

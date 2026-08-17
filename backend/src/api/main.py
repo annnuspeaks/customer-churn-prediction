@@ -6,6 +6,7 @@ import pandas as pd
 
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from backend.src.api.schemas import CustomerInput, ErrorResponse
 
@@ -59,6 +60,18 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://192.168.31.205:5173",
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.exception_handler(Exception)
 async def global_exception_handler(
@@ -77,6 +90,7 @@ async def global_exception_handler(
         ).model_dump()
     )
 
+
 @app.get("/")
 def root():
     return {
@@ -84,11 +98,13 @@ def root():
         "status": "running",
     }
 
+
 @app.get("/health")
 def health_check():
     return {
         "status": "healthy",
     }
+
 
 @app.post("/predict", response_model=dict)
 def predict(customer_data: CustomerInput):
