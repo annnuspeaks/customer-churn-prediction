@@ -1086,7 +1086,13 @@ This prevents malformed or unsupported customer data from being passed to the pr
 - Tested backend-unavailable scenario and confirmed frontend error handling.
 - Integration flow passed successfully.
 
-## 11.3 Manual testing
+## 11.3 Manual Testing
+
+- Verified primary navigation and prediction workflow manually.
+- Confirmed successful prediction and Results page rendering.
+- Verified browser back navigation from Results to Prediction.
+- Confirmed previously tested API success and failure flows.
+- No major manual testing issues found.
 
 ## 11.4 Bug fixes
 
