@@ -3,10 +3,11 @@
 }
 
 .prediction__hero {
-  width: min(100% - (var(--container-padding) * 2), var(--container-width));
-  margin-inline: auto;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
 
-  padding: var(--space-12) 0 var(--space-16);
+  padding: var(--space-16) var(--container-padding);
 }
 
 /* =================================

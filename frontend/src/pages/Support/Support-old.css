@@ -1,8 +1,8 @@
 .support-page {
   width: min(100% - (var(--container-padding) * 2), var(--container-width));
   margin-inline: auto;
-  padding-top: var(--space-12);
-  padding-bottom: var(--space-16);
+  padding-top: 150px;
+  padding-bottom: var(--space-20);
 }
 
 .support-hero {
@@ -121,7 +121,7 @@
 
 @media (max-width: 900px) {
   .support-page {
-    padding-top: var(--space-12);
+    padding-top: 120px;
   }
 
   .support-options {
@@ -139,7 +139,8 @@
 
 @media (max-width: 600px) {
   .support-page {
-    padding-top: var(--space-12);
+    width: calc(100% - 32px);
+    padding-top: 105px;
     padding-bottom: var(--space-16);
   }
 
@@ -653,7 +654,7 @@
 
 @media (max-width: 380px) {
   .support-page {
-    width: min(100% - (var(--container-padding) * 2), var(--container-width));
+    width: calc(100% - 24px);
   }
 
   .support-hero h1 {

@@ -3,10 +3,9 @@
    ================================= */
 
 .results {
-  width: min(100% - (var(--container-padding) * 2), var(--container-width));
+  width: 100%;
   min-height: 100vh;
-  margin-inline: auto;
-    padding: var(--space-12) 0 var(--space-16);
+  padding: calc(var(--space-20) + 2rem) var(--container-padding) var(--space-20);
   color: var(--color-text-primary);
 }
 
@@ -513,7 +512,8 @@
 
 @media (max-width: 768px) {
   .results {
-    padding-block: var(--space-12);
+    padding: calc(var(--space-16) + 2rem) var(--container-padding)
+      var(--space-16);
   }
 
   .results__title {
@@ -564,7 +564,7 @@
 
 @media (max-width: 480px) {
   .results {
-    padding-block: var(--space-10);
+    padding-inline: 1rem;
   }
 
   .results__eyebrow {

@@ -1094,7 +1094,13 @@ This prevents malformed or unsupported customer data from being passed to the pr
 - Confirmed previously tested API success and failure flows.
 - No major manual testing issues found.
 
-## 11.4 Bug fixes
+## 11.4 Bug Fixes
+
+- Fixed inconsistent page-level spacing across Home, Prediction, Results, and Support.
+- Standardized desktop horizontal layout and top spacing.
+- Fixed Home hero text wrapping and prediction-card viewport visibility.
+- Verified responsive layout after fixes.
+- No remaining major functional bugs identified.
 
 # PHASE 12 — Deployment
 
