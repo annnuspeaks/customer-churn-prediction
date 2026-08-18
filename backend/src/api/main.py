@@ -63,6 +63,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://churnmatrix.vercel.app",
         "http://192.168.31.205:5173",
         "http://localhost:5173",
         "http://127.0.0.1:5173",
