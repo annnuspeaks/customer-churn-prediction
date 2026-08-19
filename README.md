@@ -1,18 +1,3 @@
-## Professional Root README
-
-Ab ab **actual `README.md` replace** karna hai.
-
-Root project:
-
-```text
-customer-churn-prediction/
-└── README.md
-```
-
-Purana backup `README.old.md` safe rahega.
-
-### Replace `README.md` with this:
-
 ````markdown
 # Customer Churn Prediction Platform
 

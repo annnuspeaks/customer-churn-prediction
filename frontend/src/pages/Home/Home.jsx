@@ -30,7 +30,7 @@ function Home() {
 
           <div className="home__actions">
             <a
-              href="https://github.com/annunspeaks/customer-churn-prediction#readme"
+              href="https://github.com/annnuspeaks/customer-churn-prediction/blob/main/README.md"
               target="_blank"
               rel="noopener noreferrer"
               className="home__primary-action"
