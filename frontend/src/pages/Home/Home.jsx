@@ -14,25 +14,25 @@ function Home() {
 
           <h1 className="home__title">
             Predict Customer Churn
-            <span className="home__title-accent">
-              Before It Happens.
-            </span>
+            <span className="home__title-accent">Before It Happens.</span>
           </h1>
 
           <p className="home__description">
-            Turn customer data into actionable churn insights with a
-            machine learning powered prediction platform designed for
-            fast, informed decisions.
+            Turn customer data into actionable churn insights with a machine
+            learning powered prediction platform designed for fast, informed
+            decisions.
           </p>
 
           <p className="home__supporting-text">
-            Analyze customer behavior, estimate churn risk, and make
-            data-driven retention decisions with confidence.
+            Analyze customer behavior, estimate churn risk, and make data-driven
+            retention decisions with confidence.
           </p>
 
           <div className="home__actions">
             <a
-              href="#documentation"
+              href="https://github.com/annunspeaks/customer-churn-prediction#readme"
+              target="_blank"
+              rel="noopener noreferrer"
               className="home__primary-action"
             >
               View Documentation

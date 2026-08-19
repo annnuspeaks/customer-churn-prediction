@@ -1,4 +1,4 @@
-## 13.1-B — Create Professional Root README
+## Professional Root README
 
 Ab ab **actual `README.md` replace** karna hai.
 
