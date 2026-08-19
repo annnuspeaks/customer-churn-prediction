@@ -49,48 +49,22 @@ The primary objective is to help business teams identify high-risk customers ear
 
 ## 🏗️ System Architecture
 
-```text
-                 ┌──────────────────────┐
-                 │     React + Vite     │
-                 │       Frontend       │
-                 └──────────┬───────────┘
-                            │ HTTPS
-                            ▼
-                 ┌──────────────────────┐
-                 │       FastAPI        │
-                 │      REST API        │
-                 └──────────┬───────────┘
-                            │
-                            ▼
-                 ┌──────────────────────┐
-                 │ ML Preprocessing     │
-                 │ & Feature Pipeline   │
-                 └──────────┬───────────┘
-                            │
-                            ▼
-                 ┌──────────────────────┐
-                 │ Logistic Regression  │
-                 │     ML Model         │
-                 └──────────┬───────────┘
-                            │
-                            ▼
-                 ┌──────────────────────┐
-                 │ Churn Probability    │
-                 │ + Risk Prediction    │
-                 └──────────────────────┘
-````
+The platform follows a production-oriented architecture connecting the React frontend, FastAPI backend, machine learning inference layer, and deployed services.
 
-### Deployment
+![Customer Churn Prediction Platform Architecture](assets/architecture/customer-churn-architecture.png)
+
+### Production Flow
 
 ```text
-GitHub
-   │
-   ├── Frontend ──► Vercel
-   │
-   └── Backend  ──► Render
+User → React Frontend (Vercel) → FastAPI REST API (Render)
+     → ML Preprocessing & Model → Churn Prediction → Results
 ```
 
+The frontend is deployed on **Vercel**, while the backend API is deployed on **Render**. The trained machine learning model is loaded by the backend for production inference.
+
 ---
+
+
 
 ## 🧠 Machine Learning
 
