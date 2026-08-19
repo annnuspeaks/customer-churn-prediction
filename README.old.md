@@ -1,0 +1,1125 @@
+# customer-churn-prediction
+
+End-to-end customer churn prediction platform with feature engineering, model explainability, deployment, and monitoring.
+
+---
+
+# PHASE 1 — Project Planning
+
+## 1.1 Define project objective
+
+Customer Churn Prediction Platform
+
+Objective
+
+A production-ready web application that predicts, based on historical customer data, whether a customer has a high probability of churning.
+
+Business Problem
+
+Many companies (Telecom, SaaS, Banking, Insurance, OTT, subscription services) spend a significant amount of money acquiring new customers. Losing existing customers impacts both revenue and growth.
+
+This platform will help companies identify high-risk customers early on, enabling them to run retention campaigns and reduce churn.
+
+Primary Users
+Business Analysts
+Customer Success Teams
+Marketing Teams
+Product Managers
+Core Features (MVP)
+Upload or entering manually customer information 
+Generating churn prediction
+Showing probability score
+Explaining prediction (important factors)
+Clean, responsive web dashboard
+REST API
+Out of Scope (Intentionally)
+User authentication
+Multiple organizations (multi-tenant)
+Real-time streaming predictions
+Complex admin panel
+Chatbot integration
+
+## 1.2 Identify target users & business problem
+
+This project is for a Telecommunications Industry.
+
+Target users are:
+
+1. Customer Success Manager - To Monitor Customers for Retention.
+2. Marketing Team - To Offer Discount
+3. Business Analyst - To Watch Report.
+4. Product Manager - To Improve Policies.
+
+## 1.3 Finalize project architecture
+
+                ┌─────────────────────────┐
+                │     React Frontend      │
+                │  (TypeScript + Vite)    │
+                └──────────┬──────────────┘
+                           │ HTTPS
+                           ▼
+                ┌─────────────────────────┐
+                │     FastAPI Backend     │
+                │     REST API Layer      │
+                └──────────┬──────────────┘
+                           │
+          ┌────────────────┴────────────────┐
+          ▼                                 ▼
+
+┌──────────────────┐ ┌──────────────────┐
+│ ML Pipeline │ │ Model Artifact │
+│ Preprocessing │ │ (.pkl/.joblib) │
+│ Feature Pipeline │ └──────────────────┘
+│ Prediction │
+└──────────────────┘
+
+### System Architecture
+
+The application follows a modular monolithic architecture, separating the user interface, API layer, and machine learning components while keeping deployment simple and maintainable.
+
+### Architecture Overview
+
+- **Frontend:** React + TypeScript (Vite)
+- **Backend:** FastAPI
+- **Machine Learning:** Scikit-learn Pipeline
+- **Model Serialization:** Joblib
+- **Deployment:** Vercel (Frontend) + Render (Backend)
+- **Containerization:** Docker
+
+### Request Flow
+
+1. The user enters customer information through the web interface.
+2. The frontend sends a prediction request to the FastAPI backend.
+3. The backend validates the input data.
+4. The preprocessing pipeline transforms the input.
+5. The trained machine learning model generates a prediction.
+6. The backend returns both the churn probability and prediction result to the frontend.
+
+The architecture is intentionally lightweight, scalable, and designed to demonstrate production-level machine learning engineering practices without introducing unnecessary infrastructure complexity.
+
+## 1.4 Finalize technology stack
+
+### Technology Stack
+
+The project is intentionally built using a minimal yet production-ready technology stack. Every technology has been selected based on industry adoption, long-term maintainability, and its practical value within the project.
+
+| Category             | Technology              |
+| -------------------- | ----------------------- |
+| Programming Language | Python                  |
+| Machine Learning     | Scikit-learn, XGBoost   |
+| Data Processing      | Pandas, NumPy           |
+| Data Visualization   | Matplotlib, Plotly      |
+| Model Explainability | SHAP                    |
+| Backend API          | FastAPI                 |
+| Frontend             | React, TypeScript, Vite |
+| Model Serialization  | Joblib                  |
+| Testing              | Pytest                  |
+| Code Formatting      | Black                   |
+| Linting              | Ruff                    |
+| Containerization     | Docker                  |
+| Version Control      | Git & GitHub            |
+| CI/CD                | GitHub Actions          |
+| Frontend Deployment  | Vercel                  |
+| Backend Deployment   | Render                  |
+
+The technology stack prioritizes simplicity, performance, and production-readiness while avoiding unnecessary dependencies and infrastructure complexity.
+
+## 1.5 Finalize deployment strategy
+
+### Deployment Strategy
+
+The project is designed around a simple, production-oriented deployment workflow that remains completely free for portfolio use.
+
+### Deployment Workflow
+
+```text
+Local Development
+        │
+        ▼
+GitHub Repository
+        │
+        ▼
+GitHub Actions (Continuous Integration)
+        │
+        ├───────────────┐
+        ▼               ▼
+React Frontend     FastAPI Backend
+(Vercel)           (Render)
+        │               │
+        └───────┬───────┘
+                ▼
+      Live Customer Churn Platform
+```
+
+### Deployment Components
+
+- **Frontend:** Vercel
+- **Backend:** Render
+- **Containerization:** Docker
+- **Version Control:** GitHub
+- **Continuous Integration:** GitHub Actions
+
+This deployment strategy provides a production-like workflow while remaining lightweight, maintainable, and compatible with free hosting services.
+
+## 1.6 Create development roadmap
+
+### Development Roadmap
+
+The project follows a structured, phase-based development process inspired by professional software engineering workflows. Each phase has clearly defined objectives, deliverables, and completion criteria before progressing to the next stage.
+
+| Phase    | Objective                             |
+| -------- | ------------------------------------- |
+| Phase 1  | Project Planning                      |
+| Phase 2  | Development Environment Setup         |
+| Phase 3  | Dataset Selection & Understanding     |
+| Phase 4  | Exploratory Data Analysis             |
+| Phase 5  | Data Preprocessing                    |
+| Phase 6  | Feature Engineering                   |
+| Phase 7  | Model Development                     |
+| Phase 8  | Model Evaluation & Explainability     |
+| Phase 9  | Backend API Development               |
+| Phase 10 | Frontend Dashboard Development        |
+| Phase 11 | Testing & Quality Assurance           |
+| Phase 12 | Deployment                            |
+| Phase 13 | Documentation & Portfolio Preparation |
+
+Each phase must satisfy its predefined completion criteria before the next phase begins. This approach ensures consistent quality, maintainability, and reproducibility throughout the project lifecycle.
+
+## 1.7 Define repository standards
+
+### Repository Standards
+
+The repository follows a consistent set of engineering standards to ensure readability, maintainability, and scalability throughout the project lifecycle.
+
+### Coding Standards
+
+- Follow the PEP 8 Python Style Guide.
+- Format Python code using Black.
+- Perform static analysis using Ruff.
+- Use descriptive and meaningful names for variables, functions, classes, and files.
+
+### Naming Conventions
+
+- **Python files:** `snake_case`
+- **React components:** `PascalCase`
+- **Classes:** `PascalCase`
+- **Functions and variables:** `snake_case`
+
+### Git Commit Convention
+
+The project follows the Conventional Commits specification.
+
+Examples:
+
+- `feat: add prediction endpoint`
+- `fix: handle missing values`
+- `refactor: simplify preprocessing pipeline`
+- `docs: update README`
+- `test: add evaluation tests`
+
+### Documentation
+
+The root `README.md` serves as the primary documentation for the project. Major architectural decisions, implementation details, and deployment instructions will be documented incrementally throughout development.
+
+### Notebook Policy
+
+Jupyter notebooks are used exclusively for experimentation, exploratory data analysis, and visualization. Production code is implemented as reusable Python modules within the project structure.
+
+---
+
+# PHASE 2 — Development Environment
+
+## 2.1 Create GitHub repository
+
+customer-churn-prediction github repo created with README initiation.
+
+## 2.2 Initialize project structure
+
+### Project Structure
+
+The project follows a modular monorepo architecture that separates the frontend, backend, documentation, datasets, and development resources into well-defined directories.
+
+```text
+customer-churn-prediction/
+├── assets/         # Static assets (images, icons, diagrams)
+├── backend/        # FastAPI backend application
+│   ├── src/        # Production Python source code
+│   ├── tests/      # Backend tests
+│   └── requirements.txt
+├── configs/        # Project configuration files
+├── data/           # Raw and processed datasets
+├── docker/         # Docker configuration
+├── docs/           # Project documentation
+├── frontend/       # React frontend application
+├── mlruns/         # Local MLflow experiment tracking
+├── notebooks/      # Jupyter notebooks for experimentation
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
+Each directory has a single responsibility, ensuring a clean separation between application code, experimentation, documentation, and deployment resources. This structure improves maintainability and supports future scalability while keeping the repository organized.
+
+### Design Principles
+
+- A single repository contains the complete application.
+- Frontend and backend are developed independently.
+- Production code is separated from experimentation.
+- Each directory has a single responsibility.
+- The structure is designed to remain maintainable and scalable as the project grows.
+
+## 2.3 Setup Python virtual environment
+
+### Development Environment
+
+The backend application uses a dedicated Python virtual environment to isolate project dependencies from the global Python installation.
+
+### Prerequisites
+
+- Python 3.14.4 (Current Development Environment)
+- Git
+- Node.js (for the frontend)
+
+### Creating the Virtual Environment
+
+```bash
+cd backend
+python -m venv .venv
+```
+
+### Activating the Environment
+
+**Windows**
+
+```bash
+.venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+source .venv/bin/activate
+```
+
+### Python Environment
+
+The project uses a dedicated virtual environment located inside the `backend` directory.
+
+```text
+backend/
+└── .venv/
+```
+
+All backend dependencies are installed inside this isolated environment, ensuring reproducibility and preventing conflicts with other Python projects.
+
+A dedicated virtual environment ensures reproducible dependency management and avoids version conflicts across different Python projects.
+
+## 2.4 Install dependencies
+
+### Development Environment
+
+The backend application is developed inside an isolated Python virtual environment to ensure reproducible dependency management and eliminate conflicts with other Python projects.
+
+### Prerequisites
+
+Before setting up the project, ensure the following software is installed:
+
+- Python 3.14.4 (Current Development Environment)
+- Git
+- Node.js (Frontend Development)
+- Visual Studio Code (Recommended)
+
+### Virtual Environment
+
+Create the virtual environment inside the `backend` directory:
+
+```bash
+cd backend
+python -m venv .venv
+```
+
+Activate the environment.
+
+**Windows (PowerShell)**
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+**Windows (Command Prompt)**
+
+```cmd
+.venv\Scripts\activate
+```
+
+Once activated, the terminal should display:
+
+```text
+(.venv)
+```
+
+### Dependency Installation
+
+Project dependencies are installed incrementally in logical groups instead of installing everything at once. This approach improves debugging, dependency management, and long-term maintainability.
+
+### Core Machine Learning
+
+- NumPy
+- Pandas
+- Scikit-learn
+
+### Data Visualization
+
+- Matplotlib
+- Plotly
+
+### Backend API
+
+- FastAPI
+- Uvicorn
+- Pydantic
+- python-multipart
+
+### Model Libraries
+
+- XGBoost
+
+### Model Explainability
+
+- SHAP
+
+### Development Tools
+
+- Black
+- Ruff
+- Pytest
+- Pytest-Cov
+
+The dependency installation strategy intentionally separates libraries by responsibility, making the project easier to understand, maintain, and extend throughout development.
+
+## 2.5 Configure code quality tools
+
+### Code Quality
+
+The backend project follows modern Python development practices by centralizing formatting, linting, and testing configuration inside a single `pyproject.toml` file.
+
+### Configured Tools
+
+- **Black** — Automatic code formatting
+- **Ruff** — Fast static analysis and linting
+- **Pytest** — Unit testing framework
+
+### Code Formatting
+
+The project uses **Black** as the official Python code formatter.
+
+Formatting rules are centrally managed through `backend/pyproject.toml`, ensuring a consistent coding style across the entire backend codebase.
+
+To format the project:
+
+```bash
+cd backend
+black .
+```
+
+### Static Analysis
+
+The project uses **Ruff** for fast static analysis and linting.
+
+Ruff helps identify:
+
+- Unused imports
+- Unused variables
+- Code style issues
+- Import ordering
+- Potential programming mistakes
+
+Run a project-wide lint check:
+
+```bash
+cd backend
+ruff check .
+```
+
+Automatically fix supported issues:
+
+```bash
+ruff check . --fix
+```
+
+### Testing
+
+The project uses **Pytest** as the primary testing framework.
+
+Test discovery is configured through `pyproject.toml`, allowing Pytest to automatically detect test files located inside the `backend/tests` directory.
+
+Naming conventions:
+
+- Test files: `test_*.py`
+- Test functions: `test_*`
+
+Run all tests:
+
+```bash
+cd backend
+pytest
+```
+
+Future development will include unit tests, integration tests, and API validation tests to ensure reliability across the entire application.
+
+Using a single configuration file simplifies project maintenance and ensures a consistent development experience across different environments.
+
+### Project Status
+
+The project is being developed incrementally using a structured, phase-based workflow inspired by professional software engineering practices.
+
+| Phase | Status |
+|--------|--------|
+| Project Planning | ✅ Completed |
+| Development Environment | ✅ Completed |
+| Dataset & Understanding | ✅ Completed |
+| Exploratory Data Analysis | ✅ Completed |
+| Data Preprocessing | ✅ Completed |
+| Feature Engineering | ✅ Completed |
+| Model Development | ✅ Completed |
+| Model Evaluation | ✅ Completed |
+| Backend API | 🔄 In Progress |
+| Frontend Dashboard | ⏳ Pending |
+| Testing | ⏳ Pending |
+| Deployment | ⏳ Pending |
+| Documentation & Portfolio | ⏳ Pending |
+
+The repository is now fully prepared for machine learning development. The next phase focuses on dataset selection, validation, and business understanding before any model training begins.
+
+## 2.6 Initial Git commit
+
+Initialized and pushed to git origin main.
+
+---
+
+# PHASE 3 — Dataset & Understanding
+
+## 3.1 Select dataset
+
+### Dataset
+
+The project uses the **IBM Telco Customer Churn** dataset, a publicly available benchmark dataset for customer churn prediction.
+
+### Dataset Overview
+
+- **Domain:** Telecommunications
+- **Problem Type:** Binary Classification
+- **Target Variable:** `Churn`
+- **Records:** 7,043 customer records
+- **Features:** Customer demographics, account information, subscribed services, contract details, billing information, and customer tenure.
+
+### Dataset Management
+
+To preserve reproducibility:
+
+- The original dataset is stored in `data/raw/`.
+- Cleaned and transformed datasets will be stored in `data/processed/`.
+- The raw dataset is never modified directly.
+
+## 3.2 Data dictionary
+
+### Data Dictionary
+
+A complete data dictionary is maintained in `docs/dataset.md`.
+
+The document describes every feature, its data type, business meaning, and role within the machine learning pipeline. Maintaining a dedicated data dictionary improves reproducibility, simplifies feature engineering, and provides clear business context for model development and explainability.
+
+## 3.3 Define target variable
+
+### Target Variable
+
+The machine learning model predicts the **`Churn`** column, making this a **binary classification** problem.
+
+- **Positive Class (`1`)**: Customer churns
+- **Negative Class (`0`)**: Customer remains with the company
+
+Target encoding is performed during the preprocessing stage, while the original dataset is preserved in its raw form to maintain reproducibility.
+
+### Data Validation
+
+Before exploratory data analysis, the dataset undergoes an initial validation process to verify its overall quality and structure.
+
+The validation includes:
+
+- Dataset dimensions
+- Column verification
+- Data type inspection
+- Missing value analysis
+- Blank value detection
+- Duplicate record detection
+- Target class distribution
+- Statistical summary
+
+This validation step establishes a reliable baseline before any preprocessing or feature engineering is performed.
+
+---
+
+# PHASE 4 — Exploratory Data Analysis (EDA)
+
+## 4.1 Exploratory Data Analysis
+
+Exploratory Data Analysis (EDA) is performed after validating the dataset to understand its structure, feature distribution, and business characteristics before any preprocessing or model training.
+
+The EDA process includes:
+
+- Dataset overview
+- Feature categorization
+- Missing value analysis
+- Target variable analysis
+- Numerical feature analysis
+- Categorical feature analysis
+- Correlation analysis
+- Business insights
+
+## 4.2 Missing Value Analysis
+
+The dataset is evaluated for multiple forms of missing information before preprocessing.
+
+The validation process includes:
+
+- Null (`NaN`) values
+- Blank string values
+- Whitespace-only values
+
+A consolidated data quality report is generated to identify affected features. Any detected issues are documented during EDA and resolved later during the preprocessing phase to preserve the integrity of the original dataset.
+
+The objective of EDA is to understand the dataset and identify meaningful patterns before applying machine learning techniques.
+
+## 4.3 Target Variable Analysis
+
+The target variable (`Churn`) is analyzed to understand customer retention and churn distribution.
+
+The analysis includes:
+
+- Class frequency
+- Percentage distribution
+- Class imbalance assessment
+- Business interpretation
+
+This evaluation establishes the baseline for selecting appropriate model evaluation metrics during the training phase.
+
+## 4.4 Numerical Feature Analysis
+
+All numerical features are analyzed using descriptive statistics and visualizations.
+
+The analysis includes:
+
+- Statistical summary
+- Distribution analysis
+- Outlier detection
+- Missing value inspection
+- Business interpretation
+
+Temporary data type conversions are performed only for visualization purposes. The original dataset remains unchanged throughout the exploratory analysis.
+
+## 4.5 Categorical Feature Analysis
+
+Categorical and binary features are analyzed to understand customer characteristics and their relationship with churn.
+
+The analysis includes:
+
+- Category frequency distribution
+- Percentage distribution
+- Feature-wise churn comparison
+- Cross-tabulation
+- Business interpretation
+
+This analysis helps identify customer segments with higher churn risk and provides valuable insights for feature engineering and model development.
+
+## 4.6 Correlation Analysis
+
+Correlation analysis is performed on numerical features to understand linear relationships within the dataset.
+
+The analysis includes:
+
+- Correlation matrix
+- Heatmap visualization
+- Relationship interpretation
+- Business insights
+
+Categorical feature relationships are intentionally excluded from this stage and are handled later through preprocessing and feature importance analysis.
+
+## 4.7 Business insights
+
+The exploratory analysis concludes with a business-oriented interpretation of the findings.
+
+Instead of reporting only statistical observations, the project translates data patterns into actionable business recommendations, potential risks, and customer retention opportunities.
+
+All insights generated during EDA are treated as hypotheses and are validated later using machine learning models and explainability techniques.
+
+## 4.8 EDA report
+
+A consolidated exploratory data analysis report is maintained in `docs/eda_report.md`.
+
+The report summarizes:
+
+- Dataset quality
+- Statistical findings
+- Feature analysis
+- Business insights
+- Limitations
+- Preparation for the preprocessing phase
+
+This document serves as the formal conclusion of the exploratory analysis before feature engineering and machine learning model development begin.
+
+---
+
+# PHASE 5 — Data Preprocessing
+
+The data preprocessing phase prepares the validated dataset for machine learning model development while preserving the original raw dataset.
+
+## 5.1 Handle Missing Values
+
+The `TotalCharges` column contained 11 whitespace values that were identified as missing during exploratory data analysis.
+
+These records were inspected individually and all affected customers had a tenure of 0 months, indicating newly acquired customers with no accumulated charges.
+
+Therefore, the missing `TotalCharges` values were replaced with `0` instead of removing the records. This preserves all 7,043 customer records while maintaining a business-consistent interpretation of the data.
+
+The original raw dataset remains unchanged.
+
+## 5.2 Handle Outliers
+
+Numerical features were analyzed using the Interquartile Range (IQR) method:
+
+- `tenure`
+- `MonthlyCharges`
+- `TotalCharges`
+
+No IQR-based outliers were identified in these numerical features.
+
+No rows were removed and no values were clipped during this step because the observed numerical values were retained as valid customer observations.
+
+## 5.3 Encode Categorical Features
+
+Categorical input features were transformed using One-Hot Encoding with the first category dropped to avoid redundant dummy variables.
+
+The target variable `Churn` was encoded separately:
+
+- `No` → `0`
+- `Yes` → `1`
+
+The `customerID` identifier was excluded from model features because it does not provide predictive information.
+
+The encoded dataset contains 7,043 records and 31 columns.
+
+## 5.4 Feature Scaling
+
+Numerical features were prepared for standardization using `StandardScaler`.
+
+The selected numerical features are:
+
+- `tenure`
+- `MonthlyCharges`
+- `TotalCharges`
+
+One-hot encoded categorical features remain unchanged.
+
+The scaler is intentionally configured but not fitted on the complete dataset at this stage. It will be fitted only on training data during the final preprocessing pipeline to prevent data leakage.
+
+## 5.5 Train-Test Split
+
+The encoded dataset is divided into training and testing subsets using an 80/20 stratified split.
+
+- Training set: 80%
+- Testing set: 20%
+- Random state: 42
+- Stratification: `Churn`
+
+Stratification preserves a similar churn class distribution across both subsets.
+
+The test set is kept separate from training to provide an unbiased evaluation of model performance.
+
+## 5.6 Build Preprocessing Pipeline
+
+A reusable preprocessing pipeline is implemented using `ColumnTransformer`.
+
+The pipeline:
+
+- Standardizes numerical features using `StandardScaler`.
+- Encodes categorical features using `OneHotEncoder`.
+- Ignores previously unseen categories during inference.
+- Excludes the `customerID` identifier.
+- Keeps the `Churn` target separate.
+
+The pipeline is fitted only on the training dataset and then applied to the test dataset, preventing preprocessing-related data leakage.
+
+This pipeline will serve as the foundation for model training and later production inference.
+
+---
+
+# PHASE 6 — Feature Engineering
+
+## 6.1 Feature Selection
+
+Feature selection was performed using a zero-variance filter to identify features that provide no information to the model.
+
+No zero-variance features were identified, so all 30 processed features were retained.
+
+Further predictive feature relevance will be evaluated during model development using model-based feature importance and SHAP explainability.
+
+## 6.2 Feature Creation
+
+Two business-oriented features were created from existing customer attributes:
+
+- `ServiceCount`: Represents the number of subscribed services for each customer.
+- `TenureGroup`: Groups customers into meaningful lifecycle stages based on tenure.
+
+Both features contain no missing values and are retained for further evaluation during model development.
+
+The feature creation logic will be integrated into the final preprocessing workflow to ensure consistent transformations during training and inference.
+
+## 6.3 Pipeline Optimization
+
+The feature engineering and preprocessing steps were combined into a reusable machine learning pipeline using `Pipeline`, `FunctionTransformer`, and `ColumnTransformer`.
+
+The optimized workflow:
+
+- Creates `ServiceCount` and `TenureGroup`.
+- Separates the target variable.
+- Standardizes numerical features using `StandardScaler`.
+- Encodes categorical features using `OneHotEncoder`.
+- Handles previously unseen categories using `handle_unknown="ignore"`.
+- Fits transformations only on training data to prevent data leakage.
+
+The optimized pipeline produces **34 processed features** from the training and testing datasets.
+
+# PHASE 7 — Model Development
+
+## 7.1 Baseline Model
+
+A Logistic Regression classifier was established as the baseline model for customer churn prediction.
+
+The baseline uses the reusable preprocessing pipeline developed during Phase 6, ensuring consistent data preparation, feature engineering, categorical encoding, and numerical scaling.
+
+An 80/20 stratified train-test split was used:
+
+- Training records: 5,634
+- Testing records: 1,409
+- Random state: 42
+- Stratification: `Churn`
+
+### Baseline Performance
+
+| Metric | Score |
+|--------|------:|
+| Accuracy | 0.7999 |
+| Precision | 0.6554 |
+| Recall | 0.5187 |
+| F1 Score | 0.5791 |
+| ROC-AUC | 0.8424 |
+
+The Logistic Regression model provides an interpretable reference point for evaluating more advanced classification models in subsequent phases.
+
+The baseline results will be used as a benchmark for model comparison and improvement.
+
+## 7.2 Train Multiple Models
+
+Three additional classification algorithms were trained using the same reusable preprocessing workflow:
+
+- Decision Tree
+- Random Forest
+- Linear Support Vector Machine
+
+Each model receives an independent copy of the preprocessing pipeline to ensure consistent and isolated transformations during training.
+
+These models will be compared with the Logistic Regression baseline during the model comparison stage.
+
+## 7.3 Hyperparameter Tuning
+
+Hyperparameter tuning was performed for the Decision Tree and Random Forest models using `GridSearchCV`.
+
+A 3-fold cross-validation strategy was applied to the training data, with ROC-AUC used as the optimization metric.
+
+### Best Configurations
+
+| Model | Best Parameters | CV ROC-AUC |
+|---|---|---:|
+| Decision Tree | `max_depth=5`, `min_samples_split=10` | 0.8236 |
+| Random Forest | `n_estimators=200`, `max_depth=8`, `min_samples_split=5` | 0.8449 |
+
+The tuned Random Forest achieved the strongest cross-validated ROC-AUC among the tuned models and will be evaluated further against the baseline and other candidate models.
+
+## 7.4 Cross-Validation
+
+Five-fold stratified cross-validation was performed on the training dataset to assess the stability of the candidate models.
+
+ROC-AUC was used as the evaluation metric.
+
+| Model | Mean ROC-AUC | Std. Dev. |
+|---|---:|---:|
+| Logistic Regression | 0.8465 | 0.0117 |
+| Tuned Random Forest | 0.8450 | 0.0120 |
+| Linear SVM | 0.8432 | 0.0110 |
+| Tuned Decision Tree | 0.8292 | 0.0107 |
+
+Logistic Regression achieved the highest mean cross-validated ROC-AUC, while all models demonstrated relatively stable performance across the five folds.
+
+The held-out test set remains reserved for final model evaluation.
+
+## 7.5 Model Comparison
+
+The candidate models were compared on the held-out test dataset using accuracy, precision, recall, F1 score, and ROC-AUC.
+
+| Model | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
+|---|---:|---:|---:|---:|---:|
+| Tuned Random Forest | 0.7977 | 0.6642 | 0.4813 | 0.5581 | 0.8436 |
+| Logistic Regression | 0.7999 | 0.6554 | 0.5187 | 0.5791 | 0.8424 |
+| Linear SVM | 0.8006 | 0.6655 | 0.5000 | 0.5710 | 0.8366 |
+| Tuned Decision Tree | 0.7942 | 0.6312 | 0.5401 | 0.5821 | 0.8267 |
+
+The models show different performance trade-offs across the evaluation metrics. Final model selection is deferred to the next stage, where cross-validation stability and business-relevant performance considerations will be considered together.
+
+## 7.6 Final Model Selection
+
+The final model was selected using a combination of cross-validation stability, held-out test performance, predictive discrimination, interpretability, and deployment practicality.
+
+Logistic Regression achieved the highest mean cross-validated ROC-AUC (0.8465) and maintained strong test performance.
+
+Although the Tuned Random Forest achieved the highest test ROC-AUC (0.8436) and the Tuned Decision Tree achieved the highest test F1 score (0.5821), Logistic Regression provided the strongest overall balance and the advantage of straightforward interpretability and deployment.
+
+Therefore, Logistic Regression was selected as the final model.
+
+### Final Model Performance
+
+| Metric | Score |
+|---|---:|
+| Accuracy | 0.7999 |
+| Precision | 0.6554 |
+| Recall | 0.5187 |
+| F1 Score | 0.5791 |
+| ROC-AUC | 0.8424 |
+
+The selected model will proceed to detailed evaluation and explainability in Phase 8.
+
+# PHASE 8 — Model Evaluation & Explainability
+
+## 8.1 Classification Evaluation
+
+The selected Logistic Regression model was evaluated on the held-out test dataset using standard classification metrics.
+
+| Metric | Score |
+|---|---:|
+| Accuracy | 0.7999 |
+| Precision | 0.6554 |
+| Recall | 0.5187 |
+| F1 Score | 0.5791 |
+| ROC-AUC | 0.8424 |
+
+The classification report shows stronger performance for non-churn customers than churn customers. The model achieved a recall of 0.52 for the churn class, indicating that approximately half of the actual churn cases were identified.
+
+The saved final model artifact was loaded for evaluation without retraining.
+
+## 8.2 Confusion Matrix & Error Analysis
+
+A confusion matrix was used to examine correct and incorrect predictions for both churn classes.
+
+| Prediction Outcome | Count |
+|---|---:|
+| True Negatives | 933 |
+| False Positives | 102 |
+| False Negatives | 180 |
+| True Positives | 194 |
+
+The model missed 180 customers who actually churned, resulting in a missed churn rate of 48.13%.
+
+The false positive rate was 9.86%.
+
+The relatively high number of false negatives highlights recall as an important area for future model improvement, particularly because identifying potential churners is a key business objective.
+
+## 8.3 ROC-AUC & Precision-Recall Analysis
+
+ROC-AUC and Precision-Recall analysis were performed to evaluate the model's discrimination capability across classification thresholds.
+
+| Metric | Score |
+|---|---:|
+| ROC-AUC | 0.8424 |
+| Average Precision | 0.6367 |
+
+The ROC-AUC score indicates good overall separation between churn and non-churn customers.
+
+The Precision-Recall analysis provides additional insight into churn-class performance and highlights the trade-off between identifying more churners and maintaining prediction precision.
+
+## 8.4 SHAP Explainability
+
+SHAP (SHapley Additive exPlanations) was used to provide model-level explainability for the selected Logistic Regression model.
+
+The analysis was performed on the transformed feature space used by the final model. SHAP values were generated for all 1,409 held-out test records across 34 processed features.
+
+The global SHAP summary identifies the features that contribute most strongly to the model's predictions, providing an interpretable view of the factors influencing churn predictions.
+
+The explainability analysis was performed without retraining the model.
+
+## 8.5 Final Evaluation Report
+
+The final evaluation consolidates the classification, threshold-based, error-analysis, and explainability results for the selected Logistic Regression model.
+
+### Final Performance
+
+| Metric | Score |
+|---|---:|
+| Accuracy | 0.7999 |
+| Precision | 0.6554 |
+| Recall | 0.5187 |
+| F1 Score | 0.5791 |
+| ROC-AUC | 0.8424 |
+| Average Precision | 0.6367 |
+
+### Confusion Matrix
+
+| | Predicted No Churn | Predicted Churn |
+|---|---:|---:|
+| Actual No Churn | 933 | 102 |
+| Actual Churn | 180 | 194 |
+
+The model demonstrates good overall discrimination with a ROC-AUC of 0.8424. However, 180 actual churn customers were classified as non-churn, highlighting recall as an important area for future improvement.
+
+SHAP analysis was also performed to provide global model explainability across the transformed feature space.
+
+Phase 8 establishes the final evaluation baseline that will be carried forward into the deployment phase.
+
+# PHASE 9 — Backend API
+
+## 9.1 FastAPI Setup
+
+A lightweight FastAPI backend was established to serve the trained customer churn prediction model.
+
+The API currently provides:
+
+- Root API status endpoint
+- Health-check endpoint
+- FastAPI automatic API documentation
+- Uvicorn-based local development server
+
+The backend is designed for deployment on Render's free tier.
+
+### API Structure
+
+```text
+backend/
+├── artifacts/
+│   └── models/
+├── src/
+│   ├── api/
+│   │   ├── __init__.py
+│   │   └── main.py
+│   └── ml/
+└── requirements.txt
+```
+
+## 9.2 Prediction Endpoint
+
+A `/predict` POST endpoint was implemented to serve predictions from the saved Logistic Regression model artifact.
+
+The endpoint:
+
+- Accepts customer feature data as JSON.
+- Applies the saved preprocessing pipeline automatically.
+- Returns the predicted churn class.
+- Returns the predicted churn probability.
+
+The model is loaded once when the API starts, avoiding repeated model loading for individual requests and keeping the API suitable for Render's free-tier deployment.
+
+Example response:
+
+```json
+{
+  "prediction": 1,
+  "churn": "Yes",
+  "churn_probability": 0.62
+}
+```
+
+## 9.3 Input Validation
+
+Pydantic-based request validation was added to the prediction endpoint.
+
+The API validates:
+
+- Required customer fields
+- Categorical values using constrained literals
+- Non-negative tenure
+- Non-negative monthly charges
+- Non-negative total charges
+- Supported payment methods and contract types
+
+Invalid requests are automatically rejected with HTTP 422 responses before reaching the ML model.
+
+This prevents malformed or unsupported customer data from being passed to the prediction pipeline.
+
+## 9.4 API documentation
+
+## 9.5 Error handling
+
+# PHASE 10 — Frontend Dashboard
+
+## 10.1 UI design
+
+## 10.2 Prediction form
+
+## 10.3 Results page
+
+## 10.4 Responsive design
+
+## 10.5 API integration
+
+# PHASE 11 — Testing
+
+## 11.1 Unit Tests
+
+- Implemented backend unit and validation tests using Pytest.
+- Covered invalid input validation, prediction runtime errors,
+  global exception handling, model loading, and missing model artifacts.
+- Test result: **9 tests passed**.
+- One non-blocking Starlette/httpx deprecation warning remains.
+
+## 11.2 Integration Testing
+
+- Verified frontend-to-backend prediction flow with valid customer data.
+- Confirmed successful API response and Results page rendering.
+- Verified prediction probability, risk category, and submitted customer data.
+- Tested backend-unavailable scenario and confirmed frontend error handling.
+- Integration flow passed successfully.
+
+## 11.3 Manual Testing
+
+- Verified primary navigation and prediction workflow manually.
+- Confirmed successful prediction and Results page rendering.
+- Verified browser back navigation from Results to Prediction.
+- Confirmed previously tested API success and failure flows.
+- No major manual testing issues found.
+
+## 11.4 Bug Fixes
+
+- Fixed inconsistent page-level spacing across Home, Prediction, Results, and Support.
+- Standardized desktop horizontal layout and top spacing.
+- Fixed Home hero text wrapping and prediction-card viewport visibility.
+- Verified responsive layout after fixes.
+- No remaining major functional bugs identified.
+
+# PHASE 12 — Deployment
+
+## 12.1 Dockerize application
+
+## 12.2 Deploy backend
+
+## 12.3 Deploy frontend
+
+## 12.4 Final production testing
+
+# PHASE 13 — Documentation & Portfolio
+
+## 13.1 Professional README
+
+## 13.2 Architecture diagram
+
+## 13.3 Screenshots
+
+## 13.4 Demo video
+
+## 13.5 Portfolio integration
