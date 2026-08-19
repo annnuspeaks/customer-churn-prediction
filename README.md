@@ -1,4 +1,3 @@
-````markdown
 # Customer Churn Prediction Platform
 
 An end-to-end machine learning platform that predicts customer churn risk and provides actionable insights through a production-ready web application.
@@ -46,6 +45,20 @@ The primary objective is to help business teams identify high-risk customers ear
 - Dockerized backend
 
 ---
+
+## 📸 Application Screenshots
+
+### Home
+
+![Customer Churn Prediction Platform — Home](docs/screenshots/home.png)
+
+### Prediction
+
+![Customer Churn Prediction Platform — Prediction](docs/screenshots/prediction.png)
+
+### Results
+
+![Customer Churn Prediction Platform — Results](docs/screenshots/results.png)
 
 ## 🏗️ System Architecture
 
@@ -313,5 +326,3 @@ Machine Learning / AI Engineering Projects
 ## 📄 License
 
 This project is intended for educational, portfolio, and demonstration purposes.
-
-```
